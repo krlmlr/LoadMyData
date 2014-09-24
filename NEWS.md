@@ -1,3 +1,5 @@
+* Removed code and data that does not belong to this project
+
 v0.0-0.1 (2014-09-24)
 ===
 
