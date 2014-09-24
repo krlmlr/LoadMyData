@@ -11,9 +11,8 @@
 #' path: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 #' extension: csv
 #'
-#' @param data.file The name of the data file to be read.
 #' @param filename The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
+#' @param ... Parameters passed to the invoked reader
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -21,13 +20,11 @@
 #'
 #' @examples
 #' \dontrun{reader.file('example.file', 'data/example.file', 'example')}
-reader.dataformat.file <- function(data.file, filename, variable.name)
+reader.dataformat.file <- function(dataformat, ...)
 {
-  file.info <- translate.dcf(filename)
-  file.type <- paste('\\.', file.info[['extension']], '$', sep = '')
+  file.info <- translate.dcf(dataformat)
+  override_extension <- NULL
+  file.format <- dataformat(file.info[['path']], override_extension = file.info[['extension']])
 
-  do.call(extensions.dispatch.table[[file.type]],
-          list(data.file,
-               file.info[['path']],
-               variable.name))
+  reader(file.format, ...)
 }

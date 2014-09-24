@@ -629,7 +629,7 @@ test_that('Example 31: SQLite3 Support with .db Extension', {
                         'example_31.db')
   variable.name <- LoadMyData:::clean.variable.name('example_31')
 
-  LoadMyData:::reader.dataformat.db(data.file, filename, variable.name)
+  LoadMyData:::reader(filename, data.file, variable.name)
 
   variable1.name <- LoadMyData:::clean.variable.name('example_31a')
   variable2.name <- LoadMyData:::clean.variable.name('example_31b')
@@ -680,7 +680,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   filename <- 'example_33.file'
   variable.name <- LoadMyData:::clean.variable.name('example_28')
 
-  LoadMyData:::reader.dataformat.file(data.file, filename, variable.name)
+  reader(filename, data.file, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
