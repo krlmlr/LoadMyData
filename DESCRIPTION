@@ -46,6 +46,7 @@ Collate:
     'help.R'
     'reader.R'
     'reader.arff.R'
+    'reader.bz2.R'
     'reader.csv.R'
     'reader.csv2.R'
     'reader.db.R'

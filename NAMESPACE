@@ -2,6 +2,7 @@
 
 S3method(reader,dataformat)
 S3method(reader,dataformat.arff)
+S3method(reader,dataformat.bz2)
 S3method(reader,dataformat.csv)
 S3method(reader,dataformat.csv.zip)
 S3method(reader,dataformat.csv2)
