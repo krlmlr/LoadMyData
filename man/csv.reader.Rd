@@ -20,8 +20,6 @@ This function will load a data set stored in the CSV file format into
 the specified global variable binding.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{csv.reader('example.csv', 'data/example.csv', 'example')}
 }
 

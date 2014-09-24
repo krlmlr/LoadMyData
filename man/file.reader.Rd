@@ -29,8 +29,6 @@ path: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 extension: csv
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{file.reader('example.file', 'data/example.file', 'example')}
 }
 

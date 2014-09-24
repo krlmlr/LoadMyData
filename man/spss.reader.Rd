@@ -21,8 +21,6 @@ convert the resulting list object into a data frame before inserting the
 data set into the global environment.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{spss.reader('example.sav', 'data/example.sav', 'example')}
 }
 

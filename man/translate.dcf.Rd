@@ -18,8 +18,6 @@ data frame into a list. The DCF format is used throughout LoadMyData
 for configuration settings and ad hoc file format specifications.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{translate.dcf(file.path('config', 'global.dcf'))}
 }
 

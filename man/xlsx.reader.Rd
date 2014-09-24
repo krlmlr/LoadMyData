@@ -21,8 +21,6 @@ xlsx package. Each sheet of the Excel workbook will be read into a
 separate variable in the global environment.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{xlsx.reader('example.xlsx', 'data/example.xlsx', 'example')}
 }
 

@@ -20,8 +20,6 @@ This function will load a data set stored in the WSV file format into
 the specified global variable binding.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{wsv.reader('example.wsv', 'data/example.wsv', 'example')}
 }
 

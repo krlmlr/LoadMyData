@@ -21,8 +21,6 @@ code inside of it as a way of generating data sets dynamically, as in
 many Monte Carlo applications.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{r.reader('example.R', 'data/example.R', 'example')}
 }
 

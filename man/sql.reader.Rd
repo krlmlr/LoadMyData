@@ -108,8 +108,6 @@ dbname: herokudb
 query: select * from emp
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{sql.reader('example.sql', 'data/example.sql', 'example')}
 }
 

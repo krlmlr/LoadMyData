@@ -20,8 +20,6 @@ This function will load the specified Minitab Portable Worksheet into
 memory.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{mtp.reader('example.mtp', 'data/example.mtp', 'example')}
 }
 

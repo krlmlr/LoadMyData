@@ -21,8 +21,6 @@ tuneR package. This is useful for working with music files as a data
 set.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{mp3.reader('example.mp3', 'data/example.mp3', 'example')}
 }
 

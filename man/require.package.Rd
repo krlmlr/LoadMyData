@@ -18,8 +18,6 @@ it will stop execution and print a message to the user instructing them which
 package to install and which function caused the error.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{require.project('PackageName')}
 }
 

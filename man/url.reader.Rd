@@ -31,8 +31,6 @@ url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 separator: ,
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{url.reader('example.url', 'data/example.url', 'example')}
 }
 

@@ -12,8 +12,6 @@ automates data loading, preprocessing, library importing and unit
 testing.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{create.project('project_name')
 
 setwd('project_name')

@@ -19,8 +19,6 @@ No value is returned; this function is called for its side effects.
 This function will load the specified Systat file into memory.
 }
 \examples{
-library('LoadMyData')
-
 \dontrun{systat.reader('example.sys', 'data/example.sys', 'example')}
 }
 
