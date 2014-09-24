@@ -1,3 +1,6 @@
+v0.0-0.3 (2014-09-24)
+===
+
 * Show supported extensions as list again in documentation, new topic
   `supported.file.extensions`
 
