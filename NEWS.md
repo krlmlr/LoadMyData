@@ -1,33 +1,7 @@
-v0.0-0.6 (2014-09-24)
-===
-
-* Removed `library()` calls from examples
-
-v0.0-0.5 (2014-09-24)
-===
-
-* Removed code that does not belong to this project, again
-* All tests pass
-
-v0.0-0.4 (2014-09-24)
-===
-
-* resurrect clean.variable.name function
-
-v0.0-0.3 (2014-09-24)
-===
-
-* Show supported extensions as list again in documentation, new topic
-  `supported.file.extensions`
-
-v0.0-0.2 (2014-09-24)
-===
-
-* Removed code and data that does not belong to this project
-
-v0.0-0.1 (2014-09-24)
-===
-
 * Forked from ProjectTemplate 0.5-1.3
   (https://github.com/johnmyleswhite/ProjectTemplate), renamed to LoadMyData
 * Maintainer: Kirill Müller (krlmlr+r@mailbox.org)
+* New help topic `supported.file.extensions` for showing supported extensions
+* Removed code and data that does not belong to this project
+* Removed `library()` calls from examples
+* All tests pass
