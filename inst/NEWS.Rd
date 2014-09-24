@@ -1,5 +1,10 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-0.4 (2014-09-24)}{
+  \itemize{
+    \item resurrect clean.variable.name function
+  }
+}
 \section{Changes in LoadMyData version 0.0-0.3 (2014-09-24)}{
   \itemize{
     \item Show supported extensions as list again in documentation, new topic
