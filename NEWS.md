@@ -1,3 +1,6 @@
+* rename `xxx.reader` to `reader.xxx` in code and file names
+* support methods for new S3 class `dataformat`
+
 v0.0-1 (2014-09-24)
 ===
 
