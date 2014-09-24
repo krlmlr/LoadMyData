@@ -12,10 +12,11 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.rdata('example.RData', 'data/example.RData', 'example')}
-reader.dataformat.rdata <- function(x, data.file, variable.name, ...)
+reader.dataformat.RData <- function(x, data.file, variable.name, ...)
 {
   load(x, envir = .TargetEnv)
 }
+
+#' @rdname reader.dataformat.RData
+#' @export
+reader.dataformat.rda <- reader.dataformat.RData
