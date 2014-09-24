@@ -8,3 +8,9 @@ test_that('Data format constructor', {
   expect_error(class(dataformat(5)), "character")
   expect_error(class(dataformat("")), "does not exist")
 })
+
+test_that('Checking if is dataformat object', {
+  expect_true(is.dataformat(dataformat("a.csv.bz2", check_exists = FALSE)))
+  expect_false(is.dataformat("a.csv.bz2"))
+  expect_false(is.dataformat(NULL))
+})
