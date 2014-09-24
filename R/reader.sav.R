@@ -12,10 +12,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.spss('example.sav', 'data/example.sav', 'example')}
-reader.dataformat.spss <- function(x, data.file, variable.name, ...)
+reader.dataformat.sav <- function(x, data.file, variable.name, ...)
 {
   require.package('foreign')
 

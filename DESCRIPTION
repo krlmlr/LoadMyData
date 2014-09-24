@@ -60,7 +60,7 @@ Collate:
     'reader.ppm.R'
     'reader.r.R'
     'reader.rdata.R'
-    'reader.spss.R'
+    'reader.sav.R'
     'require.package.R'
     'reader.sql.R'
     'reader.stata.R'
