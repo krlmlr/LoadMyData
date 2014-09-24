@@ -19,6 +19,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.url('example.url', 'data/example.url', 'example')}
 reader.url <- function(data.file, filename, variable.name)

@@ -10,6 +10,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.mp3('example.mp3', 'data/example.mp3', 'example')}
 reader.mp3 <- function(data.file, filename, variable.name)

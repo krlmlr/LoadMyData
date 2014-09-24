@@ -8,6 +8,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.xport('example.xport', 'data/example.xport', 'example')}
 reader.xport <- function(data.file, filename, variable.name)

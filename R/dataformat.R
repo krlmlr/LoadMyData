@@ -35,6 +35,9 @@ dataformat <- function(file_name, check_exists = TRUE) {
 }
 
 #' @rdname dataformat
+as.dataformat <- dataformat
+
+#' @rdname dataformat
 is.dataformat <- function(x) {
   "dataformat" %in% class(x)
 }

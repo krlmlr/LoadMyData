@@ -9,6 +9,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.epiinfo('example.rec', 'data/example.rec', 'example')}
 reader.epiinfo <- function(data.file, filename, variable.name)

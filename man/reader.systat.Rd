@@ -3,7 +3,7 @@
 \alias{reader.systat}
 \title{Read a Systat file with a .sys or .syd file extension.}
 \usage{
-reader.systat(data.file, filename, variable.name)
+\method{reader}{systat}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

@@ -9,6 +9,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.dbf('example.dbf', 'data/example.dbf', 'example')}
 reader.dbf <- function(data.file, filename, variable.name)

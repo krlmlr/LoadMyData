@@ -10,6 +10,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.rdata('example.RData', 'data/example.RData', 'example')}
 reader.rdata <- function(data.file, filename, variable.name)

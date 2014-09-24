@@ -70,4 +70,5 @@ Collate:
     'clean.variable.name.R'
     'dataformat.R'
     'help.R'
+    'reader.R'
     'translate.dcf.R'

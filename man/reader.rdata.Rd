@@ -3,7 +3,7 @@
 \alias{reader.rdata}
 \title{Read an RData file with a .rdata or .rda file extension.}
 \usage{
-reader.rdata(data.file, filename, variable.name)
+\method{reader}{rdata}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

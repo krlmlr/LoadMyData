@@ -10,6 +10,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.xls('example.xls', 'data/example.xls', 'example')}
 reader.xls <- function(data.file, filename, workbook.name)

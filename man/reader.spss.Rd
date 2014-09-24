@@ -3,7 +3,7 @@
 \alias{reader.spss}
 \title{Read an SPSS file with a .sav file extension.}
 \usage{
-reader.spss(data.file, filename, variable.name)
+\method{reader}{spss}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

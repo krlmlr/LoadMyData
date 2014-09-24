@@ -9,6 +9,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.csv2('example.csv2', 'data/example.csv2', 'example')}
 reader.csv2 <- function(data.file, filename, variable.name)

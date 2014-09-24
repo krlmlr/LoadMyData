@@ -3,7 +3,7 @@
 \alias{reader.csv2}
 \title{Read a semicolon separated values (.csv2) file.}
 \usage{
-reader.csv2(data.file, filename, variable.name)
+\method{reader}{csv2}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

@@ -3,7 +3,7 @@
 \alias{reader.octave}
 \title{Read an Octave file with a .m file extension.}
 \usage{
-reader.octave(data.file, filename, variable.name)
+\method{reader}{octave}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

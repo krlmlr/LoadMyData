@@ -3,7 +3,7 @@
 \alias{reader.stata}
 \title{Read a Stata file with a .stata file extension.}
 \usage{
-reader.stata(data.file, filename, variable.name)
+\method{reader}{stata}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

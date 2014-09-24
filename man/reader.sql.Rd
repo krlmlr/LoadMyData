@@ -3,7 +3,7 @@
 \alias{reader.sql}
 \title{Read a database described in a .sql file.}
 \usage{
-reader.sql(data.file, filename, variable.name)
+\method{reader}{sql}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

@@ -9,6 +9,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.arff('example.arff', 'data/example.arff', 'example')}
 reader.arff <- function(data.file, filename, variable.name)

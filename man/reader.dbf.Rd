@@ -3,7 +3,7 @@
 \alias{reader.dbf}
 \title{Read an XBASE file with a .dbf file extension.}
 \usage{
-reader.dbf(data.file, filename, variable.name)
+\method{reader}{dbf}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

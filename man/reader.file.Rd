@@ -3,7 +3,7 @@
 \alias{reader.file}
 \title{Read an arbitrary file described in a .file file.}
 \usage{
-reader.file(data.file, filename, variable.name)
+\method{reader}{file}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

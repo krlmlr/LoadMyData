@@ -3,7 +3,7 @@
 \alias{reader.ppm}
 \title{Read a PPM file with a .ppm file extension.}
 \usage{
-reader.ppm(data.file, filename, variable.name)
+\method{reader}{ppm}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

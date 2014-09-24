@@ -3,7 +3,7 @@
 \alias{reader.tsv}
 \title{Read a tab separated values (.tsv or .tab) file.}
 \usage{
-reader.tsv(data.file, filename, variable.name)
+\method{reader}{tsv}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

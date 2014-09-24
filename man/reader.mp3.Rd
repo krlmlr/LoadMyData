@@ -3,7 +3,7 @@
 \alias{reader.mp3}
 \title{Read an MP3 file with a .mp3 file extension.}
 \usage{
-reader.mp3(data.file, filename, variable.name)
+\method{reader}{mp3}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

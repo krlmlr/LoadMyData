@@ -96,6 +96,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.sql('example.sql', 'data/example.sql', 'example')}
 #'

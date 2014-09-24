@@ -8,6 +8,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.octave('example.m', 'data/example.m', 'example')}
 reader.octave <- function(data.file, filename, variable.name)

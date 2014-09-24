@@ -8,6 +8,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.stata('example.stata', 'data/example.stata', 'example')}
 reader.stata <- function(data.file, filename, variable.name)

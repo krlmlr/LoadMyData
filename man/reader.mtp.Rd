@@ -3,7 +3,7 @@
 \alias{reader.mtp}
 \title{Read a Minitab Portable Worksheet with an .mtp3 file extension.}
 \usage{
-reader.mtp(data.file, filename, variable.name)
+\method{reader}{mtp}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

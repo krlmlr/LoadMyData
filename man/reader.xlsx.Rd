@@ -3,7 +3,7 @@
 \alias{reader.xlsx}
 \title{Read an Excel 2007 file with a .xlsx file extension.}
 \usage{
-reader.xlsx(data.file, filename, workbook.name)
+\method{reader}{xlsx}(data.file, filename, workbook.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

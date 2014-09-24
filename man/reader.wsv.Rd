@@ -3,7 +3,7 @@
 \alias{reader.wsv}
 \title{Read a whitespace separated values (.wsv or .txt) file.}
 \usage{
-reader.wsv(data.file, filename, variable.name)
+\method{reader}{wsv}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

@@ -10,6 +10,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.ppm('example.ppm', 'data/example.ppm', 'example')}
 reader.ppm <- function(data.file, filename, variable.name)

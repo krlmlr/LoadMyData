@@ -3,7 +3,7 @@
 \alias{reader.xport}
 \title{Read an XPort file with a .xport file extension.}
 \usage{
-reader.xport(data.file, filename, variable.name)
+\method{reader}{xport}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

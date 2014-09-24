@@ -3,7 +3,7 @@
 \alias{reader.db}
 \title{Read a SQlite3 database with a (.db) file extension.}
 \usage{
-reader.db(data.file, filename, variable.name)
+\method{reader}{db}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

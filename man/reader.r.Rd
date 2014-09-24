@@ -3,7 +3,7 @@
 \alias{reader.r}
 \title{Read an R source file with a .R file extension.}
 \usage{
-reader.r(data.file, filename, variable.name)
+\method{reader}{r}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

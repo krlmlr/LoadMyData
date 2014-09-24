@@ -3,7 +3,7 @@
 \alias{reader.epiinfo}
 \title{Read an Epi Info file with a .rec file extension.}
 \usage{
-reader.epiinfo(data.file, filename, variable.name)
+\method{reader}{epiinfo}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

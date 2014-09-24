@@ -9,6 +9,8 @@
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
+#' @export
+#'
 #' @examples
 #' \dontrun{reader.mtp('example.mtp', 'data/example.mtp', 'example')}
 reader.mtp <- function(data.file, filename, variable.name)

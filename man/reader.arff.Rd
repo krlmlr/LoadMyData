@@ -3,7 +3,7 @@
 \alias{reader.arff}
 \title{Read the Weka file format.}
 \usage{
-reader.arff(data.file, filename, variable.name)
+\method{reader}{arff}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}

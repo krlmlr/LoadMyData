@@ -3,7 +3,7 @@
 \alias{reader.url}
 \title{Read a remote file described in a .url file.}
 \usage{
-reader.url(data.file, filename, variable.name)
+\method{reader}{url}(data.file, filename, variable.name)
 }
 \arguments{
 \item{data.file}{The name of the data file to be read.}
