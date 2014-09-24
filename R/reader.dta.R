@@ -1,4 +1,4 @@
-#' Read a Stata file with a .stata file extension.
+#' Read a Stata file with a .dta file extension.
 #'
 #' This function will load the specified Stata file into memory.
 #'
@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.stata('example.stata', 'data/example.stata', 'example')}
-reader.dataformat.stata <- function(x, data.file, variable.name, ...)
+reader.dataformat.dta <- function(x, data.file, variable.name, ...)
 {
   require.package('foreign')
 
