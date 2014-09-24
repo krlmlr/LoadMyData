@@ -52,6 +52,7 @@ Collate:
     'reader.dbf.R'
     'reader.epiinfo.R'
     'reader.file.R'
+    'reader.gz.R'
     'reader.mp3.R'
     'reader.mtp.R'
     'reader.octave.R'
