@@ -1,0 +1,43 @@
+#' Read a SQlite3 database with a (.db) file extension.
+#'
+#' This function will load all of the data sets stored in the SQlite3
+#' database into the global environment. If you want to specify a single
+#' table or query to execute against the database, move it elsewhere and
+#' use a .sql file interpreted by \code{\link{reader.sql}}.
+#'
+#' @param data.file The name of the data file to be read.
+#' @param filename The path to the data set to be loaded.
+#' @param variable.name The name to be assigned to in the global environment.
+#'
+#' @return No value is returned; this function is called for its side effects.
+#'
+#' @examples
+#' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
+reader.db <- function(data.file, filename, variable.name)
+{
+  require.package('RSQLite')
+
+  sqlite.driver <- dbDriver("SQLite")
+  connection <- dbConnect(sqlite.driver,
+                          dbname = filename)
+
+  tables <- dbListTables(connection)
+  for (table in tables)
+  {
+    message(paste('  Loading table:', table))
+
+    data.parcel <- dbReadTable(connection,
+                               table,
+                               row.names = NULL)
+
+    assign(clean.variable.name(table),
+           data.parcel,
+           envir = .TargetEnv)
+  }
+
+  disconnect.success <- dbDisconnect(connection)
+  if (! disconnect.success)
+  {
+    warning(paste('Unable to disconnect from database:', filename))
+  }
+}

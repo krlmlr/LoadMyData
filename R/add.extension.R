@@ -10,7 +10,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{.add.extension('foo', foo.reader)}
+#' \dontrun{.add.extension('foo', reader.foo)}
 #' @include extensions.dispatch.table.R
 
 .add.extension <- function(extension, reader) {
