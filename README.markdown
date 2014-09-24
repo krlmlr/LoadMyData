@@ -1,4 +1,4 @@
-# LoadMyData [![Travis-CI build status](https://travis-ci.org/johnmyleswhite/LoadMyData.png?branch=master)](https://travis-ci.org/johnmyleswhite/LoadMyData) [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/u4it44b78py4ofr9/branch/master)](https://ci.appveyor.com/project/johnmyleswhite/projecttemplate/branch/master)
+# LoadMyData [![Travis-CI build status](https://travis-ci.org/krlmlr/LoadMyData.png?branch=master)](https://travis-ci.org/krlmlr/LoadMyData)
 
 The LoadMyData package lets you automatically build a directory for a new R project with a standardized subdirectory structure. Using this structure, LoadMyData automates data and package loading. The hope is that standardized data loading, automatic importing of best practice packages, integrated unit testing and useful nudges towards keeping a cleanly organized codebase will improve the quality of R coding.
 
