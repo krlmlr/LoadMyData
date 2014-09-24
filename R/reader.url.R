@@ -9,14 +9,19 @@
 #' Examples of the DCF format and settings used in a .url file are shown
 #' below:
 #'
-#' Example 1
-#' url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
-#' separator: ,
+#' Example 1:
 #'
-#' @param data.file The name of the data file to be read.
+#' \preformatted{url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
+#' }
+#'
+#' Example 1:
+#'
+#' \preformatted{url: http://www.johnmyleswhite.com/LoadMyData/some?query
+#' extension: .csv.bz2
+#' }
+#'
 #' @param x The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
-#' @param ... Further arguments.
+#' @param ... Further arguments passed to the reader invoked.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -24,52 +29,12 @@
 #'
 #' @examples
 #' \dontrun{reader.url('example.url', 'data/example.url', 'example')}
-reader.dataformat.url <- function(x, data.file, variable.name, ...)
+reader.dataformat.url <- function(x, ...)
 {
   url.info <- translate.dcf(x)
+  url <- dataformat(
+    url(url.info[['url']]),
+    override_extension = url.info[['extension']])
 
-  file.type <- ""
-
-  for (extension in ls(extensions.dispatch.table))
-  {
-    if(grepl(extension, url.info[['url']], ignore.case = TRUE, perl = TRUE))
-    {
-      file.type <- extension
-    }
-  }
-
-  if (file.type == "")
-  {
-    warning(paste("The source at",
-                  url.info[['url']],
-                  "was not processed properly."))
-  }
-  else
-  {
-    if (file.type %in% c("\\.Rdata$", "\\.Rda$"))
-    {
-      con <- url(url.info[['url']])
-      reader.rdata(data.file, con, variable.name)
-    }
-
-    if (file.type %in% c("\\.xlsx$"))
-    {
-      download.file(url.info[['url']], file.path(tempdir(), "xlsxtmp.xlsx"))
-      reader.xlsx(data.file, file.path(tempdir(), "xlsxtmp.xlsx"), variable.name)
-    }
-
-    if (file.type %in% c("\\.sql$"))
-    {
-      download.file(url.info[['url']], file.path(tempdir(), "sqltmp.sql"))
-      reader.sql(data.file, file.path(tempdir(), "sqltmp.sql"), variable.name)
-    }
-
-    else
-    {
-      do.call(extensions.dispatch.table[[file.type]],
-              list(data.file,
-                   url.info[['url']],
-                   variable.name))
-    }
-  }
+  reader(url, ...)
 }

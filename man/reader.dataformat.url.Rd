@@ -3,16 +3,12 @@
 \alias{reader.dataformat.url}
 \title{Read a remote file described in a .url file.}
 \usage{
-\method{reader}{dataformat.url}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.url}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
 
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
-
-\item{...}{Further arguments.}
+\item{...}{Further arguments passed to the reader invoked.}
 }
 \value{
 No value is returned; this function is called for its side effects.
@@ -28,9 +24,16 @@ per .url file is supported currently.
 Examples of the DCF format and settings used in a .url file are shown
 below:
 
-Example 1
-url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
-separator: ,
+Example 1:
+
+\preformatted{url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
+}
+
+Example 1:
+
+\preformatted{url: http://www.johnmyleswhite.com/LoadMyData/some?query
+extension: .csv.bz2
+}
 }
 \examples{
 \dontrun{reader.url('example.url', 'data/example.url', 'example')}
