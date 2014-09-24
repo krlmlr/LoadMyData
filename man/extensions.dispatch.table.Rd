@@ -3,7 +3,7 @@
 \name{extensions.dispatch.table}
 \alias{extensions.dispatch.table}
 \title{Maps file types to the reader functions used to autoload them.}
-\format{\preformatted{<environment: 0x1e478d0> 
+\format{\preformatted{<environment: 0x2e5d8d0> 
 }}
 \usage{
 extensions.dispatch.table
