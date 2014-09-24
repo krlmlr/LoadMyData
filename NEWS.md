@@ -1,3 +1,6 @@
+v0.0-1.1 (2014-09-24)
+===
+
 * Rename `xxx.reader` to `reader.dataformat.xxx` in code and file names
 * Support methods for new S3 class `dataformat`
 * Remove `extension.dispatch.table` and related functionality
