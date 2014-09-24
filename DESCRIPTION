@@ -69,5 +69,4 @@ Collate:
     'add.extension.R'
     'clean.variable.name.R'
     'help.R'
-    'stub.tests.R'
     'translate.dcf.R'

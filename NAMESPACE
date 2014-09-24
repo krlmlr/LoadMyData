@@ -2,5 +2,4 @@
 
 export(.add.extension)
 export(require.package)
-export(stub.tests)
 export(translate.dcf)
