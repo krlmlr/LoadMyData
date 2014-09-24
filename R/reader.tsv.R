@@ -11,9 +11,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.tsv('example.tsv', 'data/example.tsv', 'example')}
 reader.dataformat.tsv <- function(x, data.file, variable.name, ...)
 {
   if (grepl('\\.zip$', x))
@@ -31,3 +28,7 @@ reader.dataformat.tsv <- function(x, data.file, variable.name, ...)
                   sep = '\t'),
          envir = .TargetEnv)
 }
+
+#' @rdname reader.dataformat.tab
+#' @export
+reader.dataformat.tab <- reader.dataformat.tsv
