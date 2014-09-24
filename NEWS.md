@@ -1,3 +1,5 @@
+* resurrect clean.variable.name function
+
 v0.0-0.3 (2014-09-24)
 ===
 
