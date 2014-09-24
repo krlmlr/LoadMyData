@@ -5,16 +5,19 @@
 \alias{is.dataformat}
 \title{Data formats}
 \usage{
-dataformat(file_name, check_exists = TRUE)
+dataformat(file_name, check_exists = TRUE, override_extension = NULL)
 
-as.dataformat(file_name, check_exists = TRUE)
+as.dataformat(file_name, check_exists = TRUE, override_extension = NULL)
 
 is.dataformat(x)
 }
 \arguments{
 \item{file_name}{Path to a file.}
 
-\item{check_exists}{Check if file exists.}
+\item{check_exists}{Check if file exists (default).}
+
+\item{override_extension}{Alternative file extension (default: use extension
+from \code{file_name}).}
 
 \item{x}{An object.}
 }
