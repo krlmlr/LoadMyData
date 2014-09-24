@@ -20,8 +20,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{url.reader('example.url', 'data/example.url', 'example')}
 url.reader <- function(data.file, filename, variable.name)
 {

@@ -12,8 +12,6 @@
 #' @export
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{require.project('PackageName')}
 require.package <- function(package.name)
 {

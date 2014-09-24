@@ -12,8 +12,6 @@
 #' @export
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{translate.dcf(file.path('config', 'global.dcf'))}
 translate.dcf <- function(filename)
 {

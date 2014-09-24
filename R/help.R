@@ -11,8 +11,6 @@
 #' @name LoadMyData
 #' @aliases LoadMyData package-LoadMyData
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{create.project('project_name')
 #'
 #' setwd('project_name')

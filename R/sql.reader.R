@@ -97,8 +97,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{sql.reader('example.sql', 'data/example.sql', 'example')}
 #'
 #' @include require.package.R

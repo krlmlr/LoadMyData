@@ -11,8 +11,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{xlsx.reader('example.xlsx', 'data/example.xlsx', 'example')}
 xlsx.reader <- function(data.file, filename, workbook.name)
 {

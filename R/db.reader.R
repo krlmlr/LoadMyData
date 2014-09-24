@@ -12,8 +12,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{db.reader('example.db', 'data/example.db', 'example')}
 db.reader <- function(data.file, filename, variable.name)
 {

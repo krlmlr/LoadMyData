@@ -9,8 +9,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{stata.reader('example.stata', 'data/example.stata', 'example')}
 stata.reader <- function(data.file, filename, variable.name)
 {

@@ -10,8 +10,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('LoadMyData')
-#'
 #' \dontrun{csv.reader('example.csv', 'data/example.csv', 'example')}
 csv.reader <- function(data.file, filename, variable.name)
 {
