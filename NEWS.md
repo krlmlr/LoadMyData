@@ -1,4 +1,5 @@
 * Removed code that does not belong to this project, again
+* All tests pass
 
 v0.0-0.4 (2014-09-24)
 ===
