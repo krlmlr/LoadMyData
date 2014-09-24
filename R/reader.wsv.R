@@ -11,9 +11,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.wsv('example.wsv', 'data/example.wsv', 'example')}
 reader.dataformat.wsv <- function(x, data.file, variable.name, ...)
 {
   if (grepl('\\.zip$', x))
@@ -30,3 +27,7 @@ reader.dataformat.wsv <- function(x, data.file, variable.name, ...)
                   header = TRUE),
          envir = .TargetEnv)
 }
+
+#' @rdname reader.dataformat.wsv
+#' @export
+reader.dataformat.txt <- reader.dataformat.wsv
