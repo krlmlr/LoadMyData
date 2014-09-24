@@ -25,18 +25,6 @@ reader.dataformat.csv <- function(x, variable.name, ...)
 
 #' @export
 #' @rdname reader.dataformat.csv
-reader.dataformat.csv.gz <- reader.dataformat.csv
-
-#' @export
-#' @rdname reader.dataformat.csv
-reader.dataformat.csv.bz2 <- reader.dataformat.csv
-
-#' @export
-#' @rdname reader.dataformat.csv
-reader.dataformat.csv.xz <- reader.dataformat.csv
-
-#' @export
-#' @rdname reader.dataformat.csv
 reader.dataformat.csv.zip <- function(x, data.file, ...)
 {
   tmp.dir <- tempdir()
