@@ -1,5 +1,11 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-0.5 (2014-09-24)}{
+  \itemize{
+    \item Removed code that does not belong to this project, again
+    \item All tests pass
+  }
+}
 \section{Changes in LoadMyData version 0.0-0.4 (2014-09-24)}{
   \itemize{
     \item resurrect clean.variable.name function
