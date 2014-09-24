@@ -67,6 +67,7 @@ Collate:
     'arff.reader.R'
     'extensions.dispatch.table.R'
     'add.extension.R'
+    'clean.variable.name.R'
     'help.R'
     'stub.tests.R'
     'translate.dcf.R'
