@@ -31,16 +31,14 @@ dataformat <- function(file_name, check_exists = TRUE, override_extension = NULL
     extensions <- strsplit(override_extension, ".", fixed = TRUE)[[1L]]
   }
 
-  class_names <- vapply(
-    seq_along(extensions),
-    function(x)
-      paste(c("dataformat", extensions[seq.int(x, length(extensions))]),
-            collapse = "."),
-    character(1)
-  )
+  for (i in rev(seq_along(extensions))[-1L]) {
+    extensions[[i]] <- paste(extensions[i], extensions[i + 1L], sep = ".")
+  }
+
+  class_names <- paste0("dataformat.", extensions)
   class_names <- c(class_names, "dataformat")
 
-  structure(file_name, class = class_names)
+  structure(file_name, class = class_names, file_extension = extensions[[1L]])
 }
 
 #' @rdname dataformat
