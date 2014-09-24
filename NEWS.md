@@ -1,3 +1,6 @@
+* Show supported extensions as list again in documentation, new topic
+  `supported.file.extensions`
+
 v0.0-0.2 (2014-09-24)
 ===
 
