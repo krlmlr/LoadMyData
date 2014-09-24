@@ -1,11 +1,11 @@
 #' Read a data file
 #'
 #' This function loads a data set.  The data format is determined by the
-#' file extension, or by the class if an object of class \link{\code{dataformat}}
+#' file extension, or by the class if an object of class \code{\link{dataformat}}
 #' is passed.
 #'
 #' @param x An object of class \code{dataformat}, will be coerced using
-#' \link{\code{as.dataformat}} if necessary.
+#' \code{\link{as.dataformat}} if necessary.
 #' @param ... Further parameters
 #'
 #' @return A list where each element corresponds to a loaded data item.
