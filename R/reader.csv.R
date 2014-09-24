@@ -13,20 +13,36 @@
 #'
 #' @examples
 #' \dontrun{reader.csv('example.csv', 'data/example.csv', 'example')}
-reader.dataformat.csv <- function(filename, data.file, variable.name)
+reader.dataformat.csv <- function(filename, variable.name)
 {
-  if (grepl('\\.zip$', filename))
-  {
-    tmp.dir <- tempdir()
-    tmp.path <- file.path(tmp.dir, data.file)
-    file.copy(filename, tmp.path)
-    unzip(filename, exdir = tmp.dir)
-    filename <- file.path(tmp.dir, sub('\\.zip$', '', data.file))
-  }
-
   assign(variable.name,
          read.csv(filename,
                   header = TRUE,
                   sep = ','),
          envir = .TargetEnv)
+}
+
+#' @export
+#' @rdname reader.dataformat.csv
+reader.dataformat.csv.gz <- reader.dataformat.csv
+
+#' @export
+#' @rdname reader.dataformat.csv
+reader.dataformat.csv.bz2 <- reader.dataformat.csv
+
+#' @export
+#' @rdname reader.dataformat.csv
+reader.dataformat.csv.xz <- reader.dataformat.csv
+
+#' @export
+#' @rdname reader.dataformat.csv
+reader.dataformat.csv.zip <- function(filename, data.file, ...)
+{
+  tmp.dir <- tempdir()
+  tmp.path <- file.path(tmp.dir, data.file)
+  file.copy(filename, tmp.path)
+  unzip(filename, exdir = tmp.dir)
+  filename <- file.path(tmp.dir, sub('\\.zip$', '', data.file))
+
+  reader(dataformat(filename), ...)
 }

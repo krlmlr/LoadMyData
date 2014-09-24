@@ -16,13 +16,12 @@ if (!identical(environment(), .GlobalEnv))
 
 test_that('Test 1: CSV Data file', {
 
-  data.file <- 'example_01.csv'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_01.csv')
   variable.name <- LoadMyData:::clean.variable.name('example_01')
 
-  reader(filename, data.file, variable.name)
+  reader(filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -35,13 +34,12 @@ test_that('Test 1: CSV Data file', {
 
 test_that('Test 2: .csv.bz2', {
 
-  data.file <- 'example_02.csv.bz2'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_02.csv.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_02')
 
-  reader(filename, data.file, variable.name)
+  reader(filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -80,7 +78,7 @@ test_that('Example 04: CSV Data File with GZip Compression', {
                         'example_04.csv.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_04')
 
-  reader(filename, data.file, variable.name)
+  reader(filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -498,7 +496,7 @@ test_that('Example 26: Excel 2007 File with .xls Extension', {
                         'example_26.xls')
   variable.name <- LoadMyData:::clean.variable.name('example_26')
 
-  LoadMyData:::reader.dataformat.xls(filename, data.file, variable.name)
+  reader(filename, data.file, variable.name)
 
   variable.name <- paste(variable.name, '.Sheet1', sep = '')
 
