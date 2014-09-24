@@ -71,4 +71,5 @@ Collate:
     'reader.xls.R'
     'reader.xlsx.R'
     'reader.xport.R'
+    'reader.zip.R'
     'translate.dcf.R'

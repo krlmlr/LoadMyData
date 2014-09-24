@@ -22,16 +22,3 @@ reader.dataformat.csv <- function(x, variable.name, ...)
                   sep = ','),
          envir = .TargetEnv)
 }
-
-#' @export
-#' @rdname reader.dataformat.csv
-reader.dataformat.csv.zip <- function(x, data.file, ...)
-{
-  tmp.dir <- tempdir()
-  tmp.path <- file.path(tmp.dir, data.file)
-  file.copy(x, tmp.path)
-  unzip(x, exdir = tmp.dir)
-  x <- file.path(tmp.dir, sub('\\.zip$', '', data.file))
-
-  reader(dataformat(x), ...)
-}
