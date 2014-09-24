@@ -4,6 +4,7 @@
 #'
 #' @param file_name Path to a file.
 #' @param check_exists Check if file exists.
+#' @param x An object.
 #'
 #' @return An object of class \code{dataformat}
 #'
@@ -31,4 +32,9 @@ dataformat <- function(file_name, check_exists = TRUE) {
   )
   class_names <- c(class_names, "dataformat")
   structure(file_name, class = class_names)
+}
+
+#' @rdname dataformat
+is.dataformat <- function(x) {
+  "dataformat" %in% class(x)
 }
