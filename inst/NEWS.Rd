@@ -1,5 +1,10 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-0.2 (2014-09-24)}{
+  \itemize{
+    \item Removed code and data that does not belong to this project
+  }
+}
 \section{Changes in LoadMyData version 0.0-0.1 (2014-09-24)}{
   \itemize{
     \item Forked from ProjectTemplate 0.5-1.3
