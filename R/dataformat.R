@@ -1,12 +1,11 @@
 #' Data formats
 #'
-#' Functions to help selecting the correct loader for a given file name.
+#' Functions to help selecting the correct reader for a given file name.
 #'
 #' @param x Path to a file.
 #' @param check_exists Check if file exists (default).
 #' @param override_extension Alternative file extension (default: use extension
 #'   from \code{x}).
-#' @param x An object.
 #'
 #' @return An object of class \code{dataformat}
 #'
