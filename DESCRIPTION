@@ -1,22 +1,18 @@
 Package: LoadMyData
 Type: Package
-Title: Automates the creation of new statistical analysis
-    projects.
-Version: 0.5-1.3
+Title: Automates loading data based on the file extension
+Version: 0.0-0.0
 Date: 2014-09-24
-Authors@R: c( person("Aleksandar", "Blagotic", role = "ctb"), person("Diego",
+Authors@R: c(person("Aleksandar", "Blagotic", role = "ctb"), person("Diego",
     "Valle-Jones", role = "ctb"), person("Jeffrey", "Breen", role = "ctb"),
     person("Joakim", "Lundborg", role = "ctb"), person("John Myles", "White",
     role = c("aut", "cph")), person("Josh", "Bode", role = "ctb"),
     person("Kenton", "White", role = "ctb"), person("Kirill", "Mueller", email
-    = "mail@kirill-mueller.de", role = c("ctb", "cre")), person("Matteo",
+    = "krlmlr+r@mailbox.org", role = c("ctb", "cre")), person("Matteo",
     "Redaelli", role = "ctb"), person("Noah", "Lorang", role = "ctb"),
     person("Patrick", "Schalk", role = "ctb"))
-Description: LoadMyData provides functions to
-    automatically build a directory structure for a new R
-    project. Using this structure, LoadMyData
-    automates data loading, preprocessing, library
-    importing and unit testing.
+Description: LoadMyData provides an extensible interface to
+    automate data loading based on the file extension.
 License: Artistic-2.0
 LazyLoad: yes
 Roxygen: list(wrap = FALSE)
@@ -43,8 +39,7 @@ Suggests:
     GetoptLong,
     whisker,
     testthat
-URL: http://projecttemplate.net
-BugReports: https://github.com/johnmyleswhite/LoadMyData/issues
+BugReports: https://github.com/krlmlr/LoadMyData/issues
 Collate:
     'xport.reader.R'
     'xlsx.reader.R'
