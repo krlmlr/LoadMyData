@@ -3,10 +3,12 @@
 \alias{dataformat}
 \title{Data formats}
 \usage{
-dataformat(file_name)
+dataformat(file_name, check_exists = TRUE)
 }
 \arguments{
-\item{file_name}{Path to an existing file.}
+\item{file_name}{Path to a file.}
+
+\item{check_exists}{Check if file exists.}
 }
 \value{
 An object of class \code{dataformat}

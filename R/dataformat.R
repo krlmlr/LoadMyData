@@ -2,7 +2,8 @@
 #'
 #' Functions to help selecting the correct loader for a given file name.
 #'
-#' @param file_name Path to an existing file.
+#' @param file_name Path to a file.
+#' @param check_exists Check if file exists.
 #'
 #' @return An object of class \code{dataformat}
 #'
@@ -10,13 +11,12 @@
 #'
 #' @examples
 #' \dontrun{dataformat("my/data/file.csv.bz2")}
-#' @include extensions.dispatch.table.R
-dataformat <- function(file_name) {
+dataformat <- function(file_name, check_exists = TRUE) {
   if (!is.character(file_name))
     stop("file_name must be a character")
   if (length(file_name) != 1L)
     stop("file_name must be an atomic value (of length 1)")
-  if (!file.exists(file_name))
+  if (check_exists && !file.exists(file_name))
     stop("file ", file_name, " does not exist")
   base <- basename(file_name)
   dotted_components <- strsplit(base, ".", fixed = TRUE)[[1]]
