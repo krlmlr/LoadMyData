@@ -42,3 +42,10 @@ test_that('Checking if is dataformat object', {
   expect_false(is.dataformat("a.csv.bz2"))
   expect_false(is.dataformat(NULL))
 })
+
+test_that('Overriding extension', {
+  expect_equal(get_extension("csv.bz2", ""), c("csv", "bz2"))
+  expect_equal(get_extension(NULL, "a.csv.bz2"), c("csv", "bz2"))
+  expect_equal(get_extension(use_extension(), "a.csv.bz2"), c("csv", "bz2"))
+  expect_equal(get_extension(parent_extension(), "a.csv.bz2"), c("csv"))
+})

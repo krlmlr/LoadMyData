@@ -23,14 +23,7 @@ dataformat <- function(x, override_extension = NULL, check_exists = is.character
   if (check_exists && !do_check_exists(x))
     stop("file ", file_name, " does not exist")
 
-  if (is.null(override_extension)) {
-    dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
-    if (length(dotted_components) <= 1L)
-      stop("cannot detect extension from file ", x)
-    extensions <- paste(dotted_components[-1L], sep = ".")
-  } else {
-    extensions <- strsplit(override_extension, ".", fixed = TRUE)[[1L]]
-  }
+  extensions <- get_extension(override_extension, base)
 
   for (i in rev(seq_along(extensions))[-1L]) {
     extensions[[i]] <- paste(extensions[i], extensions[i + 1L], sep = ".")
@@ -53,6 +46,36 @@ do_check_exists.connection <- function(x) {
   warning("cannot check existence of connection")
   TRUE
 }
+
+get_extension <- function(x, base) UseMethod("get_extension", x)
+get_extension.use_extension <- function(x, base) {
+  dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
+  if (length(dotted_components) <= 1L)
+    stop("cannot detect extension from file ", base)
+  dotted_components[-1L]
+}
+get_extension.NULL <- get_extension.use_extension
+get_extension.parent_extension <- function(x, base) {
+  dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
+  if (length(dotted_components) <= 2L)
+    stop("cannot detect parent extension from file ", base)
+  dotted_components[c(-1L, -length(dotted_components))]
+}
+get_extension.character <- function(x, base) {
+  extensions <- strsplit(x, ".", fixed = TRUE)[[1L]]
+}
+
+#' Placeholders for override_extension
+#'
+#' Use as values for the \code{override_extension} parameter to
+#' \code{\link{dataformat}}.
+#'
+#' @export
+use_extension <- function() structure(NA_integer_, class = "use_extension")
+
+#' @rdname use_extension
+#' @export
+parent_extension <- function() structure(NA_integer_, class = "parent_extension")
 
 #' @rdname dataformat
 as.dataformat <- dataformat

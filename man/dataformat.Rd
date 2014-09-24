@@ -17,17 +17,15 @@ is.dataformat(x)
 \item{x}{Path to a file.}
 
 \item{override_extension}{Alternative file extension (default: use extension
-from \code{x}).}
+  from \code{x}).}
 
 \item{check_exists}{Check if file exists (default).}
-
-\item{x}{An object.}
 }
 \value{
 An object of class \code{dataformat}
 }
 \description{
-Functions to help selecting the correct loader for a given file name.
+Functions to help selecting the correct reader for a given file name.
 }
 \examples{
 \dontrun{dataformat("my/data/file.csv.bz2")}
