@@ -1,6 +1,6 @@
-#' Read an XPort file with a .xport file extension.
+#' Read an SAS XPort file with a .xpt or .xport file extension.
 #'
-#' This function will load the specified XPort file into memory.
+#' This function will load the specified SAS XPort file into memory.
 #'
 #' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
@@ -10,9 +10,6 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.xport('example.xport', 'data/example.xport', 'example')}
 reader.dataformat.xport <- function(x, data.file, variable.name, ...)
 {
   require.package('foreign')
@@ -21,3 +18,7 @@ reader.dataformat.xport <- function(x, data.file, variable.name, ...)
          read.xport(x),
          envir = .TargetEnv)
 }
+
+#' @rdname reader.dataformat.xport
+#' @export
+reader.dataformat.xpt <- reader.dataformat.xport
