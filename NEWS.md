@@ -1,3 +1,6 @@
+v0.0-0.6 (2014-09-24)
+===
+
 * Removed `library()` calls from examples
 
 v0.0-0.5 (2014-09-24)
