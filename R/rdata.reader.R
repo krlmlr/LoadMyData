@@ -11,7 +11,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{rdata.reader('example.RData', 'data/example.RData', 'example')}
 rdata.reader <- function(data.file, filename, variable.name)

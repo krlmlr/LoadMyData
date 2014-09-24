@@ -14,7 +14,7 @@
 #'   \code{\link{get.project}}, \code{\link{show.project}}
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #' \dontrun{load.project()
 #'
 #' cache.project()}

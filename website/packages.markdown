@@ -1,12 +1,12 @@
 ---
 layout: page
 ---
-ProjectTemplate is not designed to help you write R packages. If you're
+LoadMyData is not designed to help you write R packages. If you're
 looking to do that, you should start by looking at the `package.skeleton()`
 function provided by the `utils` package. After that, you might consider
 looking into the [`devtools`](https://github.com/hadley/devtools) package that Hadley Wickham is developing.
 
-If it's not clear to you why ProjectTemplate isn't meant to help you write
+If it's not clear to you why LoadMyData isn't meant to help you write
 your own package, here are some important ways in which a statistical analysis
 project differs from a package:
 

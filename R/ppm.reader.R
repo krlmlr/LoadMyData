@@ -11,7 +11,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{ppm.reader('example.ppm', 'data/example.ppm', 'example')}
 ppm.reader <- function(data.file, filename, variable.name)

@@ -11,7 +11,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{spss.reader('example.sav', 'data/example.sav', 'example')}
 spss.reader <- function(data.file, filename, variable.name)

@@ -1,4 +1,4 @@
-Package: ProjectTemplate
+Package: LoadMyData
 Type: Package
 Title: Automates the creation of new statistical analysis
     projects.
@@ -12,9 +12,9 @@ Authors@R: c( person("Aleksandar", "Blagotic", role = "ctb"), person("Diego",
     = "mail@kirill-mueller.de", role = c("ctb", "cre")), person("Matteo",
     "Redaelli", role = "ctb"), person("Noah", "Lorang", role = "ctb"),
     person("Patrick", "Schalk", role = "ctb"))
-Description: ProjectTemplate provides functions to
+Description: LoadMyData provides functions to
     automatically build a directory structure for a new R
-    project. Using this structure, ProjectTemplate
+    project. Using this structure, LoadMyData
     automates data loading, preprocessing, library
     importing and unit testing.
 License: Artistic-2.0
@@ -44,7 +44,7 @@ Suggests:
     whisker,
     testthat
 URL: http://projecttemplate.net
-BugReports: https://github.com/johnmyleswhite/ProjectTemplate/issues
+BugReports: https://github.com/johnmyleswhite/LoadMyData/issues
 Collate:
     'xport.reader.R'
     'xlsx.reader.R'

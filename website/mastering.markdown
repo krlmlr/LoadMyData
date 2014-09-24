@@ -4,15 +4,15 @@ layout: page
 Before you work through this walkthrough, you should make sure you've read (or at least understood) the contents of the [beginner's tutorial](./getting_started.html).
 
 #### Ad Hoc File Types
-In the [beginner's tutorial](./getting_started.html), we showed how ProjectTemplate automatically loads data files from the `data` and `cache` directories. If you're working with plain text files or any of the [supported binary file formats](./file_formats.html), this automatic data loading should work out of the box without any effort on your part. But if you have to retrieve data sets from more complex data sources, ProjectTemplate has advanced features that will let you set up ad hoc autoloading. In the rest of this document, we'll talk about working with SQL databases, remote resources available over HTTP and FTP, large data files stored on external drives and R files that contain code that generates data at runtime.
+In the [beginner's tutorial](./getting_started.html), we showed how LoadMyData automatically loads data files from the `data` and `cache` directories. If you're working with plain text files or any of the [supported binary file formats](./file_formats.html), this automatic data loading should work out of the box without any effort on your part. But if you have to retrieve data sets from more complex data sources, LoadMyData has advanced features that will let you set up ad hoc autoloading. In the rest of this document, we'll talk about working with SQL databases, remote resources available over HTTP and FTP, large data files stored on external drives and R files that contain code that generates data at runtime.
 
 ##### SQLite Databases
 Let's start by working with a SQLite database. We'll use a database from the Analytics X competition in which contestants were trying to predict crimes that took place in Philadelphia. You can download the database file [here](./philapd.db.zip). To save on bandwidth, we've compressed the database, so you should uncompress it before going through the rest of this tutorial.
 
 ###### Autoloading the Database
-The simplest way to access the database is to store the `philapd.db` file in the `data` directory of a new project. Let's set up a project using the standard ProjectTemplate invocation:
+The simplest way to access the database is to store the `philapd.db` file in the `data` directory of a new project. Let's set up a project using the standard LoadMyData invocation:
 
-        library('ProjectTemplate')
+        library('LoadMyData')
         create.project('PhilaPD')
 
 Then we'll shift into the relevant directory, move our database over and uncompress it:
@@ -22,9 +22,9 @@ Then we'll shift into the relevant directory, move our database over and uncompr
         unzip data/philapd.db.zip -d data
         rm data/philapd.db.zip 
     
-Then we reload R and load the project. You'll see ProjectTemplate automatically load the two tables found in our SQLite database:
+Then we reload R and load the project. You'll see LoadMyData automatically load the two tables found in our SQLite database:
 
-        library('ProjectTemplate')
+        library('LoadMyData')
         load.project()
         
 ![Autoloading](./mastering1.png)
@@ -90,9 +90,9 @@ Working with a MySQL, PostGres or ODBC database is exactly as easy as using a `.
         table: location_info
 
 ##### URL Files
-If you need to access a file that's available over HTTP or FTP, you can use a `.url` file. Inside of the file, you'll specify the URL where your data set is available and the type of data set you're accessing. Here, we'll use a `data/sample.url` file to load the standard ProjectTemplate sample data set over HTTP:
+If you need to access a file that's available over HTTP or FTP, you can use a `.url` file. Inside of the file, you'll specify the URL where your data set is available and the type of data set you're accessing. Here, we'll use a `data/sample.url` file to load the standard LoadMyData sample data set over HTTP:
 
-        url: http://www.johnmyleswhite.com/ProjectTemplate/sample_data.csv
+        url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
         separator: ,
 
 ![Autoloading](./mastering5.png)
@@ -114,17 +114,17 @@ Sometimes you want to generate random data for your analysis: this, after all, i
 ![Autoloading](./mastering7.png)
 
 ##### Media Files: MP3's and PPM's
-Sometimes you want to work with more interesting sorts of data than a typical text file. ProjectTemplate now has basic support for loading media files into R. To load an MP3 audio file into an R object for analysis, simply place the `.mp3` file in the `data` directory. The `tuneR` package will be automatically loaded by ProjectTemplate and the MP3 file will be read into an R object in the global environment. Similarly, if you want to load a PPM image file, just place the `.ppm` file into the `data` directory. ProjectTemplate will then use the `pixmap` package to load the image file into an R object in the global environment.
+Sometimes you want to work with more interesting sorts of data than a typical text file. LoadMyData now has basic support for loading media files into R. To load an MP3 audio file into an R object for analysis, simply place the `.mp3` file in the `data` directory. The `tuneR` package will be automatically loaded by LoadMyData and the MP3 file will be read into an R object in the global environment. Similarly, if you want to load a PPM image file, just place the `.ppm` file into the `data` directory. LoadMyData will then use the `pixmap` package to load the image file into an R object in the global environment.
 
 #### Unit Testing Your Project
-ProjectTemplate has been designed to make it easier to unit test the functions you've written for your analysis. To get started, you can call `stub.tests()`, which will generate a file at `tests/autogenerated.R` filled with sample tests for every one of the functions you defined inside of the `lib` directory. You should edit these tests, as they are expected to fail by default.
+LoadMyData has been designed to make it easier to unit test the functions you've written for your analysis. To get started, you can call `stub.tests()`, which will generate a file at `tests/autogenerated.R` filled with sample tests for every one of the functions you defined inside of the `lib` directory. You should edit these tests, as they are expected to fail by default.
 
 After editing your tests, you can call `test.project()` to run all of the unit tests in the `tests` directory.
 
 ![Unit Tests](./unit_tests.png)
 
 #### Logging Your Work
-If you want to log your work, ProjectTemplate will automatically load a [log4r](https://github.com/johnmyleswhite/log4r) logger object into the `logger` variable that will write to a plain text stored at the `logs/project.log`. To use this logger, you only need to change the configuration file to specify:
+If you want to log your work, LoadMyData will automatically load a [log4r](https://github.com/johnmyleswhite/log4r) logger object into the `logger` variable that will write to a plain text stored at the `logs/project.log`. To use this logger, you only need to change the configuration file to specify:
 
         logging: on
 

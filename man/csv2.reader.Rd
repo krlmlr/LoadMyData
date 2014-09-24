@@ -20,7 +20,7 @@ This function will load a data set stored in the CSV2 file format into
 the specified global variable binding.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{csv2.reader('example.csv2', 'data/example.csv2', 'example')}
 }

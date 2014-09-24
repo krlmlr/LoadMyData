@@ -10,7 +10,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{mtp.reader('example.mtp', 'data/example.mtp', 'example')}
 mtp.reader <- function(data.file, filename, variable.name)

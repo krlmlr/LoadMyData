@@ -10,7 +10,7 @@
 #' to create queries that depend on data from other sources. Code delimited is \{\{...\}\}
 #'
 #' Example: query: SELECT * FROM my_table WHERE id IN (\{\{ids\}\}).
-#' Here ids is a vector previously loaded into the Global Environment through ProjectTemplate
+#' Here ids is a vector previously loaded into the Global Environment through LoadMyData
 #'
 #' Examples of the DCF format and settings used in a .sql file are shown
 #' below:
@@ -97,7 +97,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{sql.reader('example.sql', 'data/example.sql', 'example')}
 #'

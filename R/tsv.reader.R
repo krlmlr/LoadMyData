@@ -10,7 +10,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{tsv.reader('example.tsv', 'data/example.tsv', 'example')}
 tsv.reader <- function(data.file, filename, variable.name)

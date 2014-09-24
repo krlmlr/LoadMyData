@@ -1,7 +1,7 @@
-#' Migrates a project from a previous version of ProjectTemplate
+#' Migrates a project from a previous version of LoadMyData
 #'
 #' This function automatically performs all necessary steps to migrate an existing project
-#' so that it is compatible with this version of ProjectTemplate
+#' so that it is compatible with this version of LoadMyData
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -12,7 +12,7 @@
 #' @include load.project.R
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{migrate.project()}
 migrate.project <- function()

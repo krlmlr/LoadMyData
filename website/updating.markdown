@@ -1,11 +1,11 @@
 ---
 layout: page
 ---
-Because ProjectTemplate is still beta software, there are a number of backwards incompatible changes introduced with each iteration of the package. The information below should help you upgrade an existing project to work with the newest version of ProjectTemplate.
+Because LoadMyData is still beta software, there are a number of backwards incompatible changes introduced with each iteration of the package. The information below should help you upgrade an existing project to work with the newest version of LoadMyData.
 
 ##### Updating a v0.3-5 (or later) Project
 
-* Simply call the new function `ProjectTemplate::migrate.project()`.  The functions `load.project()` and `reload.project()` will issue a warning if this is required.
+* Simply call the new function `LoadMyData::migrate.project()`.  The functions `load.project()` and `reload.project()` will issue a warning if this is required.
 
 ##### Updating a v0.3-4 Project to a v0.3-5 Project
 
@@ -15,7 +15,7 @@ Because ProjectTemplate is still beta software, there are a number of backwards 
 
 ##### Updating a v0.3-3 Project to a v0.3-4 Project
 
-* Change any calls to `run.tests()` to calls to `test.project()`. `run.tests()` has now been removed permanently from ProjectTemplate.
+* Change any calls to `run.tests()` to calls to `test.project()`. `run.tests()` has now been removed permanently from LoadMyData.
 
 ##### Updating a v0.3-1 Project to a v0.3-3 Project
 
@@ -32,7 +32,7 @@ Because ProjectTemplate is still beta software, there are a number of backwards 
 
 ##### Updating a v0.1-3 Project to a v0.3-1 Project
 
-* Create the new ProjectTemplate directories you're missing. It's probably easiest to make a new empty project and copy the missing directories from the empty project into your existing project.
+* Create the new LoadMyData directories you're missing. It's probably easiest to make a new empty project and copy the missing directories from the empty project into your existing project.
   * `create.project('tmp')`
   * `mv tmp/cache/ .`
   * `mv tmp/config/ .`

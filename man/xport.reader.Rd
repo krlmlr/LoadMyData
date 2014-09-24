@@ -19,7 +19,7 @@ No value is returned; this function is called for its side effects.
 This function will load the specified XPort file into memory.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{xport.reader('example.xport', 'data/example.xport', 'example')}
 }

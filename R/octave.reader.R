@@ -9,7 +9,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{octave.reader('example.m', 'data/example.m', 'example')}
 octave.reader <- function(data.file, filename, variable.name)

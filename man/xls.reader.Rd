@@ -21,7 +21,7 @@ gdata package. Each sheet of the Excel workbook will be read into a
 separate variable in the global environment.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{xls.reader('example.xls', 'data/example.xls', 'example')}
 }

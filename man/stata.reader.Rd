@@ -19,7 +19,7 @@ No value is returned; this function is called for its side effects.
 This function will load the specified Stata file into memory.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{stata.reader('example.stata', 'data/example.stata', 'example')}
 }

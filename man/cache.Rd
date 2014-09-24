@@ -19,7 +19,7 @@ at load time when calling \code{\link{load.project}}. Cached data sets are
 stored as \code{.RData} files.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 \dontrun{create.project('tmp-project')
 
 setwd('tmp-project')

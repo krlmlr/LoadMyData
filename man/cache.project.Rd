@@ -16,7 +16,7 @@ that you've modified during a slow munging process that does not
 need to be repeated.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 \dontrun{load.project()
 
 cache.project()}

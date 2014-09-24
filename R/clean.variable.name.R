@@ -11,7 +11,7 @@
 #' @return A translated variable name.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{clean.variable.name('example_1')}
 clean.variable.name <- function(variable.name)

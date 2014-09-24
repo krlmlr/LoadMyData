@@ -1,9 +1,9 @@
 ---
 layout: page
 ---
-For latest release notes please visit the [Releases page](https://github.com/johnmyleswhite/ProjectTemplate/releases) at GitHub.
-Bleeding-edge development is reflected in the [ChangeLog](https://github.com/johnmyleswhite/ProjectTemplate/blob/master/ChangeLog) and in the [list of commits](https://github.com/johnmyleswhite/ProjectTemplate/commits/master):
-The raw ProjectTemplate source code is always the place to go for ground truth.
+For latest release notes please visit the [Releases page](https://github.com/johnmyleswhite/LoadMyData/releases) at GitHub.
+Bleeding-edge development is reflected in the [ChangeLog](https://github.com/johnmyleswhite/LoadMyData/blob/master/ChangeLog) and in the [list of commits](https://github.com/johnmyleswhite/LoadMyData/commits/master):
+The raw LoadMyData source code is always the place to go for ground truth.
 
 The list of changes below covers all releases up to and including v0.4-2. It is not necessarily exhaustive.
 
@@ -20,7 +20,7 @@ The list of changes below covers all releases up to and including v0.4-2. It is 
 #### v0.3-6
 
 * Added Postgres support through RPostgreSQL
-* Very rough ODBC support. See example in `ProjectTemplate:::sql.reader` documentation.
+* Very rough ODBC support. See example in `LoadMyData:::sql.reader` documentation.
 * `.dat` files are now read as if they were `.wsv` files.
 * Revised documentation.
 

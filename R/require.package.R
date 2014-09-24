@@ -12,7 +12,7 @@
 #' @export
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{require.project('PackageName')}
 require.package <- function(package.name)

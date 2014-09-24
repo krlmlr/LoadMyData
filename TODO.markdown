@@ -1,4 +1,4 @@
-# The ProjectTemplate TODO
+# The LoadMyData TODO
 
 ## Unit Testing of File Formats
 * Get a copy of the standard sample data file in `.rec` format.

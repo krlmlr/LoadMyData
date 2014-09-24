@@ -21,7 +21,7 @@ This function will load the specified RData file into memory using the
 simultaneously.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{rdata.reader('example.RData', 'data/example.RData', 'example')}
 }

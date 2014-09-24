@@ -14,7 +14,7 @@
 #'   \code{\link{cache.project}}, \code{\link{show.project}}
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{load.project()}
 load.project <- function(override.config = NULL)
@@ -281,17 +281,17 @@ load.project <- function(override.config = NULL)
   if (version.diff < 0) {
     if (warn.migrate) {
       warning('Your configuration is compatible with version ', config$version,
-              ' of the ProjectTemplate package.\n  Please run ProjectTemplate::migrate.project() to migrate to the installed version ',
+              ' of the LoadMyData package.\n  Please run LoadMyData::migrate.project() to migrate to the installed version ',
               package.version, '.')
     }
   } else if (version.diff > 0) {
     stop('Your configuration is compatible with version ', config$version,
-         ' of the ProjectTemplate package.\n  Please upgrade ProjectTemplate to version ', config$version, ' or later.')
+         ' of the LoadMyData package.\n  Please upgrade LoadMyData to version ', config$version, ' or later.')
   }
 
   version.diff
 }
 
 .package.version <- function() {
-  as.character(read.dcf(system.file("DESCRIPTION", package = "ProjectTemplate"), fields = "Version"))
+  as.character(read.dcf(system.file("DESCRIPTION", package = "LoadMyData"), fields = "Version"))
 }

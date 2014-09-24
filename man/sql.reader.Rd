@@ -27,7 +27,7 @@ queries can support string interpolation to execute code snippets using mustache
 to create queries that depend on data from other sources. Code delimited is \{\{...\}\}
 
 Example: query: SELECT * FROM my_table WHERE id IN (\{\{ids\}\}).
-Here ids is a vector previously loaded into the Global Environment through ProjectTemplate
+Here ids is a vector previously loaded into the Global Environment through LoadMyData
 
 Examples of the DCF format and settings used in a .sql file are shown
 below:
@@ -108,7 +108,7 @@ dbname: herokudb
 query: select * from emp
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{sql.reader('example.sql', 'data/example.sql', 'example')}
 }

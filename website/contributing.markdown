@@ -1,11 +1,11 @@
 ---
 layout: page
 ---
-If you have changes you'd like to make to ProjectTemplate, we'd love to see them. We'd prefer that you fork ProjectTemplate through [GitHub](https://github.com/johnmyleswhite/ProjectTemplate) and submit a pull request. If that's not possible, please submit a patch to the [ProjectTemplate Google Group](http://groups.google.com/group/projecttemplate) so that we can manually incorporate your changes.
+If you have changes you'd like to make to LoadMyData, we'd love to see them. We'd prefer that you fork LoadMyData through [GitHub](https://github.com/johnmyleswhite/LoadMyData) and submit a pull request. If that's not possible, please submit a patch to the [LoadMyData Google Group](http://groups.google.com/group/projecttemplate) so that we can manually incorporate your changes.
 
 #### Issues & Suggestions
 
-Please report bugs, issues or suggestions on our [GitHub Issues Page](https://github.com/johnmyleswhite/ProjectTemplate/issues). Before posting, please take a few moments to see if someone has already reported the issue or made a similar suggestion.
+Please report bugs, issues or suggestions on our [GitHub Issues Page](https://github.com/johnmyleswhite/LoadMyData/issues). Before posting, please take a few moments to see if someone has already reported the issue or made a similar suggestion.
 
 #### Creator
 
@@ -18,7 +18,7 @@ Please report bugs, issues or suggestions on our [GitHub Issues Page](https://gi
 
 #### Code Contributors
 
-* [People who supplied pull requests](https://github.com/johnmyleswhite/ProjectTemplate/graphs/contributors)
+* [People who supplied pull requests](https://github.com/johnmyleswhite/LoadMyData/graphs/contributors)
 * Diego Valle-Jones
 * Patrick Schalk
 * Noah Lorang
@@ -32,4 +32,4 @@ Please report bugs, issues or suggestions on our [GitHub Issues Page](https://gi
 * Jamie Olson
 * The Ruby on Rails Developers
 
-If you've contributed code or ideas to ProjectTemplate and we left you off the various thanks list, please let us know so that we can correct our mistake.
+If you've contributed code or ideas to LoadMyData and we left you off the various thanks list, please let us know so that we can correct our mistake.

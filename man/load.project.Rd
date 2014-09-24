@@ -17,7 +17,7 @@ This function automatically load all of the data and packages used by
 the project from which it is called.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{load.project()}
 }

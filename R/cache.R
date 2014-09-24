@@ -12,7 +12,7 @@
 #'
 #' @export
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #' \dontrun{create.project('tmp-project')
 #'
 #' setwd('tmp-project')

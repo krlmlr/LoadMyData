@@ -15,7 +15,7 @@ future versions of this function will provide a means of running
 the analyses in parallel.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{run.project()}
 }

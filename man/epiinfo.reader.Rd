@@ -20,7 +20,7 @@ This function will load all of the data sets stored in the specified
 Epi Info file into the global environment.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{epiinfo.reader('example.rec', 'data/example.rec', 'example')}
 }

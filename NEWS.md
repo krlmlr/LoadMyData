@@ -16,8 +16,8 @@ v0.5-1.1 (2014-09-23)
 ===
 
 * New function `migrate.project()` that allows upgrading a project to the
-  current version of ProjectTemplate (#90).
-* The configuration now stores the version of ProjectTemplate in the `version`
+  current version of LoadMyData (#90).
+* The configuration now stores the version of LoadMyData in the `version`
   field (#90).
 * New parameter `override.config` to `load.project()` and `reload.project()`
   allows substitution of individual configuration items (#76).
@@ -60,7 +60,7 @@ Features
 Internal
 ---
 
-* Fix CRAN warnings concerning use of `ProjectTemplate:::` qualification
+* Fix CRAN warnings concerning use of `LoadMyData:::` qualification
   (#56).
 * Fix CRAN warnings concerning assignments to `.GlobalEnv`.
 * Updated author information in DESCRIPTION file (#40).
@@ -116,7 +116,7 @@ v0.3-6 (2011-07-13)
 ===
 
 * Added Postgres support through RPostgreSQL
-* Very rough ODBC support. See example in ProjectTemplate:::sql.reader documentation.
+* Very rough ODBC support. See example in LoadMyData:::sql.reader documentation.
 * '.dat' files are now read as if they were '.wsv' files.
 * Revised documentation.
 
@@ -199,7 +199,7 @@ v0.1-3 (2010-10-02)
 * load.project() does not autoload libraries that are not dependencies.
 * Added a sample profiling script.
 * Added a sample test that always passes to the default project.
-* Added a basic show.updates() function for porting projects to newer releases of ProjectTemplate.
+* Added a basic show.updates() function for porting projects to newer releases of LoadMyData.
 
 v0.1-2 (2010-08-26)
 ===

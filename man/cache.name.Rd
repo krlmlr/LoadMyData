@@ -16,7 +16,7 @@ This function will translate a variable name into a form that is
 suitable as a filename on most OS's.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{cache.name('example.1')}
 }

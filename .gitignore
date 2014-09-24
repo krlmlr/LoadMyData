@@ -1,6 +1,6 @@
 build_script.sh
 upload.sh
-ProjectTemplate.Rcheck
+LoadMyData.Rcheck
 data_examples
 .DS_Store
 ideas

@@ -9,7 +9,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{xport.reader('example.xport', 'data/example.xport', 'example')}
 xport.reader <- function(data.file, filename, variable.name)

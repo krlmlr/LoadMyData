@@ -27,11 +27,11 @@ Examples of the DCF format and settings used in a .url file are shown
 below:
 
 Example 1
-url: http://www.johnmyleswhite.com/ProjectTemplate/sample_data.csv
+url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 separator: ,
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{url.reader('example.url', 'data/example.url', 'example')}
 }

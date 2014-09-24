@@ -4,19 +4,19 @@
 #' It will set up all of the relevant directories and their initial
 #' contents. For those who only want the minimal functionality, the
 #' \code{minimal} argument can be set to \code{TRUE} to create a subset of
-#' ProjectTemplate's default directories. For those who want to dump
-#' all of ProjectTemplate's functionality into a directory for extensive
+#' LoadMyData's default directories. For those who want to dump
+#' all of LoadMyData's functionality into a directory for extensive
 #' customization, the \code{dump} argument can be set to \code{TRUE}.
 #'
 #' @param project.name A character vector containing the name for this new
 #'   project. Must be a valid directory name for your file system.
 #' @param minimal A boolean value indicating whether to create a minimal
 #'   project or a full project. A minimal project contains only the
-#'   directories strictly necessary to use ProjectTemplate and does not
+#'   directories strictly necessary to use LoadMyData and does not
 #'   provide template code for profiling, unit testing or documenting your
 #'   project.
 #' @param dump A boolean value indicating whether the entire functionality
-#'   of ProjectTemplate should be written out to flat files in the current
+#'   of LoadMyData should be written out to flat files in the current
 #'   project.
 #' @param merge.strategy What should happen if the target directory exists and
 #'   is not empty?
@@ -35,14 +35,14 @@
 #' @export
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{create.project('MyProject')}
 create.project <- function(project.name = 'new-project', minimal = FALSE,
                            dump = FALSE, merge.strategy = c("require.empty", "allow.non.conflict"))
 {
   template.name <- if (minimal) 'minimal' else 'full'
-  temp.dir <- tempfile("ProjectTemplate")
+  temp.dir <- tempfile("LoadMyData")
   on.exit(unlink(temp.dir, recursive = TRUE), add = TRUE)
   untar(.get.template.tar.path(template.name), exdir = temp.dir,
         tar = "internal")
@@ -56,7 +56,7 @@ create.project <- function(project.name = 'new-project', minimal = FALSE,
 
   if (dump)
   {
-    1; # Magic happens here to place all of the R files from ProjectTemplate in the current folder.
+    1; # Magic happens here to place all of the R files from LoadMyData in the current folder.
 
     # For time being, just copy the entire contents of defaults/* and then also copy the collated R source.
     # Seriously broken at the moment.
@@ -100,7 +100,7 @@ create.project <- function(project.name = 'new-project', minimal = FALSE,
             project.path,
             recursive = TRUE, overwrite = FALSE)
 
-  file.copy(from = system.file('defaults/config/global.dcf', package = 'ProjectTemplate'),
+  file.copy(from = system.file('defaults/config/global.dcf', package = 'LoadMyData'),
             to = file.path(project.path, 'config/global.dcf'))
 }
 
@@ -122,7 +122,7 @@ create.project <- function(project.name = 'new-project', minimal = FALSE,
 }
 
 .get.template.tar.path <- function(template.name)
-  system.file(file.path('defaults', paste0(template.name, ".tar")), package = 'ProjectTemplate')
+  system.file(file.path('defaults', paste0(template.name, ".tar")), package = 'LoadMyData')
 
 .list.files.and.dirs <- function(path) {
   # no.. not available in R 2.15.3

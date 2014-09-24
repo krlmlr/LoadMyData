@@ -1,11 +1,11 @@
 ---
 layout: page
 ---
-ProjectTemplate can automatically load a variety of text based file formats, including comma separated value (CSV) files, tab separated value (TSV) files and generic whitespace separated value (WSV) files. In addition, automatic data loading is supported for several binary file formats, including the RData, SPSS, Stata and SAS formats.
+LoadMyData can automatically load a variety of text based file formats, including comma separated value (CSV) files, tab separated value (TSV) files and generic whitespace separated value (WSV) files. In addition, automatic data loading is supported for several binary file formats, including the RData, SPSS, Stata and SAS formats.
 
 Beyond those file formats, several ad hoc file types support the loading of data sets that are accessible over HTTP or contained in SQL databases, such as MySQL and sqlite.
 
-Please note that several of file formats have not been tested yet, including Weka files, DBF files, EPIInfo files, MTP files, Octave files, Systat files and SAS files. Because ProjectTemplate is simply wrapping the 'foreign' package, these file formats are expected to work, but we have not confirmed that yet. Your mileage may vary.
+Please note that several of file formats have not been tested yet, including Weka files, DBF files, EPIInfo files, MTP files, Octave files, Systat files and SAS files. Because LoadMyData is simply wrapping the 'foreign' package, these file formats are expected to work, but we have not confirmed that yet. Your mileage may vary.
 
 #### Supported File Extensions
 
@@ -69,10 +69,10 @@ You can access CSV files over HTTP using the `.url` file extension. Inside
 of the `.url` file, you must place DCF that describes your data sources.
 An example file is shown below:
 
-        url: http://www.johnmyleswhite.com/ProjectTemplate/sample_data.csv
+        url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 
 ##### SQL Files
-ProjectTemplate supports access to many of the most common databases. All databases use the `.sql` file extension. Inside of the `.sql` file, you must place DCF that describes the connection protocol for your database. Example files for the support databases are shown below.
+LoadMyData supports access to many of the most common databases. All databases use the `.sql` file extension. Inside of the `.sql` file, you must place DCF that describes the connection protocol for your database. Example files for the support databases are shown below.
 
 ###### MySQL:
         type: mysql
@@ -136,7 +136,7 @@ This is a special case of the JDBC driver. It requires the current [PostgreSQL J
         query: select * from emp
 
 ##### .file Files
-You can load data that is not stored in the current project using a `.file` file. You must specify the path and the extension that the file would have, if it were being loaded by the standard ProjectTemplate auto-loader. An example is shown below that would load an SQLite3 database stored in a separate location:
+You can load data that is not stored in the current project using a `.file` file. You must specify the path and the extension that the file would have, if it were being loaded by the standard LoadMyData auto-loader. An example is shown below that would load an SQLite3 database stored in a separate location:
 
         path: /path/to/sample_database
         extension: db
@@ -144,7 +144,7 @@ You can load data that is not stored in the current project using a `.file` file
 #### Future Support For Data Sources
 
 It is possible to provide support for new data sources by hooking into
-ProjectTemplate.
+LoadMyData.
 The [ElasticSearch reader](https://github.com/KentonWhite/esReader) is a working
 example of how to achieve this.  We are looking forward to linking to your
 custom readers for new data sources, such as SQL Server, MongoDB or CouchDB.

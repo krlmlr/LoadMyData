@@ -10,7 +10,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{csv2.reader('example.csv2', 'data/example.csv2', 'example')}
 csv2.reader <- function(data.file, filename, variable.name)

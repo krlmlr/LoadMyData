@@ -18,7 +18,7 @@ from scratch. This is useful when you've updated your data sets or
 changed your preprocessing scripts.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{load.project()
 

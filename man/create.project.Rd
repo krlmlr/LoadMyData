@@ -12,12 +12,12 @@ project. Must be a valid directory name for your file system.}
 
 \item{minimal}{A boolean value indicating whether to create a minimal
 project or a full project. A minimal project contains only the
-directories strictly necessary to use ProjectTemplate and does not
+directories strictly necessary to use LoadMyData and does not
 provide template code for profiling, unit testing or documenting your
 project.}
 
 \item{dump}{A boolean value indicating whether the entire functionality
-of ProjectTemplate should be written out to flat files in the current
+of LoadMyData should be written out to flat files in the current
 project.}
 
 \item{merge.strategy}{What should happen if the target directory exists and
@@ -34,8 +34,8 @@ This function will create all of the scaffolding for a new project.
 It will set up all of the relevant directories and their initial
 contents. For those who only want the minimal functionality, the
 \code{minimal} argument can be set to \code{TRUE} to create a subset of
-ProjectTemplate's default directories. For those who want to dump
-all of ProjectTemplate's functionality into a directory for extensive
+LoadMyData's default directories. For those who want to dump
+all of LoadMyData's functionality into a directory for extensive
 customization, the \code{dump} argument can be set to \code{TRUE}.
 }
 \details{
@@ -43,7 +43,7 @@ If the target directory does not exist, it is created.  Otherwise,
   it can only contain files and directories allowed by the merge strategy.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{create.project('MyProject')}
 }

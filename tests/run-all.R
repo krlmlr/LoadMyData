@@ -1,3 +1,3 @@
 library(testthat)
 
-test_check("ProjectTemplate")
+test_check("LoadMyData")

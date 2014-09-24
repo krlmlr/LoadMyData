@@ -19,7 +19,7 @@ No value is returned; this function is called for its side effects.
 This function will load the specified Octave file into memory.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{octave.reader('example.m', 'data/example.m', 'example')}
 }

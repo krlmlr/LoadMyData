@@ -16,7 +16,7 @@ for the tests: it is recommend that each test begin with a number
 specifying its position in the sequence.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{load.project()
 

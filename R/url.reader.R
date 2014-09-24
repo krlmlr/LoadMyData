@@ -10,7 +10,7 @@
 #' below:
 #'
 #' Example 1
-#' url: http://www.johnmyleswhite.com/ProjectTemplate/sample_data.csv
+#' url: http://www.johnmyleswhite.com/LoadMyData/sample_data.csv
 #' separator: ,
 #'
 #' @param data.file The name of the data file to be read.
@@ -20,7 +20,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{url.reader('example.url', 'data/example.url', 'example')}
 url.reader <- function(data.file, filename, variable.name)

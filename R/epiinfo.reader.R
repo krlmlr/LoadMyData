@@ -10,7 +10,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{epiinfo.reader('example.rec', 'data/example.rec', 'example')}
 epiinfo.reader <- function(data.file, filename, variable.name)

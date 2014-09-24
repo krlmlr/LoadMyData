@@ -4,4 +4,4 @@
 #' in the configuration of the current project.
 #'
 #' @include translate.dcf.R
-default.config <- translate.dcf(system.file('defaults/config/default.dcf', package = 'ProjectTemplate'))
+default.config <- translate.dcf(system.file('defaults/config/default.dcf', package = 'LoadMyData'))

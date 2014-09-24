@@ -16,7 +16,7 @@ each function. The resulting tests are stored in the file
 so you should edit them before calling \code{\link{test.project}}.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{stub.tests()}
 }

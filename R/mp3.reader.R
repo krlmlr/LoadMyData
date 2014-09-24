@@ -11,7 +11,7 @@
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @examples
-#' library('ProjectTemplate')
+#' library('LoadMyData')
 #'
 #' \dontrun{mp3.reader('example.mp3', 'data/example.mp3', 'example')}
 mp3.reader <- function(data.file, filename, variable.name)

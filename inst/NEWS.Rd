@@ -1,6 +1,6 @@
 \name{NEWS}
-\title{News for Package 'ProjectTemplate'}
-\section{Changes in ProjectTemplate version 0.5-1 (2014-03-17)}{
+\title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.5-1 (2014-03-17)}{
   \subsection{Bug fixes}{
     \itemize{
       \item Restore compatibility to R 2.15.3 by avoiding use of the \code{no..} parameter
@@ -8,7 +8,7 @@
     }
   }
 }
-\section{Changes in ProjectTemplate version 0.5 (2014-03-13)}{
+\section{Changes in LoadMyData version 0.5 (2014-03-13)}{
   \subsection{Features}{
     \itemize{
       \item New function \code{get.project()} to access \code{project.info}.
@@ -21,7 +21,7 @@
   }
   \subsection{Internal}{
     \itemize{
-      \item Fix CRAN warnings concerning use of \code{ProjectTemplate:::} qualification
+      \item Fix CRAN warnings concerning use of \code{LoadMyData:::} qualification
          (#56).
       \item Fix CRAN warnings concerning assignments to \code{.GlobalEnv}.
       \item Updated author information in DESCRIPTION file (#40).
@@ -31,7 +31,7 @@
     }
   }
 }
-\section{Changes in ProjectTemplate version 0.4-5 (2014-02-11)}{
+\section{Changes in LoadMyData version 0.4-5 (2014-02-11)}{
   \itemize{
     \item New maintainers: Kirill Müller  <mail@kirill-mueller.de>, Kenton White  <jkentonwhite@gmail.com>
     \item Allow string interpolation of R functions in sql queries
@@ -44,7 +44,7 @@
        directory is supported by setting the new parameter merge.strategy.
   }
 }
-\section{Changes in ProjectTemplate version 0.4-4 (2013-08-11)}{
+\section{Changes in LoadMyData version 0.4-4 (2013-08-11)}{
   \itemize{
     \item Fix CRAN checks (@krlmlr).
     \item project.info is now an active binding to avoid writing to the global
@@ -57,33 +57,33 @@
     \item Tentative CSV2 support.
   }
 }
-\section{Changes in ProjectTemplate version 0.4-3 (2012-08-11)}{
+\section{Changes in LoadMyData version 0.4-3 (2012-08-11)}{
   \itemize{
     \item Added optional recursive data directory loading using a 'recursive_loading' setting.
     \item Added basic Oracle support (with tnsnames, no host/port) (@matteoredaelli, #6).
   }
 }
-\section{Changes in ProjectTemplate version 0.4-2 (2012-05-12)}{
+\section{Changes in LoadMyData version 0.4-2 (2012-05-12)}{
   \itemize{
     \item Had to disable xlsx.reader temporarily because it does not build for 2.15.
   }
 }
-\section{Changes in ProjectTemplate version 0.4-1 (2011-11-23)}{
+\section{Changes in LoadMyData version 0.4-1 (2011-11-23)}{
   \itemize{
     \item Added 'eda.R' example file in 'src/' directory.
     \item Allow loading from 'cache/' without loading from 'data/' through 'cache_loading' setting.
     \item Revised documentation.
   }
 }
-\section{Changes in ProjectTemplate version 0.3-6 (2011-07-13)}{
+\section{Changes in LoadMyData version 0.3-6 (2011-07-13)}{
   \itemize{
     \item Added Postgres support through RPostgreSQL
-    \item Very rough ODBC support. See example in ProjectTemplate:::sql.reader documentation.
+    \item Very rough ODBC support. See example in LoadMyData:::sql.reader documentation.
     \item '.dat' files are now read as if they were '.wsv' files.
     \item Revised documentation.
   }
 }
-\section{Changes in ProjectTemplate version 0.3-5 (2011-07-08)}{
+\section{Changes in LoadMyData version 0.3-5 (2011-07-08)}{
   \itemize{
     \item Added a cache.project() function.
     \item 'as_factors' configuration option suppresses automatic character-to-factor conversion.
@@ -94,7 +94,7 @@
     \item Added unit tests for SPSS, Stata and SAS file formats.
   }
 }
-\section{Changes in ProjectTemplate version 0.3-4 (2011-07-03)}{
+\section{Changes in LoadMyData version 0.3-4 (2011-07-03)}{
   \itemize{
     \item Increased SQLite3 support
     \item Load all tables from SQLite3 database using a .sql file: set table = *
@@ -105,7 +105,7 @@
     \item Added a show.project() function that gives all known information about a project's internal state.
   }
 }
-\section{Changes in ProjectTemplate version 0.3-3 (2011-06-28)}{
+\section{Changes in LoadMyData version 0.3-3 (2011-06-28)}{
   \itemize{
     \item Added a reload.project() function.
     \item Improved error handling.
@@ -113,12 +113,12 @@
     \item Fixed a bug in cache().
   }
 }
-\section{Changes in ProjectTemplate version 0.3-2 (2011-06-27)}{
+\section{Changes in LoadMyData version 0.3-2 (2011-06-27)}{
   \itemize{
     \item Added new *Reader functions.
   }
 }
-\section{Changes in ProjectTemplate version 0.3-1 (2011-06-24)}{
+\section{Changes in LoadMyData version 0.3-1 (2011-06-24)}{
   \itemize{
     \item Switched configuration system over to DCF format.
     \item Ability to create full projects or minimal projects.
@@ -127,7 +127,7 @@
     \item Fixed a bug in cache().
   }
 }
-\section{Changes in ProjectTemplate version 0.2-1 (2010-12-03)}{
+\section{Changes in LoadMyData version 0.2-1 (2010-12-03)}{
   \itemize{
     \item Moved boot.R's logic into functions and configuration files.
     \item Added SQLite support using the RSQLite package.
@@ -146,7 +146,7 @@
     \item Added XSLX support.
   }
 }
-\section{Changes in ProjectTemplate version 0.1-3 (2010-10-02)}{
+\section{Changes in LoadMyData version 0.1-3 (2010-10-02)}{
   \itemize{
     \item Many changes to load_data.R.
     \item Added notices when data sets are autoloaded.
@@ -161,17 +161,17 @@
     \item load.project() does not autoload libraries that are not dependencies.
     \item Added a sample profiling script.
     \item Added a sample test that always passes to the default project.
-    \item Added a basic show.updates() function for porting projects to newer releases of ProjectTemplate.
+    \item Added a basic show.updates() function for porting projects to newer releases of LoadMyData.
   }
 }
-\section{Changes in ProjectTemplate version 0.1-2 (2010-08-26)}{
+\section{Changes in LoadMyData version 0.1-2 (2010-08-26)}{
   \itemize{
     \item Cleaned up documentation.
     \item Rewrote backend.
     \item Added load.package() and run.tests() functions.
   }
 }
-\section{Changes in ProjectTemplate version 0.1-1 (2010-08-24)}{
+\section{Changes in LoadMyData version 0.1-1 (2010-08-24)}{
   \itemize{
     \item Maintainer: John Myles White  <jmw@johnmyleswhite.com>
     \item Initial release.

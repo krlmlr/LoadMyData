@@ -14,11 +14,11 @@ Returns a list containing the entries from the DCF file.
 }
 \description{
 This function will read a DCF file and translate the resulting
-data frame into a list. The DCF format is used throughout ProjectTemplate
+data frame into a list. The DCF format is used throughout LoadMyData
 for configuration settings and ad hoc file format specifications.
 }
 \examples{
-library('ProjectTemplate')
+library('LoadMyData')
 
 \dontrun{translate.dcf(file.path('config', 'global.dcf'))}
 }

@@ -11,7 +11,7 @@ test_that('Test matching version field', {
 
 })
 
-test_that('Test too old version of ProjectTemplate', {
+test_that('Test too old version of LoadMyData', {
 
   create.project('test_project', minimal = TRUE)
   setwd('test_project')
@@ -22,11 +22,11 @@ test_that('Test too old version of ProjectTemplate', {
   config$version <- paste0('1', config$version)
   write.dcf(config, 'config/global.dcf')
 
-  expect_that(load.project(), throws_error("Please upgrade ProjectTemplate"))
+  expect_that(load.project(), throws_error("Please upgrade LoadMyData"))
 
 })
 
-test_that('Test new version of ProjectTemplate', {
+test_that('Test new version of LoadMyData', {
 
   create.project('test_project', minimal = TRUE)
   setwd('test_project')
@@ -38,7 +38,7 @@ test_that('Test new version of ProjectTemplate', {
   write.dcf(config, 'config/global.dcf')
 
   expect_that(suppressMessages(load.project()),
-              gives_warning("ProjectTemplate::migrate.project()"))
+              gives_warning("LoadMyData::migrate.project()"))
 
 })
 
