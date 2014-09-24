@@ -26,10 +26,20 @@ dataformat <- function(file_name, check_exists = TRUE, override_extension = NULL
     dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
     if (length(dotted_components) <= 1L)
       stop("cannot detect extension from file ", file_name)
-    override_extension <- tail(dotted_components, 1L)
+    extensions <- paste(dotted_components[-1L], sep = ".")
+  } else {
+    extensions <- strsplit(override_extension, ".", fixed = TRUE)[[1L]]
   }
-  class_names <- sprintf("dataformat.%s", override_extension)
+
+  class_names <- vapply(
+    seq_along(extensions),
+    function(x)
+      paste(c("dataformat", extensions[seq.int(x, length(extensions))]),
+            collapse = "."),
+    character(1)
+  )
   class_names <- c(class_names, "dataformat")
+
   structure(file_name, class = class_names)
 }
 
