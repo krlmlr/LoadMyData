@@ -1,3 +1,6 @@
+v0.0-0.4 (2014-09-24)
+===
+
 * resurrect clean.variable.name function
 
 v0.0-0.3 (2014-09-24)
