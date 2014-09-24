@@ -1,5 +1,7 @@
-* rename `xxx.reader` to `reader.xxx` in code and file names
-* support methods for new S3 class `dataformat`
+* Rename `xxx.reader` to `reader.dataformat.xxx` in code and file names
+* Support methods for new S3 class `dataformat`
+* Remove `extension.dispatch.table` and related functionality
+* All tests pass, but no full coverage yet
 
 v0.0-1 (2014-09-24)
 ===
