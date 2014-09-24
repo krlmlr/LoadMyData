@@ -1,7 +1,7 @@
 Package: LoadMyData
 Type: Package
 Title: Automates loading data based on the file extension
-Version: 0.0-0.4
+Version: 0.0-0.5
 Date: 2014-09-24
 Authors@R: c(person("Aleksandar", "Blagotic", role = "ctb"), person("Diego",
     "Valle-Jones", role = "ctb"), person("Jeffrey", "Breen", role = "ctb"),

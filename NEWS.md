@@ -1,3 +1,6 @@
+v0.0-0.5 (2014-09-24)
+===
+
 * Removed code that does not belong to this project, again
 * All tests pass
 
