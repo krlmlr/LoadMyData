@@ -68,5 +68,6 @@ Collate:
     'extensions.dispatch.table.R'
     'add.extension.R'
     'clean.variable.name.R'
+    'dataformat.R'
     'help.R'
     'translate.dcf.R'
