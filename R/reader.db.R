@@ -3,11 +3,12 @@
 #' This function will load all of the data sets stored in the SQlite3
 #' database into the global environment. If you want to specify a single
 #' table or query to execute against the database, move it elsewhere and
-#' use a .sql file interpreted by \code{\link{reader.sql}}.
+#' use a .sql file interpreted by \code{\link{reader.dataformat.sql}}.
 #'
 #' @param data.file The name of the data file to be read.
-#' @param filename The path to the data set to be loaded.
+#' @param x The path to the data set to be loaded.
 #' @param variable.name The name to be assigned to in the global environment.
+#' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -15,13 +16,13 @@
 #'
 #' @examples
 #' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
-reader.dataformat.db <- function(filename, data.file, variable.name)
+reader.dataformat.db <- function(x, data.file, variable.name, ...)
 {
   require.package('RSQLite')
 
   sqlite.driver <- dbDriver("SQLite")
   connection <- dbConnect(sqlite.driver,
-                          dbname = filename)
+                          dbname = x)
 
   tables <- dbListTables(connection)
   for (table in tables)
@@ -40,6 +41,6 @@ reader.dataformat.db <- function(filename, data.file, variable.name)
   disconnect.success <- dbDisconnect(connection)
   if (! disconnect.success)
   {
-    warning(paste('Unable to disconnect from database:', filename))
+    warning(paste('Unable to disconnect from database:', x))
   }
 }

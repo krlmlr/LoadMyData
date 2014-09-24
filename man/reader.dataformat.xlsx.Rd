@@ -3,14 +3,16 @@
 \alias{reader.dataformat.xlsx}
 \title{Read an Excel 2007 file with a .xlsx file extension.}
 \usage{
-\method{reader}{dataformat.xlsx}(filename, data.file, workbook.name)
+\method{reader}{dataformat.xlsx}(x, data.file, workbook.name, ...)
 }
 \arguments{
-\item{filename}{The path to the data set to be loaded.}
+\item{x}{The path to the data set to be loaded.}
 
 \item{data.file}{The name of the data file to be read.}
 
 \item{workbook.name}{The name to be assigned to in the global environment.}
+
+\item{...}{Further arguments.}
 }
 \value{
 No value is returned; this function is called for its side effects.

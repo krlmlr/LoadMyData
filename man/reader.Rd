@@ -9,7 +9,7 @@ reader(x, ...)
 \item{x}{An object of class \code{dataformat}, will be coerced using
 \code{\link{as.dataformat}} if necessary.}
 
-\item{...}{Further parameters}
+\item{...}{Further arguments.}
 }
 \value{
 A list where each element corresponds to a loaded data item.

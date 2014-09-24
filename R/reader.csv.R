@@ -4,8 +4,9 @@
 #' the specified global variable binding.
 #'
 #' @param data.file The name of the data file to be read.
-#' @param filename The path to the data set to be loaded.
+#' @param x The path to the data set to be loaded.
 #' @param variable.name The name to be assigned to in the global environment.
+#' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -13,10 +14,10 @@
 #'
 #' @examples
 #' \dontrun{reader.csv('example.csv', 'data/example.csv', 'example')}
-reader.dataformat.csv <- function(filename, variable.name)
+reader.dataformat.csv <- function(x, variable.name, ...)
 {
   assign(variable.name,
-         read.csv(filename,
+         read.csv(x,
                   header = TRUE,
                   sep = ','),
          envir = .TargetEnv)
@@ -36,13 +37,13 @@ reader.dataformat.csv.xz <- reader.dataformat.csv
 
 #' @export
 #' @rdname reader.dataformat.csv
-reader.dataformat.csv.zip <- function(filename, data.file, ...)
+reader.dataformat.csv.zip <- function(x, data.file, ...)
 {
   tmp.dir <- tempdir()
   tmp.path <- file.path(tmp.dir, data.file)
-  file.copy(filename, tmp.path)
-  unzip(filename, exdir = tmp.dir)
-  filename <- file.path(tmp.dir, sub('\\.zip$', '', data.file))
+  file.copy(x, tmp.path)
+  unzip(x, exdir = tmp.dir)
+  x <- file.path(tmp.dir, sub('\\.zip$', '', data.file))
 
-  reader(dataformat(filename), ...)
+  reader(dataformat(x), ...)
 }

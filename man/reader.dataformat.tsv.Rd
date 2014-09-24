@@ -3,14 +3,16 @@
 \alias{reader.dataformat.tsv}
 \title{Read a tab separated values (.tsv or .tab) file.}
 \usage{
-\method{reader}{dataformat.tsv}(filename, data.file, variable.name)
+\method{reader}{dataformat.tsv}(x, data.file, variable.name, ...)
 }
 \arguments{
-\item{filename}{The path to the data set to be loaded.}
+\item{x}{The path to the data set to be loaded.}
 
 \item{data.file}{The name of the data file to be read.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
+
+\item{...}{Further arguments.}
 }
 \value{
 No value is returned; this function is called for its side effects.

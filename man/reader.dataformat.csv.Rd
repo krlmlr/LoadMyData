@@ -7,20 +7,22 @@
 \alias{reader.dataformat.csv.zip}
 \title{Read a comma separated values (.csv) file.}
 \usage{
-\method{reader}{dataformat.csv}(filename, variable.name)
+\method{reader}{dataformat.csv}(x, variable.name, ...)
 
-\method{reader}{dataformat.csv.gz}(filename, variable.name)
+\method{reader}{dataformat.csv.gz}(x, variable.name, ...)
 
-\method{reader}{dataformat.csv.bz2}(filename, variable.name)
+\method{reader}{dataformat.csv.bz2}(x, variable.name, ...)
 
-\method{reader}{dataformat.csv.xz}(filename, variable.name)
+\method{reader}{dataformat.csv.xz}(x, variable.name, ...)
 
-\method{reader}{dataformat.csv.zip}(filename, data.file, ...)
+\method{reader}{dataformat.csv.zip}(x, data.file, ...)
 }
 \arguments{
-\item{filename}{The path to the data set to be loaded.}
+\item{x}{The path to the data set to be loaded.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
+
+\item{...}{Further arguments.}
 
 \item{data.file}{The name of the data file to be read.}
 }

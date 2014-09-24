@@ -3,14 +3,16 @@
 \alias{reader.dataformat.db}
 \title{Read a SQlite3 database with a (.db) file extension.}
 \usage{
-\method{reader}{dataformat.db}(filename, data.file, variable.name)
+\method{reader}{dataformat.db}(x, data.file, variable.name, ...)
 }
 \arguments{
-\item{filename}{The path to the data set to be loaded.}
+\item{x}{The path to the data set to be loaded.}
 
 \item{data.file}{The name of the data file to be read.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
+
+\item{...}{Further arguments.}
 }
 \value{
 No value is returned; this function is called for its side effects.
@@ -19,7 +21,7 @@ No value is returned; this function is called for its side effects.
 This function will load all of the data sets stored in the SQlite3
 database into the global environment. If you want to specify a single
 table or query to execute against the database, move it elsewhere and
-use a .sql file interpreted by \code{\link{reader.sql}}.
+use a .sql file interpreted by \code{\link{reader.dataformat.sql}}.
 }
 \examples{
 \dontrun{reader.db('example.db', 'data/example.db', 'example')}

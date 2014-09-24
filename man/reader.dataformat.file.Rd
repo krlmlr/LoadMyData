@@ -3,12 +3,12 @@
 \alias{reader.dataformat.file}
 \title{Read an arbitrary file described in a .file file.}
 \usage{
-\method{reader}{dataformat.file}(dataformat, ...)
+\method{reader}{dataformat.file}(x, ...)
 }
 \arguments{
-\item{...}{Parameters passed to the invoked reader}
+\item{x}{The path to the data set to be loaded.}
 
-\item{filename}{The path to the data set to be loaded.}
+\item{...}{Parameters passed to the invoked reader}
 }
 \value{
 No value is returned; this function is called for its side effects.

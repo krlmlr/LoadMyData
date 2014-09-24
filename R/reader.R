@@ -6,7 +6,7 @@
 #'
 #' @param x An object of class \code{dataformat}, will be coerced using
 #' \code{\link{as.dataformat}} if necessary.
-#' @param ... Further parameters
+#' @param ... Further arguments.
 #'
 #' @return A list where each element corresponds to a loaded data item.
 #'   Often, this will be an unnamed list with just one element.

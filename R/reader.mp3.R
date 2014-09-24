@@ -5,8 +5,9 @@
 #' set.
 #'
 #' @param data.file The name of the data file to be read.
-#' @param filename The path to the data set to be loaded.
+#' @param x The path to the data set to be loaded.
 #' @param variable.name The name to be assigned to in the global environment.
+#' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -14,11 +15,11 @@
 #'
 #' @examples
 #' \dontrun{reader.mp3('example.mp3', 'data/example.mp3', 'example')}
-reader.dataformat.mp3 <- function(filename, data.file, variable.name)
+reader.dataformat.mp3 <- function(x, data.file, variable.name, ...)
 {
   require.package('tuneR')
 
   assign(variable.name,
-         readMP3(filename),
+         readMP3(x),
          envir = .TargetEnv)
 }

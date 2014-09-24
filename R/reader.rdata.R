@@ -5,8 +5,9 @@
 #' simultaneously.
 #'
 #' @param data.file The name of the data file to be read.
-#' @param filename The path to the data set to be loaded.
+#' @param x The path to the data set to be loaded.
 #' @param variable.name The name to be assigned to in the global environment.
+#' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -14,7 +15,7 @@
 #'
 #' @examples
 #' \dontrun{reader.rdata('example.RData', 'data/example.RData', 'example')}
-reader.dataformat.rdata <- function(filename, data.file, variable.name)
+reader.dataformat.rdata <- function(x, data.file, variable.name, ...)
 {
-  load(filename, envir = .TargetEnv)
+  load(x, envir = .TargetEnv)
 }

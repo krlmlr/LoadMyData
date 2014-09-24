@@ -5,8 +5,9 @@
 #' separate variable in the global environment.
 #'
 #' @param data.file The name of the data file to be read.
-#' @param filename The path to the data set to be loaded.
+#' @param x The path to the data set to be loaded.
 #' @param workbook.name The name to be assigned to in the global environment.
+#' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
@@ -14,18 +15,18 @@
 #'
 #' @examples
 #' \dontrun{reader.xlsx('example.xlsx', 'data/example.xlsx', 'example')}
-reader.dataformat.xlsx <- function(filename, data.file, workbook.name)
+reader.dataformat.xlsx <- function(x, data.file, workbook.name, ...)
 {
   require.package('xlsx')
 
-  wb <- loadWorkbook(filename)
+  wb <- loadWorkbook(x)
   sheets <- getSheets(wb)
 
   for (sheet.name in names(sheets))
   {
     variable.name <- paste(workbook.name, clean.variable.name(sheet.name), sep = ".")
     tryCatch(assign(variable.name,
-                    read.xlsx(filename,
+                    read.xlsx(x,
                               sheetName = sheet.name,
                               header = TRUE),
                     envir = .TargetEnv),
