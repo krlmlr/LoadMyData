@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{reader.ppm('example.ppm', 'data/example.ppm', 'example')}
-reader.dataformat.ppm <- function(data.file, filename, variable.name)
+reader.dataformat.ppm <- function(filename, data.file, variable.name)
 {
   require.package('pixmap')
 

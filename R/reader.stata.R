@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{reader.stata('example.stata', 'data/example.stata', 'example')}
-reader.dataformat.stata <- function(data.file, filename, variable.name)
+reader.dataformat.stata <- function(filename, data.file, variable.name)
 {
   require.package('foreign')
 

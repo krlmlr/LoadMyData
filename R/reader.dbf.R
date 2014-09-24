@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.dbf('example.dbf', 'data/example.dbf', 'example')}
-reader.dataformat.dbf <- function(data.file, filename, variable.name)
+reader.dataformat.dbf <- function(filename, data.file, variable.name)
 {
   require.package('foreign')
 

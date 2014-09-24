@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.arff('example.arff', 'data/example.arff', 'example')}
-reader.dataformat.arff <- function(data.file, filename, variable.name)
+reader.dataformat.arff <- function(filename, data.file, variable.name)
 {
   require.package('foreign')
 

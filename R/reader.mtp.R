@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.mtp('example.mtp', 'data/example.mtp', 'example')}
-reader.dataformat.mtp <- function(data.file, filename, variable.name)
+reader.dataformat.mtp <- function(filename, data.file, variable.name)
 {
   require.package('foreign')
 

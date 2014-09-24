@@ -3,12 +3,12 @@
 \alias{reader.dataformat.wsv}
 \title{Read a whitespace separated values (.wsv or .txt) file.}
 \usage{
-\method{reader}{dataformat.wsv}(data.file, filename, variable.name)
+\method{reader}{dataformat.wsv}(filename, data.file, variable.name)
 }
 \arguments{
-\item{data.file}{The name of the data file to be read.}
-
 \item{filename}{The path to the data set to be loaded.}
+
+\item{data.file}{The name of the data file to be read.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
 }

@@ -3,12 +3,12 @@
 \alias{reader.dataformat.xport}
 \title{Read an XPort file with a .xport file extension.}
 \usage{
-\method{reader}{dataformat.xport}(data.file, filename, variable.name)
+\method{reader}{dataformat.xport}(filename, data.file, variable.name)
 }
 \arguments{
-\item{data.file}{The name of the data file to be read.}
-
 \item{filename}{The path to the data set to be loaded.}
+
+\item{data.file}{The name of the data file to be read.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
 }

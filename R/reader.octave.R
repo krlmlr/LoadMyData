@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{reader.octave('example.m', 'data/example.m', 'example')}
-reader.dataformat.octave <- function(data.file, filename, variable.name)
+reader.dataformat.octave <- function(filename, data.file, variable.name)
 {
   require.package('foreign')
 

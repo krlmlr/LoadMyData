@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' \dontrun{reader.url('example.url', 'data/example.url', 'example')}
-reader.dataformat.url <- function(data.file, filename, variable.name)
+reader.dataformat.url <- function(filename, data.file, variable.name)
 {
   url.info <- translate.dcf(filename)
 

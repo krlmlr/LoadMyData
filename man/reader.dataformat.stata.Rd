@@ -3,12 +3,12 @@
 \alias{reader.dataformat.stata}
 \title{Read a Stata file with a .stata file extension.}
 \usage{
-\method{reader}{dataformat.stata}(data.file, filename, variable.name)
+\method{reader}{dataformat.stata}(filename, data.file, variable.name)
 }
 \arguments{
-\item{data.file}{The name of the data file to be read.}
-
 \item{filename}{The path to the data set to be loaded.}
+
+\item{data.file}{The name of the data file to be read.}
 
 \item{variable.name}{The name to be assigned to in the global environment.}
 }

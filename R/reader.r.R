@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{reader.r('example.R', 'data/example.R', 'example')}
-reader.dataformat.r <- function(data.file, filename, variable.name)
+reader.dataformat.r <- function(filename, data.file, variable.name)
 {
   source(filename)
 }

@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.wsv('example.wsv', 'data/example.wsv', 'example')}
-reader.dataformat.wsv <- function(data.file, filename, variable.name)
+reader.dataformat.wsv <- function(filename, data.file, variable.name)
 {
   if (grepl('\\.zip$', filename))
   {
