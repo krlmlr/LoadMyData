@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.tsv('example.tsv', 'data/example.tsv', 'example')}
-reader.tsv <- function(data.file, filename, variable.name)
+reader.dataformat.tsv <- function(data.file, filename, variable.name)
 {
   if (grepl('\\.zip$', filename))
   {

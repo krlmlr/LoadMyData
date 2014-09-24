@@ -18,5 +18,11 @@
 reader <- function(x, ...) UseMethod("reader", x)
 
 #' @export
-reader.default <- function(x, ...)
+reader.dataformat <- function(x, ...)
   stop("Don't know how to load ", x, ". Perhaps you need to load a package that enhances the LoadMyData package.")
+
+#' @export
+reader.default <- function(x, ...)
+  reader(as.dataformat(x), ...)
+
+.TargetEnv <- .GlobalEnv

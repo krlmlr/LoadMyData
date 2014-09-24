@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{reader.systat('example.sys', 'data/example.sys', 'example')}
-reader.systat <- function(data.file, filename, variable.name)
+reader.dataformat.systat <- function(data.file, filename, variable.name)
 {
   require.package('foreign')
 

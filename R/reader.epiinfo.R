@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.epiinfo('example.rec', 'data/example.rec', 'example')}
-reader.epiinfo <- function(data.file, filename, variable.name)
+reader.dataformat.epiinfo <- function(data.file, filename, variable.name)
 {
   require.package('foreign')
 

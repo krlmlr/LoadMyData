@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{reader.xport('example.xport', 'data/example.xport', 'example')}
-reader.xport <- function(data.file, filename, variable.name)
+reader.dataformat.xport <- function(data.file, filename, variable.name)
 {
   require.package('foreign')
 

@@ -22,7 +22,7 @@ test_that('Test 1: CSV Data file', {
                         'example_01.csv')
   variable.name <- LoadMyData:::clean.variable.name('example_01')
 
-  LoadMyData:::reader.csv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.csv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -41,7 +41,7 @@ test_that('Test 2: .csv.bz2', {
                         'example_02.csv.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_02')
 
-  LoadMyData:::reader.csv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.csv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -60,7 +60,7 @@ test_that('Test 3: csv.zip data', {
                         'example_03.csv.zip')
   variable.name <- LoadMyData:::clean.variable.name('example_03')
 
-  LoadMyData:::reader.csv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.csv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -80,7 +80,7 @@ test_that('Example 04: CSV Data File with GZip Compression', {
                         'example_04.csv.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_04')
 
-  LoadMyData:::reader.csv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.csv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -100,7 +100,7 @@ test_that('Example 05: TSV Data File', {
                         'example_05.tsv')
   variable.name <- LoadMyData:::clean.variable.name('example_05')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -120,7 +120,7 @@ test_that('Example 06: TSV Data File with BZip2 Compression', {
                         'example_06.tsv.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_06')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -139,7 +139,7 @@ test_that('Example 07: TSV Data File with Zip Compression', {
                         'example_07.tsv.zip')
   variable.name <- LoadMyData:::clean.variable.name('example_07')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -159,7 +159,7 @@ test_that('Example 08: TSV Data File with GZip Compression', {
                         'example_08.tsv.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_08')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -177,7 +177,7 @@ test_that('Example 09: WSV Data File', {
                         'example_09.wsv')
   variable.name <- LoadMyData:::clean.variable.name('example_09')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -198,7 +198,7 @@ test_that('Example 10: WSV Data File with BZip2 Compression', {
                         'example_10.wsv.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_10')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -218,7 +218,7 @@ test_that('Example 11: WSV Data File with Zip Compression', {
                         'example_11.wsv.zip')
   variable.name <- LoadMyData:::clean.variable.name('example_11')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -236,7 +236,7 @@ test_that('Example 12: WSV Data File with GZip Compression', {
                         'example_12.wsv.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_12')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -256,7 +256,7 @@ test_that('Example 13: RData Data File with .RData Extension', {
                         'example_13.RData')
   variable.name <- LoadMyData:::clean.variable.name('example_13')
 
-  LoadMyData:::reader.rdata(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.rdata(data.file, filename, variable.name)
 
   expect_that(exists('m'), is_true())
   expect_that(names(get('m')), equals(c('N', 'Prime')))
@@ -276,7 +276,7 @@ test_that('Example 14: RData Data File with .rda Extension', {
                         'example_14.rda')
   variable.name <- LoadMyData:::clean.variable.name('example_14')
 
-  LoadMyData:::reader.rdata(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.rdata(data.file, filename, variable.name)
 
   expect_that(exists('n'), is_true())
   expect_that(names(get('n')), equals(c('N', 'Prime')))
@@ -301,7 +301,7 @@ test_that('Example 16: TSV File with .tab Extension', {
                         'example_16.tab')
   variable.name <- LoadMyData:::clean.variable.name('example_16')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -320,7 +320,7 @@ test_that('Example 17: TSV File with .tab Extension and BZip2 Compression', {
                         'example_17.tab.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_17')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -339,7 +339,7 @@ test_that('Example 18: TSV File with .tab Extension and Zip Compression', {
                         'example_18.tab.zip')
   variable.name <- LoadMyData:::clean.variable.name('example_18')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -358,7 +358,7 @@ test_that('Example 19: TSV File with .tab Extension and GZip Compression', {
                         'example_19.tab.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_19')
 
-  LoadMyData:::reader.tsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.tsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -378,7 +378,7 @@ test_that('Example 20: WSV File with .txt Extension', {
                         'example_20.txt')
   variable.name <- LoadMyData:::clean.variable.name('example_20')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -398,7 +398,7 @@ test_that('Example 21: WSV File with .txt Extension and BZip2 Compression', {
                         'example_21.txt.bz2')
   variable.name <- LoadMyData:::clean.variable.name('example_21')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -418,7 +418,7 @@ test_that('Example 22: WSV File with .txt Extension and Zip Compression', {
                         'example_22.txt.zip')
   variable.name <- LoadMyData:::clean.variable.name('example_22')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -438,7 +438,7 @@ test_that('Example 23: WSV File with .txt Extension and GZip Compression', {
                         'example_23.txt.gz')
   variable.name <- LoadMyData:::clean.variable.name('example_23')
 
-  LoadMyData:::reader.wsv(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.wsv(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -458,7 +458,7 @@ test_that('Example 24: R File with .R Extension', {
                         'example_24.R')
   variable.name <- LoadMyData:::clean.variable.name('example_24')
 
-  LoadMyData:::reader.r(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.r(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -478,7 +478,7 @@ test_that('Example 25: R File with .r Extension', {
                         'example_25.r')
   variable.name <- LoadMyData:::clean.variable.name('example_25')
 
-  LoadMyData:::reader.r(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.r(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -498,7 +498,7 @@ test_that('Example 26: Excel 2007 File with .xls Extension', {
                         'example_26.xls')
   variable.name <- LoadMyData:::clean.variable.name('example_26')
 
-  LoadMyData:::reader.xls(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.xls(data.file, filename, variable.name)
 
   variable.name <- paste(variable.name, '.Sheet1', sep = '')
 
@@ -520,7 +520,7 @@ test_that('Example 27: Excel 2011 File with .xlsx Extension', {
   #                      'example_27.xlsx')
   #variable.name <- LoadMyData:::clean.variable.name('example_27')
   #
-  #LoadMyData:::reader.xlsx(data.file, filename, variable.name)
+  #LoadMyData:::reader.dataformat.xlsx(data.file, filename, variable.name)
   #
   #variable.name <- paste(variable.name, '.Sheet1', sep = '')
   #
@@ -547,7 +547,7 @@ test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', 
   filename <- 'example_28.sql'
   variable.name <- LoadMyData:::clean.variable.name('example_28')
 
-  LoadMyData:::reader.sql(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.sql(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -573,7 +573,7 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   filename <- 'example_29.sql'
   variable.name <- LoadMyData:::clean.variable.name('example_29')
 
-  LoadMyData:::reader.sql(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.sql(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -599,7 +599,7 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   filename <- 'example_30.sql'
   variable.name <- LoadMyData:::clean.variable.name('example_30')
 
-  LoadMyData:::reader.sql(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.sql(data.file, filename, variable.name)
 
   variable1.name <- LoadMyData:::clean.variable.name('example_30a')
   variable2.name <- LoadMyData:::clean.variable.name('example_30b')
@@ -629,7 +629,7 @@ test_that('Example 31: SQLite3 Support with .db Extension', {
                         'example_31.db')
   variable.name <- LoadMyData:::clean.variable.name('example_31')
 
-  LoadMyData:::reader.db(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.db(data.file, filename, variable.name)
 
   variable1.name <- LoadMyData:::clean.variable.name('example_31a')
   variable2.name <- LoadMyData:::clean.variable.name('example_31b')
@@ -656,7 +656,7 @@ test_that('Example 32: Weka Support with .arff Extension', {
                         'example_32.arff')
   variable.name <- LoadMyData:::clean.variable.name('example_32')
 
-  LoadMyData:::reader.arff(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.arff(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -680,7 +680,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   filename <- 'example_33.file'
   variable.name <- LoadMyData:::clean.variable.name('example_28')
 
-  LoadMyData:::reader.file(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.file(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -707,7 +707,7 @@ test_that('Example 35: PPM Support with .ppm Extension', {
   variable.name <- LoadMyData:::clean.variable.name('example_35')
 
   expect_warning(
-    LoadMyData:::reader.ppm(data.file, filename, variable.name),
+    LoadMyData:::reader.dataformat.ppm(data.file, filename, variable.name),
     " is NULL so the result will be NULL")
 
   expect_that(exists(variable.name), is_true())
@@ -725,7 +725,7 @@ test_that('Example 36: dBase Support with .dbf Extension', {
                         'example_36.dbf')
   variable.name <- LoadMyData:::clean.variable.name('example_36')
 
-  LoadMyData:::reader.dbf(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.dbf(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -746,7 +746,7 @@ test_that('Example 37: SPSS Support with .sav Extension', {
   variable.name <- LoadMyData:::clean.variable.name('example_37')
 
   expect_warning(
-    LoadMyData:::reader.spss(data.file, filename, variable.name),
+    LoadMyData:::reader.dataformat.spss(data.file, filename, variable.name),
     "Unrecognized record type 7, subtype 18 encountered in system file")
 
   expect_that(exists(variable.name), is_true())
@@ -768,7 +768,7 @@ test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation
   variable.name <- LoadMyData:::clean.variable.name('example_38')
 
   expect_warning(
-    LoadMyData:::reader.spss(data.file, filename, variable.name),
+    LoadMyData:::reader.dataformat.spss(data.file, filename, variable.name),
     "Unrecognized record type 7, subtype 18 encountered in system file")
 
   expect_that(exists(variable.name), is_true())
@@ -789,7 +789,7 @@ test_that('Example 39: Stata Support with .dta Extension', {
                         'example_39.dta')
   variable.name <- LoadMyData:::clean.variable.name('example_39')
 
-  LoadMyData:::reader.stata(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.stata(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -809,7 +809,7 @@ test_that('Example 40: Stata Support with .dta Extension / Alternative Generatio
                         'example_40.dta')
   variable.name <- LoadMyData:::clean.variable.name('example_40')
 
-  LoadMyData:::reader.stata(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.stata(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -829,7 +829,7 @@ test_that('Example 41: SAS Support with .xport Extension', {
                         'example_41.xport')
   variable.name <- LoadMyData:::clean.variable.name('example_41')
 
-  LoadMyData:::reader.xport(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.xport(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'PRIME')))
@@ -849,7 +849,7 @@ test_that('Example 42: SAS Support with .xpt Extension', {
                         'example_42.xpt')
   variable.name <- LoadMyData:::clean.variable.name('example_42')
 
-  LoadMyData:::reader.xport(data.file, filename, variable.name)
+  LoadMyData:::reader.dataformat.xport(data.file, filename, variable.name)
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'PRIME')))

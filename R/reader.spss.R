@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{reader.spss('example.sav', 'data/example.sav', 'example')}
-reader.spss <- function(data.file, filename, variable.name)
+reader.dataformat.spss <- function(data.file, filename, variable.name)
 {
   require.package('foreign')
 

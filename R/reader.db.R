@@ -15,7 +15,7 @@
 #'
 #' @examples
 #' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
-reader.db <- function(data.file, filename, variable.name)
+reader.dataformat.db <- function(data.file, filename, variable.name)
 {
   require.package('RSQLite')
 

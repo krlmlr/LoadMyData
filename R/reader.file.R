@@ -21,7 +21,7 @@
 #'
 #' @examples
 #' \dontrun{reader.file('example.file', 'data/example.file', 'example')}
-reader.file <- function(data.file, filename, variable.name)
+reader.dataformat.file <- function(data.file, filename, variable.name)
 {
   file.info <- translate.dcf(filename)
   file.type <- paste('\\.', file.info[['extension']], '$', sep = '')

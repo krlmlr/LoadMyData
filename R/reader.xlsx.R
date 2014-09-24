@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{reader.xlsx('example.xlsx', 'data/example.xlsx', 'example')}
-reader.xlsx <- function(data.file, filename, workbook.name)
+reader.dataformat.xlsx <- function(data.file, filename, workbook.name)
 {
   require.package('xlsx')
 

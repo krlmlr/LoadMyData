@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' \dontrun{reader.csv2('example.csv2', 'data/example.csv2', 'example')}
-reader.csv2 <- function(data.file, filename, variable.name)
+reader.dataformat.csv2 <- function(data.file, filename, variable.name)
 {
   if (grepl('\\.zip$', filename))
   {
