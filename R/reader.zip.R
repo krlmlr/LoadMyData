@@ -3,7 +3,9 @@
 #' This function will load data from a zip-compressed file.  The file names must
 #' be specified.
 #'
+#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
+#' @param variable.name The name to be assigned to in the global environment.
 #' @param ... Further arguments passed to the reader invoked.
 #'
 #' @return No value is returned; this function is called for its side effects.
