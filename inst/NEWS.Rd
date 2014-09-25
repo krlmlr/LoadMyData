@@ -1,5 +1,14 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-1.2 (2014-09-25)}{
+  \itemize{
+    \item \code{dataformat} class can also wrap connections.  Original class is inherited.
+    \item More flexible overriding of the default extension.  Helpers \code{use_extension()}
+      and \code{parent_extension()}.
+    \item Generic readers for compressed files (#1).
+    \item All tests pass for the new generic interface.
+  }
+}
 \section{Changes in LoadMyData version 0.0-1.1 (2014-09-24)}{
   \itemize{
     \item Rename \code{xxx.reader} to \code{reader.dataformat.xxx} in code and file names
