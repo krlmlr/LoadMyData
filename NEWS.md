@@ -1,3 +1,6 @@
+v0.0-1.2 (2014-09-25)
+===
+
 * `dataformat` class can also wrap connections.  Original class is inherited.
 * More flexible overriding of the default extension.  Helpers `use_extension()`
   and `parent_extension()`.
