@@ -1,3 +1,6 @@
+v0.0-2 (2014-09-25)
+===
+
 * Rename `xxx.reader` to `reader.dataformat.xxx` in code and file names
 * Support methods for new S3 class `dataformat` which can also wrap
   connections.  Original class is inherited.
