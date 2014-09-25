@@ -1,3 +1,9 @@
+* `dataformat` class can also wrap connections.  Original class is inherited.
+* More flexible overriding of the default extension.  Helpers `use_extension()`
+  and `parent_extension()`.
+* Generic readers for compressed files (#1).
+* All tests pass for the new generic interface.
+
 v0.0-1.1 (2014-09-24)
 ===
 
