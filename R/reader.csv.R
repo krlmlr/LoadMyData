@@ -14,7 +14,7 @@
 #'
 #' @examples
 #' \dontrun{reader.csv('example.csv', 'data/example.csv', 'example')}
-reader.dataformat.csv <- function(x, variable.name, ...)
+reader.dataformat.csv <- function(x, data.file, variable.name, ...)
 {
   assign(variable.name,
          read.csv(x,

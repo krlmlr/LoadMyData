@@ -17,9 +17,11 @@ is.dataformat(x)
 \item{x}{Path to a file.}
 
 \item{override_extension}{Alternative file extension (default: use extension
-  from \code{x}).}
+from \code{x}).}
 
 \item{check_exists}{Check if file exists (default).}
+
+\item{...}{Further parameters.}
 }
 \value{
 An object of class \code{dataformat}

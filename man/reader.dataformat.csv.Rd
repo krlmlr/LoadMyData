@@ -3,16 +3,16 @@
 \alias{reader.dataformat.csv}
 \title{Read a comma separated values (.csv) file.}
 \usage{
-\method{reader}{dataformat.csv}(x, variable.name, ...)
+\method{reader}{dataformat.csv}(x, data.file, variable.name, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
 
+\item{data.file}{The name of the data file to be read.}
+
 \item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
-
-\item{data.file}{The name of the data file to be read.}
 }
 \value{
 No value is returned; this function is called for its side effects.

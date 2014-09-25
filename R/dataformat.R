@@ -6,6 +6,7 @@
 #' @param check_exists Check if file exists (default).
 #' @param override_extension Alternative file extension (default: use extension
 #'   from \code{x}).
+#' @param ... Further parameters.
 #'
 #' @return An object of class \code{dataformat}
 #'
@@ -21,7 +22,7 @@ dataformat <- function(x, override_extension = NULL, check_exists = is.character
     stop("x must be an atomic value (of length 1)")
   base <- get_basename(x)
   if (check_exists && !do_check_exists(x))
-    stop("file ", file_name, " does not exist")
+    stop("file ", base, " does not exist")
 
   extensions <- get_extension(override_extension, base)
 
