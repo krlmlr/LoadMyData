@@ -1,20 +1,15 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
-\section{Changes in LoadMyData version 0.0-1.2 (2014-09-25)}{
-  \itemize{
-    \item \code{dataformat} class can also wrap connections.  Original class is inherited.
-    \item More flexible overriding of the default extension.  Helpers \code{use_extension()}
-      and \code{parent_extension()}.
-    \item Generic readers for compressed files (#1).
-    \item All tests pass for the new generic interface.
-  }
-}
-\section{Changes in LoadMyData version 0.0-1.1 (2014-09-24)}{
+\section{Changes in LoadMyData version 0.0-2 (2014-09-25)}{
   \itemize{
     \item Rename \code{xxx.reader} to \code{reader.dataformat.xxx} in code and file names
-    \item Support methods for new S3 class \code{dataformat}
+    \item Support methods for new S3 class \code{dataformat} which can also wrap
+      connections.  Original class is inherited.
+    \item Generic readers for compressed files (#1).
+    \item More flexible overriding of the default extension.  Helpers \code{use_extension()}
+      and \code{parent_extension()}.
     \item Remove \code{extension.dispatch.table} and related functionality
-    \item All tests pass, but no full coverage yet
+    \item All tests pass for the new generic interface.
   }
 }
 \section{Changes in LoadMyData version 0.0-1 (2014-09-24)}{
