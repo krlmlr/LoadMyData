@@ -29,6 +29,6 @@ reader.dataformat.tsv <- function(x, data.file, variable.name, ...)
          envir = .TargetEnv)
 }
 
-#' @rdname reader.dataformat.tab
+#' @rdname reader.dataformat.tsv
 #' @export
 reader.dataformat.tab <- reader.dataformat.tsv
