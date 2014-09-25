@@ -31,7 +31,7 @@ dataformat <- function(x, override_extension = NULL, check_exists = is.character
   }
 
   class_names <- paste0("dataformat.", extensions)
-  class_names <- c(class_names, "dataformat", class(x))
+  class_names <- c(class_names, "dataformat", attr(x, "class"))
 
   structure(x, class = class_names, file_extensions = extensions[[1L]])
 }

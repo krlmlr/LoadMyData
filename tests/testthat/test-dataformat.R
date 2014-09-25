@@ -19,18 +19,18 @@ test_that('Data format constructor', {
 test_that('Data format constructor for connections', {
   con <- file("a.csv.bz2")
   expect_equal(class(dataformat(con)),
-               c("dataformat.csv.bz2", "dataformat.bz2", "dataformat"))
+               c("dataformat.csv.bz2", "dataformat.bz2", "dataformat", class(con)))
   expect_equal(attr(dataformat(con), "file_extension"),
                "csv.bz2")
   close(con)
 
   con <- bzfile("a.csv")
-  expect_equal(class(dataformat(con)), c("dataformat.csv", "dataformat"))
+  expect_equal(class(dataformat(con)), c("dataformat.csv", "dataformat", class(con)))
   close(con)
 
   con <- xzfile("abc")
   expect_equal(class(dataformat(con, override_extension = "csv.bz2")),
-               c("dataformat.csv.bz2", "dataformat.bz2", "dataformat"))
+               c("dataformat.csv.bz2", "dataformat.bz2", "dataformat", class(con)))
   expect_equal(attr(dataformat(con, override_extension = "csv.bz2"), "file_extension"),
                "csv.bz2")
   expect_error(class(dataformat("abc", check_exists = FALSE)), "cannot detect extension")
