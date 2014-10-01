@@ -15,9 +15,9 @@
 #' \dontrun{reader.stata('example.stata', 'data/example.stata', 'example')}
 reader.dataformat.dta <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.dta(x),
+         foreign::read.dta(x),
          envir = .TargetEnv)
 }

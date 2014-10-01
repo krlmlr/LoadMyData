@@ -15,9 +15,9 @@
 #' \dontrun{reader.octave('example.m', 'data/example.m', 'example')}
 reader.dataformat.octave <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.octave(x),
+         foreign::read.octave(x),
          envir = .TargetEnv)
 }

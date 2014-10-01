@@ -18,18 +18,18 @@
 #' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
 reader.dataformat.db <- function(x, data.file, variable.name, ...)
 {
-  require.package('RSQLite')
+  .require.package('RSQLite')
 
-  sqlite.driver <- dbDriver("SQLite")
-  connection <- dbConnect(sqlite.driver,
+  sqlite.driver <- DBI::dbDriver("SQLite")
+  connection <- DBI::dbConnect(sqlite.driver,
                           dbname = x)
 
-  tables <- dbListTables(connection)
+  tables <- DBI::dbListTables(connection)
   for (table in tables)
   {
     message(paste('  Loading table:', table))
 
-    data.parcel <- dbReadTable(connection,
+    data.parcel <- DBI::dbReadTable(connection,
                                table,
                                row.names = NULL)
 
@@ -38,7 +38,7 @@ reader.dataformat.db <- function(x, data.file, variable.name, ...)
            envir = .TargetEnv)
   }
 
-  disconnect.success <- dbDisconnect(connection)
+  disconnect.success <- DBI::dbDisconnect(connection)
   if (! disconnect.success)
   {
     warning(paste('Unable to disconnect from database:', x))

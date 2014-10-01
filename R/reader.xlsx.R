@@ -17,16 +17,16 @@
 #' \dontrun{reader.xlsx('example.xlsx', 'data/example.xlsx', 'example')}
 reader.dataformat.xlsx <- function(x, data.file, workbook.name, ...)
 {
-  require.package('xlsx')
+  .require.package('xlsx')
 
-  wb <- loadWorkbook(x)
-  sheets <- getSheets(wb)
+  wb <- xlsx::loadWorkbook(x)
+  sheets <- xlsx::getSheets(wb)
 
   for (sheet.name in names(sheets))
   {
     variable.name <- paste(workbook.name, clean.variable.name(sheet.name), sep = ".")
     tryCatch(assign(variable.name,
-                    read.xlsx(x,
+                    xlsx::read.xlsx(x,
                               sheetName = sheet.name,
                               header = TRUE),
                     envir = .TargetEnv),

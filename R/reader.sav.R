@@ -14,9 +14,9 @@
 #' @export
 reader.dataformat.sav <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.spss(x, to.data.frame = TRUE),
+         foreign::read.spss(x, to.data.frame = TRUE),
          envir = .TargetEnv)
 }

@@ -16,9 +16,9 @@
 #' \dontrun{reader.arff('example.arff', 'data/example.arff', 'example')}
 reader.dataformat.arff <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.arff(x),
+         foreign::read.arff(x),
          envir = .TargetEnv)
 }

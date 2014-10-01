@@ -16,9 +16,9 @@
 #' \dontrun{reader.dbf('example.dbf', 'data/example.dbf', 'example')}
 reader.dataformat.dbf <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.dbf(x),
+         foreign::read.dbf(x),
          envir = .TargetEnv)
 }

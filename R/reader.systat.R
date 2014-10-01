@@ -15,9 +15,9 @@
 #' \dontrun{reader.systat('example.sys', 'data/example.sys', 'example')}
 reader.dataformat.systat <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.systat(x),
+         foreign::read.systat(x),
          envir = .TargetEnv)
 }

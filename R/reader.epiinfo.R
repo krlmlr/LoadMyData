@@ -16,9 +16,9 @@
 #' \dontrun{reader.epiinfo('example.rec', 'data/example.rec', 'example')}
 reader.dataformat.epiinfo <- function(x, data.file, variable.name, ...)
 {
-  require.package('foreign')
+  .require.package('foreign')
 
   assign(variable.name,
-         read.epiinfo(x),
+         foreign::read.epiinfo(x),
          envir = .TargetEnv)
 }
