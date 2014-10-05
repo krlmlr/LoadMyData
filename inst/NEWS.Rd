@@ -1,5 +1,10 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-2.1 (2014-10-05)}{
+  \itemize{
+    \item Packages required for loading data sources are not attached to the search anymore, as this seems to be unnecessary to achieve proper functionality.
+  }
+}
 \section{Changes in LoadMyData version 0.0-2 (2014-09-25)}{
   \itemize{
     \item Rename \code{xxx.reader} to \code{reader.dataformat.xxx} in code and file names
