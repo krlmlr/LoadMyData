@@ -1,3 +1,5 @@
+* Packages required for loading data sources are not attached to the search anymore, as this seems to be unnecessary to achieve proper functionality.
+
 v0.0-2 (2014-09-25)
 ===
 
