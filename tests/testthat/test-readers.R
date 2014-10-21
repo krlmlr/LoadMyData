@@ -14,80 +14,68 @@ if (!identical(environment(), .GlobalEnv))
   parent.env(test.env) <- .GlobalEnv
 }
 
-test_that('Test 1: CSV Data file', {
+test_that('Example 01: CSV Data file', {
 
-  data.file <- 'example_01.csv'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_01.csv')
-  variable.name <- LoadMyData:::clean.variable.name('example_01')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.01, inherits = TRUE)
 })
 
 
-test_that('Test 2: .csv.bz2', {
-  data.file <- 'example_02.csv.bz2'
+test_that('Example 02: .csv.bz2', {
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_02.csv.bz2')
-  variable.name <- LoadMyData:::clean.variable.name('example_02')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.02, inherits = TRUE)
-
 })
 
 
-test_that('Test 3: csv.zip data', {
-  data.file <- 'example_03.csv.zip'
+test_that('Example 03: csv.zip data', {
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_03.csv.zip')
-  variable.name <- LoadMyData:::clean.variable.name('example_03')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.03, inherits = TRUE)
-
 })
 
 
 test_that('Example 04: CSV Data File with GZip Compression', {
-
-  data.file <- 'example_04.csv.gz'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_04.csv.gz')
-  variable.name <- LoadMyData:::clean.variable.name('example_04')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.04, inherits = TRUE)
-
 })
 
 
