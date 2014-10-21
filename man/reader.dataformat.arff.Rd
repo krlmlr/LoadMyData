@@ -4,14 +4,10 @@
 \alias{reader.dataformat.arff}
 \title{Read the Weka file format.}
 \usage{
-\method{reader}{dataformat.arff}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.arff}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

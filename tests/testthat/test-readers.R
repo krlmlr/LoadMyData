@@ -649,21 +649,18 @@ test_that('Example 31: SQLite3 Support with .db Extension', {
 
 test_that('Example 32: Weka Support with .arff Extension', {
 
-  data.file <- 'example_32.arff'
   filename <- file.path(system.file('example_data',
                                   package = 'LoadMyData'),
                         'example_32.arff')
-  variable.name <- LoadMyData:::clean.variable.name('example_32')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.32, inherits = TRUE)
-
 })
 
 
