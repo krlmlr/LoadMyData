@@ -767,21 +767,18 @@ test_that('Example 35: PPM Support with .ppm Extension', {
 
 test_that('Example 36: dBase Support with .dbf Extension', {
 
-  data.file <- 'example_36.dbf'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_36.dbf')
-  variable.name <- LoadMyData:::clean.variable.name('example_36')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.36, inherits = TRUE)
-
 })
 
 
