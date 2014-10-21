@@ -79,6 +79,70 @@ test_that('Example 04: CSV Data File with GZip Compression', {
 })
 
 
+test_that('Example 01a: CSV2 Data file', {
+
+  filename <- file.path(system.file('example_data',
+                                    package = 'LoadMyData'),
+                        'example_01.csv2')
+
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
+
+  expect_that(exists(variable.name), is_true())
+  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
+  expect_that(nrow(get(variable.name)), equals(5))
+  expect_that(ncol(get(variable.name)), equals(2))
+  expect_that(get(variable.name)[5, 2], equals(11))
+})
+
+
+test_that('Example 02a: .csv2.bz2', {
+  filename <- file.path(system.file('example_data',
+                                    package = 'LoadMyData'),
+                        'example_02.csv2.bz2')
+
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
+
+  expect_that(exists(variable.name), is_true())
+  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
+  expect_that(nrow(get(variable.name)), equals(5))
+  expect_that(ncol(get(variable.name)), equals(2))
+  expect_that(get(variable.name)[5, 2], equals(11))
+})
+
+
+test_that('Example 03a: csv2.zip data', {
+  filename <- file.path(system.file('example_data',
+                                    package = 'LoadMyData'),
+                        'example_03.csv2.zip')
+
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
+
+  expect_that(exists(variable.name), is_true())
+  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
+  expect_that(nrow(get(variable.name)), equals(5))
+  expect_that(ncol(get(variable.name)), equals(2))
+  expect_that(get(variable.name)[5, 2], equals(11))
+})
+
+
+test_that('Example 04a: CSV2 Data File with GZip Compression', {
+  filename <- file.path(system.file('example_data',
+                                    package = 'LoadMyData'),
+                        'example_04.csv2.gz')
+
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
+
+  expect_that(exists(variable.name), is_true())
+  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
+  expect_that(nrow(get(variable.name)), equals(5))
+  expect_that(ncol(get(variable.name)), equals(2))
+  expect_that(get(variable.name)[5, 2], equals(11))
+})
+
 test_that('Example 05: TSV Data File', {
 
   data.file <- 'example_05.tsv'
