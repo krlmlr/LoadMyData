@@ -4,14 +4,10 @@
 \alias{reader.dataformat.mp3}
 \title{Read an MP3 file with a .mp3 file extension.}
 \usage{
-\method{reader}{dataformat.mp3}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.mp3}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }
