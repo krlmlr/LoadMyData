@@ -827,42 +827,34 @@ test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation
 
 
 test_that('Example 39: Stata Support with .dta Extension', {
-
-  data.file <- 'example_39.dta'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_39.dta')
-  variable.name <- LoadMyData:::clean.variable.name('example_39')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.39, inherits = TRUE)
-
 })
 
 
 test_that('Example 40: Stata Support with .dta Extension / Alternative Generation', {
-
-  data.file <- 'example_40.dta'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_40.dta')
-  variable.name <- LoadMyData:::clean.variable.name('example_40')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.40, inherits = TRUE)
-
 })
 
 

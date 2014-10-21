@@ -4,14 +4,10 @@
 \alias{reader.dataformat.dta}
 \title{Read a Stata file with a .dta file extension.}
 \usage{
-\method{reader}{dataformat.dta}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.dta}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }
