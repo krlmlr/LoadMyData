@@ -4,9 +4,7 @@
 #' xlsx package. Each sheet of the Excel workbook will be read into a
 #' separate variable in the global environment.
 #'
-#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
-#' @param workbook.name The name to be assigned to in the global environment.
 #' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
@@ -15,24 +13,17 @@
 #'
 #' @examples
 #' \dontrun{reader.xlsx('example.xlsx', 'data/example.xlsx', 'example')}
-reader.dataformat.xlsx <- function(x, data.file, workbook.name, ...)
+reader.dataformat.xlsx <- function(x, ...)
 {
   .require.package('xlsx')
 
   wb <- xlsx::loadWorkbook(x)
   sheets <- xlsx::getSheets(wb)
+  sheets <- setNames(sheets, clean.variable.name(sheets))
 
-  for (sheet.name in names(sheets))
-  {
-    variable.name <- paste(workbook.name, clean.variable.name(sheet.name), sep = ".")
-    tryCatch(assign(variable.name,
-                    xlsx::read.xlsx(x,
-                              sheetName = sheet.name,
-                              header = TRUE),
-                    envir = .TargetEnv),
-             error = function(e)
-             {
-               warning(paste("The worksheet", sheet.name, "didn't load correctly."))
-             })
-  }
+  lapply(
+    sheets,
+    function(sheet.name)
+      try(xlsx::read.xlsx(x, sheetName = sheet.name, header = TRUE))
+  )
 }
