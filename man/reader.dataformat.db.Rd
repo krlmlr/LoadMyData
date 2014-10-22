@@ -4,14 +4,10 @@
 \alias{reader.dataformat.db}
 \title{Read a SQlite3 database with a (.db) file extension.}
 \usage{
-\method{reader}{dataformat.db}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.db}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

@@ -643,24 +643,23 @@ test_that('Example 31: SQLite3 Support with .db Extension', {
   filename <- file.path(system.file('example_data',
                                   package = 'LoadMyData'),
                         'example_31.db')
-  variable.name <- LoadMyData:::clean.variable.name('example_31')
-
-  LoadMyData:::reader(filename, data.file, variable.name)
 
   variable1.name <- LoadMyData:::clean.variable.name('example_31a')
   variable2.name <- LoadMyData:::clean.variable.name('example_31b')
-  expect_that(exists(variable1.name), is_true())
-  expect_that(names(get(variable1.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable1.name)), equals(5))
-  expect_that(ncol(get(variable1.name)), equals(2))
-  expect_that(get(variable1.name)[5, 2], equals(11))
-  rm(example.31a, inherits = TRUE)
-  expect_that(exists(variable2.name), is_true())
-  expect_that(names(get(variable2.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable2.name)), equals(5))
-  expect_that(ncol(get(variable2.name)), equals(2))
-  expect_that(get(variable2.name)[5, 2], equals(11))
-  rm(example.31b, inherits = TRUE)
+  res <- reader(filename)
+
+  expect_equal(names(res), c(variable1.name, variable2.name))
+
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
+
+  expect_that(names(res[[2]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[2]]), equals(5))
+  expect_that(ncol(res[[2]]), equals(2))
+  expect_that(res[[2]][5, 2], equals(11))
+
 })
 
 
@@ -683,25 +682,22 @@ test_that('Example 32: Weka Support with .arff Extension', {
 
 test_that('Example 33: Arbitary File Support with .file File Pointing to .db File', {
 
+  filename <- 'example_33.file'
   info.file <- data.frame(path = file.path(system.file('example_data',
                                                         package = 'LoadMyData'),
                                             'example_28.db'),
                          extension = 'db')
-  write.dcf(info.file, file = 'example_33.file', width = 1000)
+  write.dcf(info.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
 
-  data.file <- 'example_33.file'
-  filename <- 'example_33.file'
   variable.name <- LoadMyData:::clean.variable.name('example_28')
+  res <- reader(filename)
 
-  reader(filename, data.file, variable.name)
-
-  expect_that(exists(variable.name), is_true())
-  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable.name)), equals(5))
-  expect_that(ncol(get(variable.name)), equals(2))
-  expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.28, inherits = TRUE)
-  unlink('example_33.file')
+  expect_equal(names(res), variable.name)
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
 
 })
 
