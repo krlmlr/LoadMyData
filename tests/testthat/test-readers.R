@@ -478,40 +478,37 @@ test_that('Example 23: WSV File with .txt Extension and GZip Compression', {
 
 test_that('Example 24: R File with .R Extension', {
 
-  data.file <- 'example_24.R'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_24.R')
+
   variable.name <- LoadMyData:::clean.variable.name('example_24')
+  res <- reader(filename)
 
-  reader(filename, data.file, variable.name)
-
-  expect_that(exists(variable.name), is_true())
-  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable.name)), equals(5))
-  expect_that(ncol(get(variable.name)), equals(2))
-  expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.24, inherits = TRUE)
+  expect_equal(names(res), variable.name)
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
 
 })
 
 
 test_that('Example 25: R File with .r Extension', {
 
-  data.file <- 'example_25.r'
+
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_25.r')
+
   variable.name <- LoadMyData:::clean.variable.name('example_25')
+  res <- reader(filename)
 
-  reader(filename, data.file, variable.name)
-
-  expect_that(exists(variable.name), is_true())
-  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable.name)), equals(5))
-  expect_that(ncol(get(variable.name)), equals(2))
-  expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.25, inherits = TRUE)
+  expect_equal(names(res), variable.name)
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
 
 })
 
