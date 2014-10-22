@@ -4,14 +4,10 @@
 \alias{reader.dataformat.sav}
 \title{Read an SPSS file with a .sav file extension.}
 \usage{
-\method{reader}{dataformat.sav}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.sav}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

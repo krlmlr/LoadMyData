@@ -786,10 +786,11 @@ test_that('Example 37: SPSS Support with .sav Extension', {
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_37.sav')
-  variable.name <- LoadMyData:::clean.variable.name('example_37')
+
+  variable.name <- "variable"
 
   expect_warning(
-    reader(filename, data.file, variable.name),
+    variable <- reader(filename)[[1]],
     "Unrecognized record type 7, subtype 18 encountered in system file")
 
   expect_that(exists(variable.name), is_true())
@@ -797,21 +798,19 @@ test_that('Example 37: SPSS Support with .sav Extension', {
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.37, inherits = TRUE)
 
 })
 
 
 test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation', {
 
-  data.file <- 'example_38.sav'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_38.sav')
-  variable.name <- LoadMyData:::clean.variable.name('example_38')
 
+  variable.name <- "variable"
   expect_warning(
-    reader(filename, data.file, variable.name),
+    variable <- reader(filename)[[1]],
     "Unrecognized record type 7, subtype 18 encountered in system file")
 
   expect_that(exists(variable.name), is_true())
@@ -819,7 +818,6 @@ test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.38, inherits = TRUE)
 
 })
 
