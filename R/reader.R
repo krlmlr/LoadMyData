@@ -24,5 +24,3 @@ reader.dataformat <- function(x, ...)
 #' @export
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
-
-.TargetEnv <- .GlobalEnv

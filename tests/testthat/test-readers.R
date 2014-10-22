@@ -1,19 +1,5 @@
 context('Readers')
 
-# testthat by default runs tests in the parent environment to global
-# This gives access to packages and keeps the test from polluting the global environment
-# However, the global environment is not in the test seach path
-# The global environment is needed for the objects created by the readers being tested
-#
-# Solution is to set the global environment as the parent of the test environment
-# Then the global environment is part of the test environment search path
-
-if (!identical(environment(), .GlobalEnv))
-{
-  test.env <- environment()
-  parent.env(test.env) <- .GlobalEnv
-}
-
 test_that('Example 01: CSV Data file', {
 
   filename <- file.path(system.file('example_data',
