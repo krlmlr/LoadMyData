@@ -511,22 +511,19 @@ test_that('Example 25: R File with .r Extension', {
 
 test_that('Example 26: Excel 2007 File with .xls Extension', {
 
-  data.file <- 'example_26.xls'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_26.xls')
-  variable.name <- LoadMyData:::clean.variable.name('example_26')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- LoadMyData:::clean.variable.name('Sheet1')
 
-  variable.name <- paste(variable.name, '.Sheet1', sep = '')
+  res <- reader(filename)
+  expect_equal(names(res), variable.name)
 
-  expect_that(exists(variable.name), is_true())
-  expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable.name)), equals(5))
-  expect_that(ncol(get(variable.name)), equals(2))
-  expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.26.Sheet1, inherits = TRUE)
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
 
 })
 
