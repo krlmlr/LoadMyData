@@ -90,9 +90,7 @@
 #' dbname: herokudb
 #' query: select * from emp
 #'
-#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
 #' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
@@ -103,7 +101,7 @@
 #' \dontrun{reader.sql('example.sql', 'data/example.sql', 'example')}
 #'
 #' @include require.package.R
-reader.dataformat.sql <- function(x, data.file, variable.name, ...)
+reader.dataformat.sql <- function(x, ...)
 {
   database.info <- translate.dcf(x)
 
@@ -116,139 +114,150 @@ reader.dataformat.sql <- function(x, data.file, variable.name, ...)
     database.info <- modifyList(connection.info, database.info)
   }
 
-  if (! (database.info[['type']] %in% c('mysql', 'sqlite', 'odbc', 'postgres', 'oracle', 'jdbc', 'heroku')))
-  {
-    warning('Only databases reachable through RMySQL, RSQLite, RODBC ROracle or RPostgreSQL are currently supported.')
-    assign(variable.name,
-           NULL,
-           envir = .TargetEnv)
-    return()
-  }
+  class(database.info) <- c(paste0("dbinfo.", database.info[['type']]), "dbinfo")
+  reader(database.info, ...)
+}
 
-  # Draft code for ODBC support.
-  if (database.info[['type']] == 'odbc')
-  {
+#' @export
+reader.dbinfo.odbc <- function(x, ...) {
     .require.package('RODBC')
 
-    connection.string <- paste('DSN=', database.info[['dsn']], ';',
-                               'UID=', database.info[['user']], ';',
-                               'PWD=', database.info[['password']], ';',
-                               'DATABASE=', database.info['dbname'],
+    connection.string <- paste('DSN=', x[['dsn']], ';',
+                               'UID=', x[['user']], ';',
+                               'PWD=', x[['password']], ';',
+                               'DATABASE=', x['dbname'],
                                sep = '')
     connection <- RODBC::odbcDriverConnect(connection.string)
-    results <- RODBC::sqlQuery(connection, database.info[['query']])
-    RODBC::odbcClose(connection)
-    assign(variable.name,
-           results,
-           envir = .TargetEnv)
-    return()
-  }
+    on.exit(RODBC::odbcClose(connection), add = TRUE)
 
-  if (database.info[['type']] == 'mysql')
-  {
+    list(RODBC::sqlQuery(connection, x[['query']]))
+}
+
+#' @export
+reader.dbinfo.mysql <- function(x, ...) {
     .require.package('RMySQL')
 
     mysql.driver <- DBI::dbDriver("MySQL")
 
     # Default value for 'port' in mysqlNewConnection is 0.
-    if (is.null(database.info[['port']]))
+    if (is.null(x[['port']]))
     {
-      database.info[['port']] <- 0
+      x[['port']] <- 0
     }
 
     connection <- DBI::dbConnect(mysql.driver,
-                            user = database.info[['user']],
-                            password = database.info[['password']],
-                            host = database.info[['host']],
-                            dbname = database.info[['dbname']],
-                            port = as.integer(database.info[['port']]),
-                            unix.socket = database.info[['socket']])
+                            user = x[['user']],
+                            password = x[['password']],
+                            host = x[['host']],
+                            dbname = x[['dbname']],
+                            port = as.integer(x[['port']]),
+                            unix.socket = x[['socket']])
     DBI::dbGetQuery(connection, "SET NAMES 'utf8'") # Switch to utf-8 strings
-  }
 
-  if (database.info[['type']] == 'sqlite')
-  {
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo.sqlite <- function(x, ...) {
     .require.package('RSQLite')
 
     sqlite.driver <- DBI::dbDriver("SQLite")
 
     connection <- DBI::dbConnect(sqlite.driver,
-                            dbname = database.info[['dbname']])
-  }
+                            dbname = x[['dbname']])
 
-  if (database.info[['type']] == 'postgres')
-  {
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo.postgres <- function(x, ...) {
     .require.package('RPostgreSQL')
 
     pgsql.driver <- DBI::dbDriver("PostgreSQL")
 
-    args <- intersect(names(database.info), c('user', 'password', 'host', 'dbname'))
-    connection <- do.call(DBI::dbConnect, c(list(pgsql.driver), database.info[args]))
-  }
+    args <- intersect(names(x), c('user', 'password', 'host', 'dbname'))
+    connection <- do.call(DBI::dbConnect, c(list(pgsql.driver), x[args]))
 
-  if (database.info[['type']] == 'oracle')
-  {
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo.oracle <- function(x, ...) {
     .require.package('ROracle')
 
     oracle.driver <- DBI::dbDriver("Oracle")
 
     # Default value for 'port' in mysqlNewConnection is 0.
-    if (is.null(database.info[['port']]))
+    if (is.null(x[['port']]))
     {
-      database.info[['port']] <- 0
+      x[['port']] <- 0
     }
 
     connection <- DBI::dbConnect(oracle.driver,
-                            user = database.info[['user']],
-                            password = database.info[['password']],
-                            dbname = database.info[['dbname']])
-  }
+                            user = x[['user']],
+                            password = x[['password']],
+                            dbname = x[['dbname']])
 
-  if (database.info[['type']] == 'jdbc')
-  {
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo.jdbc <- function(x, ...) {
     .require.package('RJDBC')
 
     ident.quote <- NA
-    if('identquote' %in% names(database.info))
-       ident.quote <- database.info[['identquote']]
+    if('identquote' %in% names(x))
+       ident.quote <- x[['identquote']]
 
-    if(is.null(database.info[['classpath']])) {
-      database.info[['classpath']] = ''
+    if(is.null(x[['classpath']])) {
+      x[['classpath']] = ''
     }
 
-    rjdbc.driver <- RJDBC::JDBC(database.info[['class']], database.info[['classpath']], ident.quote)
+    rjdbc.driver <- RJDBC::JDBC(x[['class']], x[['classpath']], ident.quote)
     connection <- DBI::dbConnect(rjdbc.driver,
-                            database.info[['url']],
-                            user = database.info[['user']],
-                            password = database.info[['password']])
-  }
+                            x[['url']],
+                            user = x[['user']],
+                            password = x[['password']])
 
-  if (database.info[['type']] == 'heroku')
-  {
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo.heroku <- function(x, ...) {
     .require.package('RJDBC')
 
-    if(is.null(database.info[['classpath']])) {
-      database.info[['classpath']] <- ''
+    if(is.null(x[['classpath']])) {
+      x[['classpath']] <- ''
     }
 
-    database.info[['class']] <- 'org.postgresql.Driver'
+    x[['class']] <- 'org.postgresql.Driver'
 
-    database.info[['url']] <- paste('jdbc:postgresql://', database.info[['host']],
-        ':', database.info[['port']],
-        '/', database.info[['dbname']],
+    x[['url']] <- paste('jdbc:postgresql://', x[['host']],
+        ':', x[['port']],
+        '/', x[['dbname']],
         '?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory', sep = '')
 
-    rjdbc.driver <- RJDBC::JDBC(database.info[['class']], database.info[['classpath']])
+    rjdbc.driver <- RJDBC::JDBC(x[['class']], x[['classpath']])
     connection <- DBI::dbConnect(rjdbc.driver,
-                            database.info[['url']],
-                            user = database.info[['user']],
-                            password = database.info[['password']])
-  }
+                            x[['url']],
+                            user = x[['user']],
+                            password = x[['password']])
 
+    on.exit(DBI::dbDisconnect(connection), add = TRUE)
+    NextMethod(.Generic, x, connection = connection, ...)
+}
+
+#' @export
+reader.dbinfo <- function(x, connection, ...) {
   # Added support for queries.
   # User should specify either a table name or a query to execute, but not both.
-  table <- database.info[['table']]
-  query <- database.info[['query']]
+  table <- x[['table']]
+  query <- x[['query']]
 
   # If both a table and a query are specified, favor the query.
   if (! is.null(table) && ! is.null(query))
@@ -263,49 +272,30 @@ reader.dataformat.sql <- function(x, data.file, variable.name, ...)
   if (is.null(table) && is.null(query))
   {
     warning("Either 'table' or 'query' must be specified in a .sql file")
-    return()
+    return(list())
   }
 
-  if (! is.null(table) && table == '*')
-  {
-    tables <- DBI::dbListTables(connection)
-    for (table in tables)
+  if (is.null(query)) {
+    if (table == '*')
     {
-      message(paste('  Loading table:', table))
-
-      data.parcel <- DBI::dbReadTable(connection,
-                                 table,
-                                 row.names = NULL)
-
-      assign(clean.variable.name(table),
-             data.parcel,
-             envir = .TargetEnv)
+      tables <- DBI::dbListTables(connection)
+    } else {
+      if (DBI::dbExistsTable(connection, table)) {
+        tables <- table
+      } else {
+        warning(paste('Table not found:', table))
+        return(list())
+      }
     }
-  }
 
-  # If table is specified, read the whole table.
-  # Othwrwise, execute the specified query.
-  if (! is.null(table) && table != '*')
-  {
-    if (DBI::dbExistsTable(connection, table))
-    {
-      data.parcel <- DBI::dbReadTable(connection,
-                                 table,
-                                 row.names = NULL)
+    tables <- setNames(tables, clean.variable.name(tables))
 
-      assign(variable.name,
-             data.parcel,
-             envir = .TargetEnv)
-    }
-    else
-    {
-      warning(paste('Table not found:', table))
-      return()
-    }
-  }
-
-  if (! is.null(query))
-  {
+    lapply(
+      tables,
+      function (table)
+        try(DBI::dbReadTable(connection, table, row.names = NULL))
+    )
+  } else {
     # Do string interpolation
     # TODO: When whisker is updated add strict=FALSE
     if (length(grep('\\@\\{.*\\}', query)) != 0) {
@@ -315,47 +305,6 @@ reader.dataformat.sql <- function(x, data.file, variable.name, ...)
       .require.package('whisker')
       query <- whisker::whisker.render(query, data = .GlobalEnv)
     }
-    data.parcel <- try(DBI::dbGetQuery(connection, query))
-    err <- DBI::dbGetException(connection)
-
-    if (class(data.parcel) == 'data.frame' && (length(err) == 0 || err$errorNum == 0))
-    {
-      assign(variable.name,
-             data.parcel,
-             envir = .TargetEnv)
-    }
-    else
-    {
-      warning(paste("Error loading '",
-                    variable.name,
-                    "' with query '",
-                    query,
-                    "'\n    '",
-                    err$errorNum,
-                    "-",
-                    err$errorMsg,
-                    "'",
-                    sep = ''))
-      return()
-    }
-  }
-
-  # If the table exists but is empty, do not create a variable.
-  # Or if the query returned no results, do not create a variable.
-  if (nrow(data.parcel) == 0)
-  {
-    assign(variable.name,
-           NULL,
-           envir = .TargetEnv)
-    return()
-  }
-
-  # Disconnect from database resources. Warn if failure.
-  disconnect.success <- DBI::dbDisconnect(connection)
-
-  if (! disconnect.success)
-  {
-    warning(paste('Unable to disconnect from database:',
-                  database.info[['dbname']]))
+    list(try(DBI::dbGetQuery(connection, query)))
   }
 }

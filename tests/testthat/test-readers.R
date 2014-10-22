@@ -552,89 +552,80 @@ test_that('Example 27: Excel 2011 File with .xlsx Extension', {
 
 test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', {
 
+  filename <- 'example_28.sql'
   sql.file <- data.frame(type = 'sqlite',
                          dbname = file.path(system.file('example_data',
                                                         package = 'LoadMyData'),
                                             'example_28.db'),
                          table = 'example_28')
-  write.dcf(sql.file, file = 'example_28.sql', width = 1000)
+  write.dcf(sql.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
 
-  data.file <- 'example_28.sql'
-  filename <- 'example_28.sql'
-  variable.name <- LoadMyData:::clean.variable.name('example_28')
-
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.28, inherits = TRUE)
-  unlink('example_28.sql')
 
 })
 
 
 test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT * FROM ..."', {
 
+  filename <- 'example_29.sql'
   sql.file <- data.frame(type = 'sqlite',
                          dbname = file.path(system.file('example_data',
                                                         package = 'LoadMyData'),
                                             'example_29.db'),
-                         query = 'SELECT * FROM example_29')
-  write.dcf(sql.file, file = 'example_29.sql', width = 1000)
+                         query = 'SELECT * FROM example_29 WHERE Prime = 11')
+  write.dcf(sql.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
 
-  data.file <- 'example_29.sql'
-  filename <- 'example_29.sql'
-  variable.name <- LoadMyData:::clean.variable.name('example_29')
-
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable.name)), equals(5))
+  expect_that(nrow(get(variable.name)), equals(1))
   expect_that(ncol(get(variable.name)), equals(2))
-  expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.29, inherits = TRUE)
-  unlink('example_29.sql')
+  expect_that(get(variable.name)[1, 2], equals(11))
 
 })
 
 
 test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
 
+  filename <- 'example_30.sql'
   sql.file <- data.frame(type = 'sqlite',
                          dbname = file.path(system.file('example_data',
                                                         package = 'LoadMyData'),
                                             'example_30.db'),
                          table = '*')
-  write.dcf(sql.file, file = 'example_30.sql', width = 1000)
+  write.dcf(sql.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
 
   data.file <- 'example_30.sql'
-  filename <- 'example_30.sql'
-  variable.name <- LoadMyData:::clean.variable.name('example_30')
-
-  reader(filename, data.file, variable.name)
 
   variable1.name <- LoadMyData:::clean.variable.name('example_30a')
   variable2.name <- LoadMyData:::clean.variable.name('example_30b')
-  expect_that(exists(variable1.name), is_true())
-  expect_that(names(get(variable1.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable1.name)), equals(5))
-  expect_that(ncol(get(variable1.name)), equals(2))
-  expect_that(get(variable1.name)[5, 2], equals(11))
-  rm(example.30a, inherits = TRUE)
-  expect_that(exists(variable2.name), is_true())
-  expect_that(names(get(variable2.name)), equals(c('N', 'Prime')))
-  expect_that(nrow(get(variable2.name)), equals(5))
-  expect_that(ncol(get(variable2.name)), equals(2))
-  expect_that(get(variable2.name)[5, 2], equals(11))
-  rm(example.30b, inherits = TRUE)
-  rm(example.30, inherits = TRUE)
-  unlink('example_30.sql')
+  res <- reader(filename, data.file, variable.name)
 
-})
+  expect_equal(names(res), c(variable1.name, variable2.name))
+
+  expect_that(names(res[[1]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[1]]), equals(5))
+  expect_that(ncol(res[[1]]), equals(2))
+  expect_that(res[[1]][5, 2], equals(11))
+
+  expect_that(names(res[[2]]), equals(c('N', 'Prime')))
+  expect_that(nrow(res[[2]]), equals(5))
+  expect_that(ncol(res[[2]]), equals(2))
+  expect_that(res[[2]][5, 2], equals(11))
+
+  })
 
 
 test_that('Example 31: SQLite3 Support with .db Extension', {
