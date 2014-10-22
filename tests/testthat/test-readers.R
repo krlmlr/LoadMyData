@@ -748,19 +748,17 @@ test_that('Example 34: MP3 Support with .mp3 Extension', {
 
 test_that('Example 35: PPM Support with .ppm Extension', {
 
-  data.file <- 'example_35.ppm'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_35.ppm')
-  variable.name <- LoadMyData:::clean.variable.name('example_35')
 
+  variable.name <- "variable"
   expect_warning(
-    reader(filename, data.file, variable.name),
+    variable <- reader(filename)[[1]],
     " is NULL so the result will be NULL")
 
   expect_that(exists(variable.name), is_true())
   expect_that(as.character(class(get(variable.name))), equals('pixmapRGB'))
-  rm(example.35, inherits = TRUE)
 
 })
 
