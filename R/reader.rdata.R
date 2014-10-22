@@ -4,17 +4,17 @@
 #' \code{\link{load}} function. This may generate many data sets
 #' simultaneously.
 #'
-#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
 #' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
 #'
 #' @export
-reader.dataformat.RData <- function(x, data.file, variable.name, ...)
+reader.dataformat.RData <- function(x, ...)
 {
-  load(x, envir = .TargetEnv)
+  env <- new.env()
+  load(x, envir = env)
+  as.list(env)
 }
 
 #' @rdname reader.dataformat.RData
