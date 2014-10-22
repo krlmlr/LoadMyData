@@ -831,40 +831,36 @@ test_that('Example 40: Stata Support with .dta Extension / Alternative Generatio
 
 test_that('Example 41: SAS Support with .xport Extension', {
 
-  data.file <- 'example_41.xport'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_41.xport')
-  variable.name <- LoadMyData:::clean.variable.name('example_41')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'PRIME')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.41, inherits = TRUE)
 
 })
 
 
 test_that('Example 42: SAS Support with .xpt Extension', {
 
-  data.file <- 'example_42.xpt'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_42.xpt')
-  variable.name <- LoadMyData:::clean.variable.name('example_42')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'PRIME')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.42, inherits = TRUE)
 
 })
 

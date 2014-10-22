@@ -5,16 +5,12 @@
 \alias{reader.dataformat.xpt}
 \title{Read an SAS XPort file with a .xpt or .xport file extension.}
 \usage{
-\method{reader}{dataformat.xport}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.xport}(x, ...)
 
-\method{reader}{dataformat.xpt}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.xpt}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }
