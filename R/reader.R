@@ -24,3 +24,7 @@ reader.dataformat <- function(x, ...)
 #' @export
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
+
+read_atomic <- function(x, .f, ...) {
+  list(.f(x, ...))
+}

@@ -11,7 +11,7 @@
 #' @export
 reader.dataformat.tsv <- function(x, ...)
 {
-  list(read.csv(x, header = TRUE, sep = '\t'))
+  read_atomic(x, .f = read.csv, header = TRUE, sep = '\t')
 }
 
 #' @rdname reader.dataformat.tsv

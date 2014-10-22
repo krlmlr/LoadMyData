@@ -15,6 +15,5 @@
 reader.dataformat.mtp <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.mtp(x))
+  read_atomic(x, .f = foreign::read.mtp)
 }

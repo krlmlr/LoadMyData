@@ -15,6 +15,5 @@
 reader.dataformat.arff <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.arff(x))
+  read_atomic(x, .f = foreign::read.arff)
 }

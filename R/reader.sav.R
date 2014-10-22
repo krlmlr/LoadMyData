@@ -13,6 +13,5 @@
 reader.dataformat.sav <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.spss(x, to.data.frame = TRUE))
+  read_atomic(x, .f = foreign::read.spss, to.data.frame = TRUE)
 }

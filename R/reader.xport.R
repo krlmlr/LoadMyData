@@ -11,8 +11,7 @@
 reader.dataformat.xport <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.xport(x))
+  read_atomic(x, .f = foreign::read.xport)
 }
 
 #' @rdname reader.dataformat.xport
