@@ -214,13 +214,13 @@ test_that('Example 08: TSV Data File with GZip Compression', {
 })
 
 test_that('Example 09: WSV Data File', {
-  data.file <- 'example_09.wsv'
+
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_09.wsv')
-  variable.name <- LoadMyData:::clean.variable.name('example_09')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
@@ -228,65 +228,60 @@ test_that('Example 09: WSV Data File', {
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
   expect_false(any(is.na(as.matrix(get(variable.name)))))
-  rm(example.09, inherits = TRUE)
 
 })
 
 
 test_that('Example 10: WSV Data File with BZip2 Compression', {
 
-  data.file <- 'example_10.wsv.bz2'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_10.wsv.bz2')
-  variable.name <- LoadMyData:::clean.variable.name('example_10')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.10, inherits = TRUE)
 
 })
 
 
 test_that('Example 11: WSV Data File with Zip Compression', {
 
-  data.file <- 'example_11.wsv.zip'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_11.wsv.zip')
-  variable.name <- LoadMyData:::clean.variable.name('example_11')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.11, inherits = TRUE)
+
 })
 
 
 test_that('Example 12: WSV Data File with GZip Compression', {
-  data.file <- 'example_12.wsv.gz'
+
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_12.wsv.gz')
-  variable.name <- LoadMyData:::clean.variable.name('example_12')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.12, inherits = TRUE)
 
 })
 
@@ -411,80 +406,72 @@ test_that('Example 19: TSV File with .tab Extension and GZip Compression', {
 
 test_that('Example 20: WSV File with .txt Extension', {
 
-  data.file <- 'example_20.txt'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_20.txt')
-  variable.name <- LoadMyData:::clean.variable.name('example_20')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.20, inherits = TRUE)
 
 })
 
 
 test_that('Example 21: WSV File with .txt Extension and BZip2 Compression', {
 
-  data.file <- 'example_21.txt.bz2'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_21.txt.bz2')
-  variable.name <- LoadMyData:::clean.variable.name('example_21')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.21, inherits = TRUE)
 
 })
 
 
 test_that('Example 22: WSV File with .txt Extension and Zip Compression', {
 
-  data.file <- 'example_22.txt.zip'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_22.txt.zip')
-  variable.name <- LoadMyData:::clean.variable.name('example_22')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.22, inherits = TRUE)
 
 })
 
 
 test_that('Example 23: WSV File with .txt Extension and GZip Compression', {
 
-  data.file <- 'example_23.txt.gz'
   filename <- file.path(system.file('example_data',
                                     package = 'LoadMyData'),
                         'example_23.txt.gz')
-  variable.name <- LoadMyData:::clean.variable.name('example_23')
 
-  reader(filename, data.file, variable.name)
+  variable.name <- "variable"
+  variable <- reader(filename)[[1]]
 
   expect_that(exists(variable.name), is_true())
   expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
   expect_that(nrow(get(variable.name)), equals(5))
   expect_that(ncol(get(variable.name)), equals(2))
   expect_that(get(variable.name)[5, 2], equals(11))
-  rm(example.23, inherits = TRUE)
 
 })
 
