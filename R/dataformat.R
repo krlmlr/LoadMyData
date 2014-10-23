@@ -26,10 +26,6 @@ dataformat <- function(x, override_extension = NULL, check_exists = is.character
 
   extensions <- get_extension(override_extension, base)
 
-  for (i in rev(seq_along(extensions))[-1L]) {
-    extensions[[i]] <- paste(extensions[i], extensions[i + 1L], sep = ".")
-  }
-
   class_names <- paste0("dataformat.", extensions)
   class_names <- c(class_names, "dataformat", attr(x, "class"))
 
@@ -53,17 +49,18 @@ get_extension.use_extension <- function(x, base) {
   dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
   if (length(dotted_components) <= 1L)
     stop("cannot detect extension from file ", base)
-  dotted_components[-1L]
+  dotted_components[length(dotted_components)]
 }
 get_extension.NULL <- get_extension.use_extension
 get_extension.parent_extension <- function(x, base) {
   dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
   if (length(dotted_components) <= 2L)
     stop("cannot detect parent extension from file ", base)
-  dotted_components[c(-1L, -length(dotted_components))]
+  dotted_components[length(dotted_components) - 1]
 }
 get_extension.character <- function(x, base) {
-  extensions <- strsplit(x, ".", fixed = TRUE)[[1L]]
+  dotted_components <- strsplit(x, ".", fixed = TRUE)[[1L]]
+  dotted_components[length(dotted_components)]
 }
 
 #' Placeholders for override_extension
