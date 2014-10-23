@@ -49,3 +49,10 @@ test_that('Overriding extension', {
   expect_equal(get_extension(use_extension(), "a.csv.bz2"), "bz2")
   expect_equal(get_extension(parent_extension(), "a.csv.bz2"), "csv")
 })
+
+test_that('Object name', {
+  expect_equal(get_objname("csv.bz2", "objname.xml"), "objname")
+  expect_equal(get_objname(NULL, "a.csv.bz2"), "a.csv")
+  expect_equal(get_objname(use_extension(), "a.csv.bz2"), "a.csv")
+  expect_equal(get_objname(parent_extension(), "a.csv.bz2"), "a")
+})

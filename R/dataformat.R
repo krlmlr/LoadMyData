@@ -63,6 +63,25 @@ get_extension.character <- function(x, base) {
   dotted_components[length(dotted_components)]
 }
 
+get_objname <- function(x, base) UseMethod("get_objname", x)
+get_objname.use_extension <- function(x, base) {
+  dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
+  if (length(dotted_components) <= 1L)
+    stop("cannot detect objname from file ", base)
+  paste(head(dotted_components, -1L), collapse = ".")
+}
+get_objname.NULL <- get_objname.use_extension
+get_objname.parent_extension <- function(x, base) {
+  dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
+  if (length(dotted_components) <= 2L)
+    stop("cannot detect objname from file ", base)
+  paste(head(dotted_components, -2L), collapse = ".")
+}
+get_objname.character <- function(x, base) {
+  dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
+  dotted_components[[1L]]
+}
+
 #' Placeholders for override_extension
 #'
 #' Use as values for the \code{override_extension} parameter to
