@@ -29,12 +29,10 @@ test_dataframe <- function(basename, variable.names, filename = NULL, expected_w
     expect_warning(res <- reader(filename), expected_warning)
   }
 
-  with(res, {
-    for (variable.name in variable.names) {
-      expect_that(exists(variable.name), is_true())
-      testfun(variable.name)
-    }
-  })
+  expect_equal(names(res), variable.names)
+  for (variable.name in variable.names) {
+    testfun(variable.name, res)
+  }
 }
 
 test_that('Example 01: CSV Data file', {
