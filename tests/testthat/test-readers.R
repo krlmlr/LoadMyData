@@ -28,8 +28,9 @@ test_dataframe <- function(basename, variable_names, filename = NULL, expected_w
   } else {
     expect_warning(res <- reader(filename), expected_warning)
   }
+  res <- as.environment(res)
 
-  expect_equal(names(res), variable_names)
+  expect_equal(ls(res), variable_names)
   for (variable_name in variable_names) {
     testfun(variable_name, res)
   }
