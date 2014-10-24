@@ -1,10 +1,19 @@
 context('Readers')
 
-testfun_dataframe <- function(variable.name, envir = parent.frame()) {
-  expect_that(names(get(variable.name, envir)), equals(c('N', 'Prime')))
+testfun_dataframe_contents <- function(variable.name, envir = parent.frame()) {
   expect_that(nrow(get(variable.name, envir)), equals(5))
   expect_that(ncol(get(variable.name, envir)), equals(2))
   expect_that(get(variable.name, envir)[5, 2], equals(11))
+}
+
+testfun_dataframe <- function(variable.name, envir = parent.frame()) {
+  expect_that(names(get(variable.name, envir)), equals(c('N', 'Prime')))
+  testfun_dataframe_contents(variable.name, envir)
+}
+
+testfun_dataframe_ucase <- function(variable.name, envir = parent.frame()) {
+  expect_that(names(get(variable.name, envir)), equals(c('N', 'PRIME')))
+  testfun_dataframe_contents(variable.name, envir)
 }
 
 test_dataframe <- function(basename, variable.names, filename = NULL, expected_warning = NULL, testfun = testfun_dataframe) {
@@ -297,14 +306,12 @@ test_that('Example 40: Stata Support with .dta Extension / Alternative Generatio
 
 
 test_that('Example 41: SAS Support with .xport Extension', {
-  skip("#13")
-  test_dataframe('example_41.xport', 'example.41')
+  test_dataframe('example_41.xport', 'example.41', testfun = testfun_dataframe_ucase)
 })
 
 
 test_that('Example 42: SAS Support with .xpt Extension', {
-  skip("#13")
-  test_dataframe('example_42.xpt', 'example.42')
+  test_dataframe('example_42.xpt', 'example.42', testfun = testfun_dataframe_ucase)
 })
 
 
