@@ -25,6 +25,10 @@ reader.dataformat <- function(x, ...)
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
 
-read_atomic <- function(x, .f, ...) {
-  setNames(list(.f(x, ...)), attr(x, "objname"))
+read_atomic <- function(.dataformat, .f, ...) {
+  set_objname(list(.f(.dataformat, ...)), .dataformat)
+}
+
+set_objname <- function(x, dataformat) {
+  setNames(x, attr(dataformat, "objname"))
 }
