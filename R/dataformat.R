@@ -25,7 +25,7 @@ dataformat <- function(x, override_extension = NULL, check_exists = is.character
     stop("file ", base, " does not exist")
 
   extensions <- get_extension(override_extension, base)
-  objname <- get_objname(override_extension, base)
+  objname <- clean.variable.name(get_objname(override_extension, base))
 
   class_names <- paste0("dataformat.", extensions)
   class_names <- c(class_names, "dataformat", attr(x, "class"))
