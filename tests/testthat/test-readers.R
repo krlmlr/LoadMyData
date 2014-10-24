@@ -254,7 +254,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   on.exit(unlink(filename), add = TRUE)
 
   skip("#13")
-  test_dataframe_file('example_33.file', 'example.33')
+  test_dataframe(filename = 'example_33.file', variable.names = 'example.33')
 })
 
 
