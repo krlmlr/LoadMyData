@@ -7,13 +7,15 @@ test_dataframe <- function(basename, variable.name) {
   test_dataframe_file(filename, variable.name)
 }
 
-test_dataframe_file <- function(filename, variable.name) {
+test_dataframe_file <- function(filename, variable.names) {
   with(reader(filename), {
-    expect_that(exists(variable.name), is_true())
-    expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-    expect_that(nrow(get(variable.name)), equals(5))
-    expect_that(ncol(get(variable.name)), equals(2))
-    expect_that(get(variable.name)[5, 2], equals(11))
+    for (variable.name in variable.names) {
+      expect_that(exists(variable.name), is_true())
+      expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
+      expect_that(nrow(get(variable.name)), equals(5))
+      expect_that(ncol(get(variable.name)), equals(2))
+      expect_that(get(variable.name)[5, 2], equals(11))
+    }
   })
 }
 
@@ -172,7 +174,16 @@ test_that('Example 27: Excel 2011 File with .xlsx Extension', {
 
 
 test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', {
-  test_dataframe('example_28.db', 'example.28')
+  filename <- 'example_28.sql'
+  sql.file <- data.frame(type = 'sqlite',
+                         dbname = file.path(system.file('example_data',
+                                                        package = 'LoadMyData'),
+                                            'example_28.db'),
+                         table = 'example_28')
+  write.dcf(sql.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
+
+  test_dataframe_file('example_28.sql', 'example.28')
 })
 
 
@@ -187,8 +198,7 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  skip("#13")
-  test_dataframe_file('example_29.sql', 'example.29')
+  test_dataframe_file('example_29.sql', 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
 })
 
 
@@ -203,20 +213,12 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  skip("#13")
   test_dataframe_file('example_30.sql', c('example.30a', 'example.30b'))
 })
 
 
 test_that('Example 31: SQLite3 Support with .db Extension', {
-
-  data.file <- 'example_31.db'
-  filename <- file.path(system.file('example_data',
-                                  package = 'LoadMyData'),
-                        'example_31.db')
-
-  skip("#13")
-  test_dataframe_file('example_31.sql', c('example.31a', 'example.31b'))
+  test_dataframe('example_31.db', c('example.31a', 'example.31b'))
 })
 
 
