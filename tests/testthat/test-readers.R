@@ -318,3 +318,16 @@ test_that('Example 42: SAS Support with .xpt Extension', {
 test_that('Example 43: ElasticSearch Support with .es Extension', {
   skip("NYI")
 })
+
+
+test_that('Example 44: Arbitary File Support with .file File Pointing to .csv File', {
+
+  filename <- 'example_44.file'
+  info.file <- data.frame(path = file.path(system.file('example_data',
+                                                       package = 'LoadMyData'),
+                                           'example_01.csv'))
+  write.dcf(info.file, file = filename, width = 1000)
+  on.exit(unlink(filename), add = TRUE)
+
+  test_dataframe(filename = 'example_44.file', variable.names = 'example.44')
+})

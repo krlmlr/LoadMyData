@@ -23,7 +23,7 @@
 reader.dataformat.file <- function(x, ...)
 {
   file.info <- translate.dcf(x)
-  file.format <- dataformat(file.info[['path']], override_extension = file.info[['extension']])
+  file.format <- dataformat(file.info[['path']], override_extension = explicit_extension(file.info[['extension']], attr(x, "objname")))
 
   reader(file.format, ...)
 }
