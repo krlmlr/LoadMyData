@@ -1,20 +1,29 @@
 context('Readers')
 
-test_dataframe <- function(basename, variable.name) {
-  filename <- file.path(system.file('example_data',
-                                    package = 'LoadMyData'),
-                        basename)
-  test_dataframe_file(filename, variable.name)
+testfun_dataframe <- function(variable.name, envir = parent.frame()) {
+  expect_that(names(get(variable.name, envir)), equals(c('N', 'Prime')))
+  expect_that(nrow(get(variable.name, envir)), equals(5))
+  expect_that(ncol(get(variable.name, envir)), equals(2))
+  expect_that(get(variable.name, envir)[5, 2], equals(11))
 }
 
-test_dataframe_file <- function(filename, variable.names) {
-  with(reader(filename), {
+test_dataframe <- function(basename, variable.names, filename = NULL, expected_warning = NULL, testfun = testfun_dataframe) {
+  if(is.null(filename)) {
+    filename <- file.path(system.file('example_data',
+                                      package = 'LoadMyData'),
+                          basename)
+  }
+
+  if (is.null(expected_warning)) {
+    res <- reader(filename)
+  } else {
+    expect_warning(res <- reader(filename), expected_warning)
+  }
+
+  with(res, {
     for (variable.name in variable.names) {
       expect_that(exists(variable.name), is_true())
-      expect_that(names(get(variable.name)), equals(c('N', 'Prime')))
-      expect_that(nrow(get(variable.name)), equals(5))
-      expect_that(ncol(get(variable.name)), equals(2))
-      expect_that(get(variable.name)[5, 2], equals(11))
+      testfun(variable.name)
     }
   })
 }
@@ -183,7 +192,7 @@ test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe_file('example_28.sql', 'example.28')
+  test_dataframe(filename = 'example_28.sql', variable.names = 'example.28')
 })
 
 
@@ -198,7 +207,7 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe_file('example_29.sql', 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
+  test_dataframe(filename = 'example_29.sql', variable.names = 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
 })
 
 
@@ -213,7 +222,7 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe_file('example_30.sql', c('example.30a', 'example.30b'))
+  test_dataframe(filename = 'example_30.sql', variable.names = c('example.30a', 'example.30b'))
 })
 
 
@@ -248,18 +257,15 @@ test_that('Example 34: MP3 Support with .mp3 Extension', {
 
 
 test_that('Example 35: PPM Support with .ppm Extension', {
-  filename <- file.path(system.file('example_data',
-                                    package = 'LoadMyData'),
-                        'example_35.ppm')
+  testfun <- function(variable.name, envir = parent.frame()) {
+    expect_that(as.character(class(get(variable.name, envir))), equals('pixmapRGB'))
+  }
 
-  variable.name <- "variable"
-  expect_warning(
-    variable <- reader(filename)[[1]],
-    " is NULL so the result will be NULL")
-
-  expect_that(exists(variable.name), is_true())
-  expect_that(as.character(class(get(variable.name))), equals('pixmapRGB'))
-  skip("#13")
+  test_dataframe(
+    'example_35.ppm', 'example.35',
+    expected_warning = " is NULL so the result will be NULL",
+    testfun = testfun
+  )
 })
 
 
@@ -269,14 +275,12 @@ test_that('Example 36: dBase Support with .dbf Extension', {
 
 
 test_that('Example 37: SPSS Support with .sav Extension', {
-  skip("#13")
   test_dataframe('example_37.sav', 'example.37',
                  expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
 })
 
 
 test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation', {
-  skip("#13")
   test_dataframe('example_38.sav', 'example.38',
                  expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
 })
