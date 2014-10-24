@@ -1,22 +1,22 @@
 context('Readers')
 
-testfun_dataframe_contents <- function(variable.name, envir = parent.frame()) {
-  expect_that(nrow(get(variable.name, envir)), equals(5))
-  expect_that(ncol(get(variable.name, envir)), equals(2))
-  expect_that(get(variable.name, envir)[5, 2], equals(11))
+testfun_dataframe_contents <- function(variable_name, envir = parent.frame()) {
+  expect_that(nrow(get(variable_name, envir)), equals(5))
+  expect_that(ncol(get(variable_name, envir)), equals(2))
+  expect_that(get(variable_name, envir)[5, 2], equals(11))
 }
 
-testfun_dataframe <- function(variable.name, envir = parent.frame()) {
-  expect_that(names(get(variable.name, envir)), equals(c('N', 'Prime')))
-  testfun_dataframe_contents(variable.name, envir)
+testfun_dataframe <- function(variable_name, envir = parent.frame()) {
+  expect_that(names(get(variable_name, envir)), equals(c('N', 'Prime')))
+  testfun_dataframe_contents(variable_name, envir)
 }
 
-testfun_dataframe_ucase <- function(variable.name, envir = parent.frame()) {
-  expect_that(names(get(variable.name, envir)), equals(c('N', 'PRIME')))
-  testfun_dataframe_contents(variable.name, envir)
+testfun_dataframe_ucase <- function(variable_name, envir = parent.frame()) {
+  expect_that(names(get(variable_name, envir)), equals(c('N', 'PRIME')))
+  testfun_dataframe_contents(variable_name, envir)
 }
 
-test_dataframe <- function(basename, variable.names, filename = NULL, expected_warning = NULL, testfun = testfun_dataframe) {
+test_dataframe <- function(basename, variable_names, filename = NULL, expected_warning = NULL, testfun = testfun_dataframe) {
   if(is.null(filename)) {
     filename <- file.path(system.file('example_data',
                                       package = 'LoadMyData'),
@@ -29,9 +29,9 @@ test_dataframe <- function(basename, variable.names, filename = NULL, expected_w
     expect_warning(res <- reader(filename), expected_warning)
   }
 
-  expect_equal(names(res), variable.names)
-  for (variable.name in variable.names) {
-    testfun(variable.name, res)
+  expect_equal(names(res), variable_names)
+  for (variable_name in variable_names) {
+    testfun(variable_name, res)
   }
 }
 
@@ -199,7 +199,7 @@ test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_28.sql', variable.names = 'example.28')
+  test_dataframe(filename = 'example_28.sql', variable_names = 'example.28')
 })
 
 
@@ -214,7 +214,7 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_29.sql', variable.names = 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
+  test_dataframe(filename = 'example_29.sql', variable_names = 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
 })
 
 
@@ -229,7 +229,7 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_30.sql', variable.names = c('example.30a', 'example.30b'))
+  test_dataframe(filename = 'example_30.sql', variable_names = c('example.30a', 'example.30b'))
 })
 
 
@@ -254,7 +254,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   on.exit(unlink(filename), add = TRUE)
 
   skip("#13")
-  test_dataframe(filename = 'example_33.file', variable.names = 'example.33')
+  test_dataframe(filename = 'example_33.file', variable_names = 'example.33')
 })
 
 
@@ -264,8 +264,8 @@ test_that('Example 34: MP3 Support with .mp3 Extension', {
 
 
 test_that('Example 35: PPM Support with .ppm Extension', {
-  testfun <- function(variable.name, envir = parent.frame()) {
-    expect_that(as.character(class(get(variable.name, envir))), equals('pixmapRGB'))
+  testfun <- function(variable_name, envir = parent.frame()) {
+    expect_that(as.character(class(get(variable_name, envir))), equals('pixmapRGB'))
   }
 
   test_dataframe(
@@ -327,5 +327,5 @@ test_that('Example 44: Arbitary File Support with .file File Pointing to .csv Fi
   write.dcf(info.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_44.file', variable.names = 'example.44')
+  test_dataframe(filename = 'example_44.file', variable_names = 'example.44')
 })
