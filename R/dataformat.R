@@ -59,6 +59,11 @@ get_extension.parent_extension <- function(x, base) {
     stop("cannot detect parent extension from file ", base)
   dotted_components[length(dotted_components) - 1]
 }
+get_extension.explicit_extension <- function(x, base) {
+  res <- x[["extension"]]
+  if (is.null(res)) res <- get_extension.use_extension(x, base)
+  res
+}
 get_extension.character <- function(x, base) {
   dotted_components <- strsplit(x, ".", fixed = TRUE)[[1L]]
   dotted_components[length(dotted_components)]
@@ -78,6 +83,11 @@ get_objname.parent_extension <- function(x, base) {
     stop("cannot detect objname from file ", base)
   paste(head(dotted_components, -2L), collapse = ".")
 }
+get_objname.explicit_extension <- function(x, base) {
+  res <- x[["objname"]]
+  if (is.null(res)) res <- get_objname.use_extension(x, base)
+  res
+}
 get_objname.character <- function(x, base) {
   dotted_components <- strsplit(base, ".", fixed = TRUE)[[1L]]
   dotted_components[[1L]]
@@ -88,12 +98,20 @@ get_objname.character <- function(x, base) {
 #' Use as values for the \code{override_extension} parameter to
 #' \code{\link{dataformat}}.
 #'
+#' @param objname Alternate objname
+#' @param extension Alternate extension
+#'
 #' @export
 use_extension <- function() structure(NA_integer_, class = "use_extension")
 
 #' @rdname use_extension
 #' @export
 parent_extension <- function() structure(NA_integer_, class = "parent_extension")
+
+#' @rdname use_extension
+#' @export
+explicit_extension <- function(extension = NULL, objname = NULL)
+  structure(list(extension = extension, objname = objname), class = "explicit_extension")
 
 #' @rdname dataformat
 as.dataformat <- dataformat
