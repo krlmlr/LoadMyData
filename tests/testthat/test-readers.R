@@ -272,8 +272,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   write.dcf(info.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  skip("#13")
-  test_reader(filename = 'example_33.file', expected_results = list(example.33=NULL))
+  test_reader(filename = 'example_33.file', expected_results = list(example.33 = list(example.28 = NULL)))
 })
 
 
@@ -345,5 +344,5 @@ test_that('Example 44: Arbitary File Support with .file File Pointing to .csv Fi
   write.dcf(info.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_reader(filename = 'example_44.file', expected_results = list(example.44 = NULL))
+  test_reader(filename = 'example_44.file', expected_results = list(example.44 = list(example.01 = NULL)))
 })
