@@ -44,12 +44,14 @@ check_dataframe_contents <- function(res) {
 
 check_dataframe <- function(res) {
   expect_that(names(res), equals(c('N', 'Prime')))
-  check_dataframe_contents(res)
 }
 
 check_results <- function(res, expected_results) {
   if (is.null(expected_results)) {
     check_dataframe(res)
+    return()
+  } else if (is.function(expected_results)) {
+    expected_results(res)
     return()
   }
 
@@ -307,14 +309,13 @@ test_that('Example 34: MP3 Support with .mp3 Extension', {
 
 
 test_that('Example 35: PPM Support with .ppm Extension', {
-  testfun <- function(variable_name, envir = parent.frame()) {
-    expect_that(as.character(class(get(variable_name, envir))), equals('pixmapRGB'))
+  checkfun <- function(res) {
+    expect_that(as.character(class(res)), equals('pixmapRGB'))
   }
 
-  test_dataframe(
-    'example_35.ppm', 'example.35',
-    expected_warning = " is NULL so the result will be NULL",
-    testfun = testfun
+  test_reader(
+    'example_35.ppm', list(example.35 = checkfun),
+    expected_warning = " is NULL so the result will be NULL"
   )
 })
 
