@@ -217,7 +217,7 @@ test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', 
   on.exit(unlink(filename), add = TRUE)
 
   test_reader(filename = 'example_28.sql',
-              expected_results = list(example.28 = NULL))
+              expected_results = list(example.28 = list(example.28 = NULL)))
 })
 
 
@@ -233,7 +233,7 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   on.exit(unlink(filename), add = TRUE)
 
   test_reader(filename = 'example_29.sql',
-              expected_results = list(SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime = NULL))
+              expected_results = list(example.29 = list(SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime = NULL)))
 })
 
 
@@ -248,7 +248,7 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_reader(filename = 'example_30.sql', expected_results = list(example.30a = NULL, example.30b = NULL))
+  test_reader(filename = 'example_30.sql', expected_results = list(example.30 = list(example.30a = NULL, example.30b = NULL)))
 })
 
 

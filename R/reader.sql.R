@@ -104,6 +104,7 @@
 reader.dataformat.sql <- function(x, ...)
 {
   database.info <- translate.dcf(x)
+  attr(database.info, "objname") <- attr(x, "objname")
 
   if (! is.null(database.info[['connection']]))
   {
@@ -311,5 +312,5 @@ reader.dbinfo <- function(x, connection, ...) {
     names(res) <- clean.variable.name(query)
   }
 
-  res
+  set_objname(list(res), x)
 }
