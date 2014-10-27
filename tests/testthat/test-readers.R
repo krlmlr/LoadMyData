@@ -72,10 +72,12 @@ check_results <- function(res, expected_results) {
   return()
 }
 
-test_reader <- function(basename, expected_results, expected_warning = NULL) {
-  filename <- file.path(system.file('example_data',
-                                    package = 'LoadMyData'),
-                        basename)
+test_reader <- function(basename, expected_results, expected_warning = NULL, filename = NULL) {
+  if (is.null(filename)) {
+    filename <- file.path(system.file('example_data',
+                                      package = 'LoadMyData'),
+                          basename)
+  }
 
   if (is.null(expected_warning)) {
     res <- reader(filename)
@@ -250,7 +252,8 @@ test_that('Example 28: SQLite3 Support with .sql Extension with table = "..."', 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_28.sql', variable_names = 'example.28')
+  test_reader(filename = 'example_28.sql',
+              expected_results = list(example.28 = NULL))
 })
 
 
@@ -265,7 +268,8 @@ test_that('Example 29: SQLite3 Support with .sql Extension with query = "SELECT 
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_29.sql', variable_names = 'SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime')
+  test_reader(filename = 'example_29.sql',
+              expected_results = list(SELECT.N..Prime.FROM.example.29.ORDER.BY.Prime = NULL))
 })
 
 
@@ -280,12 +284,12 @@ test_that('Example 30: SQLite3 Support with .sql Extension and table = "*"', {
   write.dcf(sql.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_30.sql', variable_names = c('example.30a', 'example.30b'))
+  test_reader(filename = 'example_30.sql', expected_results = list(example.30a = NULL, example.30b = NULL))
 })
 
 
 test_that('Example 31: SQLite3 Support with .db Extension', {
-  test_dataframe('example_31.db', c('example.31a', 'example.31b'))
+  test_reader('example_31.db', list(example.31a = NULL, example.31b = NULL))
 })
 
 
@@ -305,7 +309,7 @@ test_that('Example 33: Arbitary File Support with .file File Pointing to .db Fil
   on.exit(unlink(filename), add = TRUE)
 
   skip("#13")
-  test_dataframe(filename = 'example_33.file', variable_names = 'example.33')
+  test_reader(filename = 'example_33.file', expected_results = list(example.33=NULL))
 })
 
 
@@ -377,5 +381,5 @@ test_that('Example 44: Arbitary File Support with .file File Pointing to .csv Fi
   write.dcf(info.file, file = filename, width = 1000)
   on.exit(unlink(filename), add = TRUE)
 
-  test_dataframe(filename = 'example_44.file', variable_names = 'example.44')
+  test_reader(filename = 'example_44.file', expected_results = list(example.44 = NULL))
 })
