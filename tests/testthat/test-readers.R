@@ -1,41 +1,5 @@
 context('Readers')
 
-testfun_dataframe_contents <- function(variable_name, envir = parent.frame()) {
-  expect_that(nrow(get(variable_name, envir)), equals(5))
-  expect_that(ncol(get(variable_name, envir)), equals(2))
-  expect_that(get(variable_name, envir)[5, 2], equals(11))
-}
-
-testfun_dataframe <- function(variable_name, envir = parent.frame()) {
-  expect_that(names(get(variable_name, envir)), equals(c('N', 'Prime')))
-  testfun_dataframe_contents(variable_name, envir)
-}
-
-testfun_dataframe_ucase <- function(variable_name, envir = parent.frame()) {
-  expect_that(names(get(variable_name, envir)), equals(c('N', 'PRIME')))
-  testfun_dataframe_contents(variable_name, envir)
-}
-
-test_dataframe <- function(basename, variable_names, filename = NULL, expected_warning = NULL, testfun = testfun_dataframe) {
-  if(is.null(filename)) {
-    filename <- file.path(system.file('example_data',
-                                      package = 'LoadMyData'),
-                          basename)
-  }
-
-  if (is.null(expected_warning)) {
-    res <- reader(filename)
-  } else {
-    expect_warning(res <- reader(filename), expected_warning)
-  }
-  res <- as.environment(res)
-
-  expect_equal(ls(res), variable_names)
-  for (variable_name in variable_names) {
-    testfun(variable_name, res)
-  }
-}
-
 check_dataframe_contents <- function(res) {
   expect_that(nrow(res), equals(5))
   expect_that(ncol(res), equals(2))
