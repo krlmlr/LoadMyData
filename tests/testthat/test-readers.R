@@ -44,6 +44,12 @@ check_dataframe_contents <- function(res) {
 
 check_dataframe <- function(res) {
   expect_that(names(res), equals(c('N', 'Prime')))
+  check_dataframe_contents(res)
+}
+
+check_dataframe_ucase <- function(res) {
+  expect_that(names(res), equals(c('N', 'PRIME')))
+  check_dataframe_contents(res)
 }
 
 check_results <- function(res, expected_results) {
@@ -326,14 +332,14 @@ test_that('Example 36: dBase Support with .dbf Extension', {
 
 
 test_that('Example 37: SPSS Support with .sav Extension', {
-  test_dataframe('example_37.sav', 'example.37',
-                 expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
+  test_reader('example_37.sav', list(example.37=NULL),
+              expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
 })
 
 
 test_that('Example 38: SPSS Support with .sav Extension / Alternative Generation', {
-  test_dataframe('example_38.sav', 'example.38',
-                 expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
+  test_reader('example_38.sav', list(example.38=NULL),
+              expected_warning = "Unrecognized record type 7, subtype 18 encountered in system file")
 })
 
 
@@ -348,12 +354,12 @@ test_that('Example 40: Stata Support with .dta Extension / Alternative Generatio
 
 
 test_that('Example 41: SAS Support with .xport Extension', {
-  test_dataframe('example_41.xport', 'example.41', testfun = testfun_dataframe_ucase)
+  test_reader('example_41.xport', list(example.41 = check_dataframe_ucase))
 })
 
 
 test_that('Example 42: SAS Support with .xpt Extension', {
-  test_dataframe('example_42.xpt', 'example.42', testfun = testfun_dataframe_ucase)
+  test_reader('example_42.xpt', list(example.42 = check_dataframe_ucase))
 })
 
 
