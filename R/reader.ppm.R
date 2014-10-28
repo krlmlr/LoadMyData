@@ -16,6 +16,5 @@
 reader.dataformat.ppm <- function(x, ...)
 {
   .require.package('pixmap')
-
-  list(pixmap::read.pnm(x))
+  read_atomic(x, .f = pixmap::read.pnm)
 }

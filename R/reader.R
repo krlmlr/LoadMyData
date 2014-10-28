@@ -24,3 +24,11 @@ reader.dataformat <- function(x, ...)
 #' @export
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
+
+read_atomic <- function(.dataformat, .f, ...) {
+  set_objname(list(.f(.dataformat, ...)), .dataformat)
+}
+
+set_objname <- function(x, dataformat) {
+  setNames(x, attr(dataformat, "objname"))
+}

@@ -15,6 +15,5 @@
 reader.dataformat.dbf <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.dbf(x))
+  read_atomic(x, .f = foreign::read.dbf)
 }

@@ -16,6 +16,5 @@
 reader.dataformat.mp3 <- function(x, ...)
 {
   .require.package('tuneR')
-
-  list(tuneR::readMP3(x))
+  read_atomic(x, .f = tuneR::readMP3)
 }

@@ -104,6 +104,7 @@
 reader.dataformat.sql <- function(x, ...)
 {
   database.info <- translate.dcf(x)
+  attr(database.info, "objname") <- attr(x, "objname")
 
   if (! is.null(database.info[['connection']]))
   {
@@ -290,21 +291,26 @@ reader.dbinfo <- function(x, connection, ...) {
 
     tables <- setNames(tables, clean.variable.name(tables))
 
-    lapply(
+    res <- lapply(
       tables,
       function (table)
         try(DBI::dbReadTable(connection, table, row.names = NULL))
     )
+    names(res) <- clean.variable.name(tables)
   } else {
     # Do string interpolation
     # TODO: When whisker is updated add strict=FALSE
     if (length(grep('\\@\\{.*\\}', query)) != 0) {
       .require.package('GetoptLong')
-      query <- GetoptLong::qq(query)
+      interpolated_query <- GetoptLong::qq(query)
     } else if (length(grep('\\{\\{.*\\}\\}', query))) {
       .require.package('whisker')
-      query <- whisker::whisker.render(query, data = .GlobalEnv)
-    }
-    list(try(DBI::dbGetQuery(connection, query)))
+      interpolated_query <- whisker::whisker.render(query, data = .GlobalEnv)
+    } else
+      interpolated_query <- query
+    res <- list(try(DBI::dbGetQuery(connection, interpolated_query)))
+    names(res) <- clean.variable.name(query)
   }
+
+  set_objname(list(res), x)
 }

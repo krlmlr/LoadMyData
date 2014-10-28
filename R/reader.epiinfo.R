@@ -15,6 +15,5 @@
 reader.dataformat.epiinfo <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.epiinfo(x))
+  read_atomic(x, .f = foreign::read.epiinfo)
 }

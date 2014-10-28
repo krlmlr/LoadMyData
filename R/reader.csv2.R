@@ -14,5 +14,5 @@
 #' \dontrun{reader.csv2('example.csv2', 'data/example.csv2', 'example')}
 reader.dataformat.csv2 <- function(x, ...)
 {
-  list(read.csv(x, header = TRUE, sep = ';'))
+  read_atomic(x, .f = read.csv, header = TRUE, sep = ';')
 }

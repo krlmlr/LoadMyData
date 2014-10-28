@@ -14,6 +14,5 @@
 reader.dataformat.dta <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.dta(x))
+  read_atomic(x, .f = foreign::read.dta)
 }
