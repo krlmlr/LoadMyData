@@ -4,9 +4,7 @@
 #' tuneR package. This is useful for working with music files as a data
 #' set.
 #'
-#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
 #' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
@@ -15,11 +13,9 @@
 #'
 #' @examples
 #' \dontrun{reader.mp3('example.mp3', 'data/example.mp3', 'example')}
-reader.dataformat.mp3 <- function(x, data.file, variable.name, ...)
+reader.dataformat.mp3 <- function(x, ...)
 {
   .require.package('tuneR')
 
-  assign(variable.name,
-         tuneR::readMP3(x),
-         envir = .TargetEnv)
+  list(tuneR::readMP3(x))
 }

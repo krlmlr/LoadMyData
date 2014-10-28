@@ -5,16 +5,12 @@
 \alias{reader.dataformat.rda}
 \title{Read an RData file with a .rdata or .rda file extension.}
 \usage{
-\method{reader}{dataformat.RData}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.RData}(x, ...)
 
-\method{reader}{dataformat.rda}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.rda}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

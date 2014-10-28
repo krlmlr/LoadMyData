@@ -4,14 +4,10 @@
 \alias{reader.dataformat.csv2}
 \title{Read a semicolon separated values (.csv2) file.}
 \usage{
-\method{reader}{dataformat.csv2}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.csv2}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

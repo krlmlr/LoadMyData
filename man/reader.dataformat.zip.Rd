@@ -4,14 +4,10 @@
 \alias{reader.dataformat.zip}
 \title{Read a zip-compressed remote file}
 \usage{
-\method{reader}{dataformat.zip}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.zip}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments passed to the reader invoked.}
 }
@@ -19,7 +15,7 @@
 No value is returned; this function is called for its side effects.
 }
 \description{
-This function will load data from a zip-compressed file.  The file names must
-be specified.
+This function will load data from a zip-compressed file.  Only the first file
+will be extracted.
 }
 

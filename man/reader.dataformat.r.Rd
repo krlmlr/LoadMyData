@@ -5,16 +5,12 @@
 \alias{reader.dataformat.r}
 \title{Read an R source file with a .R file extension.}
 \usage{
-\method{reader}{dataformat.r}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.r}(x, ...)
 
-\method{reader}{dataformat.R}(x, data.file, variable.name, ...)
+\method{reader}{dataformat.R}(x, ...)
 }
 \arguments{
 \item{x}{The path to the data set to be loaded.}
-
-\item{data.file}{The name of the data file to be read.}
-
-\item{variable.name}{The name to be assigned to in the global environment.}
 
 \item{...}{Further arguments.}
 }

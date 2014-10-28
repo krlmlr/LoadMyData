@@ -5,9 +5,7 @@
 #' table or query to execute against the database, move it elsewhere and
 #' use a .sql file interpreted by \code{\link{reader.dataformat.sql}}.
 #'
-#' @param data.file The name of the data file to be read.
 #' @param x The path to the data set to be loaded.
-#' @param variable.name The name to be assigned to in the global environment.
 #' @param ... Further arguments.
 #'
 #' @return No value is returned; this function is called for its side effects.
@@ -16,31 +14,21 @@
 #'
 #' @examples
 #' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
-reader.dataformat.db <- function(x, data.file, variable.name, ...)
+reader.dataformat.db <- function(x, ...)
 {
   .require.package('RSQLite')
 
   sqlite.driver <- DBI::dbDriver("SQLite")
   connection <- DBI::dbConnect(sqlite.driver,
                           dbname = x)
+  on.exit(DBI::dbDisconnect(connection), add = TRUE)
 
   tables <- DBI::dbListTables(connection)
-  for (table in tables)
-  {
-    message(paste('  Loading table:', table))
+  tables <- setNames(tables, clean.variable.name(tables))
 
-    data.parcel <- DBI::dbReadTable(connection,
-                               table,
-                               row.names = NULL)
-
-    assign(clean.variable.name(table),
-           data.parcel,
-           envir = .TargetEnv)
-  }
-
-  disconnect.success <- DBI::dbDisconnect(connection)
-  if (! disconnect.success)
-  {
-    warning(paste('Unable to disconnect from database:', x))
-  }
+  lapply(
+    tables,
+    function(table)
+      DBI::dbReadTable(connection, table, row.names = NULL)
+  )
 }
