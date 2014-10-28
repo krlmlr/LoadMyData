@@ -1,3 +1,9 @@
+v0.0-2.2 (2014-10-28)
+===
+
+* The `reader` function now returns a named list instead of assigning into the
+  global envionment.
+
 v0.0-2.1 (2014-10-05)
 ===
 
