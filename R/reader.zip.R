@@ -1,13 +1,8 @@
-#' Read a zip-compressed remote file
+#' @details
+#' \code{zip}: bzip2-compressed file via \code{utils::\link[utils]{unzip}}
 #'
-#' This function will load data from a zip-compressed file.  Only the first file
-#' will be extracted.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments passed to the reader invoked.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.zip <- function(x, ...)
 {

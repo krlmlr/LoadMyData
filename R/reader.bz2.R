@@ -1,14 +1,12 @@
-#' Read a bzip2-compressed remote file
+#' @description
+#' If the data format is a compressed file or archive, it will be
+#' extracted and the extracted file(s) will be read.
 #'
-#' This function will load data from a bzip2-compressed file in the format
-#' specified by the "parent" extension, i.e. the extension that remains after
-#' stripping the \code{.bz2} extension.
+#' @details
+#' \code{bz2}: bzip2-compressed file via \code{\link{bzfile}}
 #'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments passed to the reader invoked.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.bz2 <- function(x, ...)
 {

@@ -1,14 +1,8 @@
-#' Read a gzip-compressed remote file
+#' @details
+#' \code{gz}: gzip-compressed file via \code{\link{gzfile}}
 #'
-#' This function will load data from a gzip-compressed file in the format
-#' specified by the "parent" extension, i.e. the extension that remains after
-#' stripping the \code{.gz} extension.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments passed to the reader invoked.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.gz <- function(x, ...)
 {
