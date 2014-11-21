@@ -11,7 +11,7 @@
 #' @export
 reader.dataformat.wsv <- function(x, ...)
 {
-  list(read.table(x, header = TRUE))
+  read_atomic(x, .f = read.table, header = TRUE)
 }
 
 #' @rdname reader.dataformat.wsv

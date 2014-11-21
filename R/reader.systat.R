@@ -14,6 +14,5 @@
 reader.dataformat.systat <- function(x, ...)
 {
   .require.package('foreign')
-
-  list(foreign::read.systat(x))
+  read_atomic(x, .f = foreign::read.systat)
 }

@@ -1,21 +1,12 @@
-#' Read a PPM file with a .ppm file extension.
+#' @details
+#' \code{ppm}: PPM file format via \code{pixmap::\link[pixmap]{read.pnm}}.
+#'   Useful for working with image files as a data set.
 #'
-#' This function will load the specified PPM file into memory using the
-#' pixamp package. This is useful for working with image files as a data
-#' set.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.ppm('example.ppm', 'data/example.ppm', 'example')}
 reader.dataformat.ppm <- function(x, ...)
 {
   .require.package('pixmap')
-
-  list(pixmap::read.pnm(x))
+  read_atomic(x, .f = pixmap::read.pnm)
 }
