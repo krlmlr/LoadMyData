@@ -10,5 +10,8 @@
 #' @export
 reader.dataformat.bz2 <- function(x, ...)
 {
-  reader(dataformat(bzfile(x), override_extension = parent_extension()), ...)
+  tryCatch(
+    reader(dataformat(con <- bzfile(x, "rb"), override_extension = parent_extension()), ...),
+    finally = close(con)
+  )
 }

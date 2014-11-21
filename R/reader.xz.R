@@ -6,5 +6,8 @@
 #' @export
 reader.dataformat.xz <- function(x, ...)
 {
-  reader(dataformat(xzfile(x), override_extension = parent_extension()), ...)
+  tryCatch(
+    reader(dataformat(con <- xzfile(x, "rb"), override_extension = parent_extension()), ...),
+    finally = close(con)
+  )
 }
