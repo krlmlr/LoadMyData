@@ -32,8 +32,9 @@ reader.dataformat <- function(x, ...)
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
 
-read_atomic <- function(.dataformat, .f, ...) {
-  set_objname(list(.f(.dataformat, ...)), .dataformat)
+read_atomic <- function(.dataformat, .f, .envir = parent.frame(), ...) {
+  res <- eval(substitute(.f(.dataformat, ...)), .envir)
+  set_objname(list(res), .dataformat)
 }
 
 set_objname <- function(x, dataformat) {
