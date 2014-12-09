@@ -55,7 +55,7 @@ The following file extensions are supported:
 
 \code{gz}: gzip-compressed file via \code{\link{gzfile}}
 
-\code{mp3}: MP3 file format via \code{tuneR::\link[tuneR]{read.MP3}}.
+\code{mp3}: MP3 file format via \code{tuneR::\link[tuneR]{readMP3}}.
   Useful for working with audio files as a data set.
 
 \code{mtp3}: Minitab Portable Worksheet via \code{foreign::\link[foreign]{read.mtp}}

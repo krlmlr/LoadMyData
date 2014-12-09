@@ -1,5 +1,12 @@
 \name{NEWS}
 \title{News for Package 'LoadMyData'}
+\section{Changes in LoadMyData version 0.0-2.3 (2014-12-09)}{
+  \itemize{
+    \item Major cleanup of code, documentation and tests (#11)
+    \item New function \code{explicit_extension} for manually overriding file name and extension
+      of \code{dataformat} object
+  }
+}
 \section{Changes in LoadMyData version 0.0-2.2 (2014-10-28)}{
   \itemize{
     \item The \code{reader} function now returns a named list instead of assigning into the

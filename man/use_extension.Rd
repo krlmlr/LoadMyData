@@ -14,6 +14,8 @@ explicit_extension(extension = NULL, objname = NULL)
 }
 \arguments{
 \item{extension}{Alternate extension}
+
+\item{objname}{Alternate objname}
 }
 \description{
 Use as values for the \code{override_extension} parameter to
