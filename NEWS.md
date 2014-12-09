@@ -1,3 +1,6 @@
+v0.0-2.3 (2014-12-09)
+===
+
 * Major cleanup of code, documentation and tests (#11)
 * New function `explicit_extension` for manually overriding file name and extension
   of `dataformat` object
