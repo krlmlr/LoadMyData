@@ -108,6 +108,7 @@ use_extension <- function() structure(NA_integer_, class = "use_extension")
 parent_extension <- function() structure(NA_integer_, class = "parent_extension")
 
 #' @rdname use_extension
+#' @param objname Alternate objname
 #' @export
 explicit_extension <- function(extension = NULL, objname = NULL)
   structure(list(extension = extension, objname = objname), class = "explicit_extension")
