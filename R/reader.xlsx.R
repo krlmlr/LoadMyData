@@ -1,18 +1,10 @@
-#' Read an Excel 2007 file with a .xlsx file extension.
+#' @details
+#' \code{xlsx}: Excel 2007 files via \code{xlsx::\link[xlsx]{read.xlsx}}.
+#'   Each sheet will be read, the return value is a list.
 #'
-#' This function will load the specified Excel file into memory using the
-#' xlsx package. Each sheet of the Excel workbook will be read into a
-#' separate variable in the global environment.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.xlsx('example.xlsx', 'data/example.xlsx', 'example')}
 reader.dataformat.xlsx <- function(x, ...)
 {
   .require.package('xlsx')

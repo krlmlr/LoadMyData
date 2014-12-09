@@ -1,12 +1,8 @@
-#' Read an SAS XPort file with a .xpt or .xport file extension.
+#' @details
+#' \code{xport}, \code{xpt}: SAS Xport file via \code{foreign::\link[foreign]{read.xport}}
 #'
-#' This function will load the specified SAS XPort file into memory.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.xport <- function(x, ...)
 {
@@ -14,6 +10,7 @@ reader.dataformat.xport <- function(x, ...)
   read_atomic(x, .f = foreign::read.xport)
 }
 
-#' @rdname reader.dataformat.xport
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.xpt <- reader.dataformat.xport
