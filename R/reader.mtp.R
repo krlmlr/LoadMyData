@@ -1,5 +1,5 @@
 #' @details
-#' \code{mtp3}: Minitab Portable Worksheet via \code{foreign::\link[foreign]{read.mtp}}
+#' \code{mtp}: Minitab Portable Worksheet via \code{foreign::\link[foreign]{read.mtp}}
 #'
 #' @usage NULL
 #' @rdname reader

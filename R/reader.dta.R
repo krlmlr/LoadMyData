@@ -1,16 +1,9 @@
-#' Read a Stata file with a .dta file extension.
+#' @details
+#' \code{dta}: Stata file via \code{foreign::\link[foreign]{read.dta}}
 #'
-#' This function will load the specified Stata file into memory.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.stata('example.stata', 'data/example.stata', 'example')}
 reader.dataformat.dta <- function(x, ...)
 {
   .require.package('foreign')

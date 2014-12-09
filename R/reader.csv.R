@@ -1,5 +1,5 @@
 #' @details
-#' \code{dbf}: CSV file (comma-separated) via \code{\link{read.csv}}
+#' \code{csv}: CSV file (comma-separated) via \code{\link{read.csv}}
 #'
 #' @usage NULL
 #' @rdname reader
