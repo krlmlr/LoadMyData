@@ -69,7 +69,7 @@ The following file extensions are supported:
 
 \code{xz}: xz-compressed file via \code{\link{xzfile}}
 
-\code{zip}: bzip2-compressed file via \code{utils::\link[utils]{unzip}}
+\code{zip}: zip-compressed file via \code{utils::\link[utils]{unzip}}
 }
 \examples{
 \dontrun{reader('example.csv')}

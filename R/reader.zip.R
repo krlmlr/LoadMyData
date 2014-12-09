@@ -1,5 +1,5 @@
 #' @details
-#' \code{zip}: bzip2-compressed file via \code{utils::\link[utils]{unzip}}
+#' \code{zip}: zip-compressed file via \code{utils::\link[utils]{unzip}}
 #'
 #' @usage NULL
 #' @rdname reader
