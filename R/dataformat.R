@@ -98,7 +98,6 @@ get_objname.character <- function(x, base) {
 #' Use as values for the \code{override_extension} parameter to
 #' \code{\link{dataformat}}.
 #'
-#' @param objname Alternate objname
 #' @param extension Alternate extension
 #'
 #' @export
