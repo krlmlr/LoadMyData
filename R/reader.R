@@ -32,8 +32,38 @@ reader.dataformat <- function(x, ...)
 reader.default <- function(x, ...)
   reader(as.dataformat(x), ...)
 
-read_atomic <- function(.dataformat, .f, ...) {
-  set_objname(list(.f(.dataformat, ...)), .dataformat)
+read_atomic <- function(.dataformat, .f, .envir = parent.frame(), ...) {
+  if ("connection" %in% class(.dataformat)) {
+    objname <- attr(.dataformat, "objname")
+    file_extensions <- attr(.dataformat, "file_extensions")
+    tmpname <- tempfile(
+      pattern = sprintf("%s_", objname),
+      fileext = sprintf(".%s", file_extensions)
+    )
+    on.exit(unlink(tmpfile), add = TRUE)
+
+    tmpfile <- file(tmpname, "wb")
+
+    tryCatch(
+      repeat {
+        data <- readBin(.dataformat, what = "raw", n = 16384)
+        if (length(data) == 0L)
+          break
+        writeBin(data, tmpfile)
+      },
+      finally = close(tmpfile))
+
+    tmp_dataformat <- dataformat(
+      tmpname, override_extension = explicit_extension(file_extensions, objname))
+
+    eval(substitute(read_atomic_worker(.dataformat = tmp_dataformat, .f = .f, ...)), .envir)
+  } else
+    eval(substitute(read_atomic_worker(.dataformat = .dataformat, .f = .f, ...)), .envir)
+}
+
+read_atomic_worker <- function(.dataformat, .f, .envir = parent.frame(), ...) {
+  res <- eval(substitute(.f(.dataformat, ...)), .envir)
+  set_objname(list(res), .dataformat)
 }
 
 set_objname <- function(x, dataformat) {
