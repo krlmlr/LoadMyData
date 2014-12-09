@@ -1,14 +1,8 @@
-#' Read an RData file with a .rdata or .rda file extension.
+#' @details
+#' \code{rda}, \code{Rdata}: An RData file.  All datasets are loaded.
 #'
-#' This function will load the specified RData file into memory using the
-#' \code{\link{load}} function. This may generate many data sets
-#' simultaneously.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.RData <- function(x, ...)
 {
@@ -17,6 +11,7 @@ reader.dataformat.RData <- function(x, ...)
   as.list(env)
 }
 
-#' @rdname reader.dataformat.RData
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.rda <- reader.dataformat.RData
