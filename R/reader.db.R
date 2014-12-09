@@ -1,19 +1,12 @@
-#' Read a SQlite3 database with a (.db) file extension.
+#' @details
+#' \code{xlsx}: SQlite3 database via  \code{RSQLite::\link[RSQLite]{dbConnect}}.
+#'   Each table will be read, the return value is a list. (If you want to specify
+#'   a single table or query to execute against the database, move it elsewhere
+#'   and use a \code{.sql} file interpreted by \code{\link{reader.dataformat.sql}}.)
 #'
-#' This function will load all of the data sets stored in the SQlite3
-#' database into the global environment. If you want to specify a single
-#' table or query to execute against the database, move it elsewhere and
-#' use a .sql file interpreted by \code{\link{reader.dataformat.sql}}.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
-#'
-#' @examples
-#' \dontrun{reader.db('example.db', 'data/example.db', 'example')}
 reader.dataformat.db <- function(x, ...)
 {
   .require.package('RSQLite')
