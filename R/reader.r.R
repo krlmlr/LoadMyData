@@ -1,14 +1,10 @@
-#' Read an R source file with a .R file extension.
+#' @details
+#' \code{r}, \code{R}: An R source file.  All variables created by this file
+#'   are returned.  (This is a way of generating data sets dynamically, as in
+#'   many Monte Carlo applications.)
 #'
-#' This function will call source on the specified R file, executing the
-#' code inside of it as a way of generating data sets dynamically, as in
-#' many Monte Carlo applications.
-#'
-#' @param x The path to the data set to be loaded.
-#' @param ... Further arguments.
-#'
-#' @return No value is returned; this function is called for its side effects.
-#'
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.r <- function(x, ...)
 {
@@ -17,6 +13,7 @@ reader.dataformat.r <- function(x, ...)
   as.list(env)
 }
 
-#' @rdname reader.dataformat.r
+#' @usage NULL
+#' @rdname reader
 #' @export
 reader.dataformat.R <- reader.dataformat.r
