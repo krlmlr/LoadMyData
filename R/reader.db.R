@@ -1,5 +1,5 @@
 #' @details
-#' \code{xlsx}: SQlite3 database via  \code{RSQLite::\link[RSQLite]{dbConnect}}.
+#' \code{db}: SQlite3 database via  \code{RSQLite::\link[RSQLite]{dbConnect}}.
 #'   Each table will be read, the return value is a list. (If you want to specify
 #'   a single table or query to execute against the database, move it elsewhere
 #'   and use a \code{.sql} file interpreted by \code{\link{reader.dataformat.sql}}.)
